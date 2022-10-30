@@ -1,0 +1,1272 @@
+{
+  "active": true,
+  "connections": {
+    "SplitInBatches": {
+      "main": [
+        [
+          {
+            "node": "Ищем пользователя",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Получаем пользователей": {
+      "main": [
+        [
+          {
+            "node": "SplitInBatches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ищем пользователя": {
+      "main": [
+        [
+          {
+            "node": "Данные получены",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Данные получены": {
+      "main": [
+        [
+          {
+            "node": "Нужно создавать?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Создаем пользователя": {
+      "main": [
+        [
+          {
+            "node": "Идентификатор созданного",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Обновляем пользователя": {
+      "main": [
+        [
+          {
+            "node": "Идентификатор найденного",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Идентификатор созданного": {
+      "main": [
+        [
+          {
+            "node": "Идентификатор пользователя",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Идентификатор найденного": {
+      "main": [
+        [
+          {
+            "node": "Идентификатор пользователя",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Нужно создавать?": {
+      "main": [
+        [
+          {
+            "node": "Создаем пользователя",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Обновляем пользователя",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Идентификатор пользователя": {
+      "main": [
+        [
+          {
+            "node": "Количество платежей",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SplitInBatches1": {
+      "main": [
+        [
+          {
+            "node": "NocoDB",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SplitInBatches2": {
+      "main": [
+        [
+          {
+            "node": "NocoDB1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "NocoDB": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "IF5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "NocoDB1": {
+      "main": [
+        [
+          {
+            "node": "Code1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code1": {
+      "main": [
+        [
+          {
+            "node": "IF6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IF5": {
+      "main": [
+        [
+          {
+            "node": "Создаем платеж",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Обновляем платеж",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IF6": {
+      "main": [
+        [
+          {
+            "node": "Создаем списание",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Обновляем списание",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Количество платежей": {
+      "main": [
+        [
+          {
+            "node": "Есть платежи?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Получаем платежи": {
+      "main": [
+        [
+          {
+            "node": "SplitInBatches1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Количество списаний": {
+      "main": [
+        [
+          {
+            "node": "Есть списания?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Получаем списания": {
+      "main": [
+        [
+          {
+            "node": "SplitInBatches2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Есть платежи?": {
+      "main": [
+        [
+          {
+            "node": "Получаем платежи",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Количество списаний",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Есть списания?": {
+      "main": [
+        [
+          {
+            "node": "Получаем списания",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Последний пользователь?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Последний платеж?": {
+      "main": [
+        [
+          {
+            "node": "Количество списаний",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "SplitInBatches1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Последнее списание?": {
+      "main": [
+        [
+          {
+            "node": "Последний пользователь?",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "SplitInBatches2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Последний пользователь?": {
+      "main": [
+        [
+          {
+            "node": "Выход",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "SplitInBatches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Создаем платеж": {
+      "main": [
+        [
+          {
+            "node": "Последний платеж?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Обновляем платеж": {
+      "main": [
+        [
+          {
+            "node": "Последний платеж?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Создаем списание": {
+      "main": [
+        [
+          {
+            "node": "Последнее списание?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Обновляем списание": {
+      "main": [
+        [
+          {
+            "node": "Последнее списание?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Cron": {
+      "main": [
+        [
+          {
+            "node": "Получаем пользователей",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2022-10-24T08:19:55.820Z",
+  "id": 7,
+  "name": "Prod: PostgreSQL Sync",
+  "nodes": [
+    {
+      "parameters": {
+        "batchSize": 1,
+        "options": {
+          "reset": false
+        }
+      },
+      "id": "bf569041-eb04-4736-b27c-95807335c00f",
+      "name": "SplitInBatches",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 1,
+      "position": [
+        -600,
+        600
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "select\n\ta.id as user_id,\n\ta.first_name,\n\ta.last_name,\n\ta.email,\n\ta.phone_number,\n\ta.last_payday,\n\ta.next_payday,\n\ta.blocked_date as \"blocked\",\n\tcase\n\t\twhen (a.stage = 0) then 'проекты удалены'\n\t\twhen (a.stage = 1) then 'регистрация'\n\t\twhen (a.stage = 2) then 'зашел в сервис'\n\t\twhen (a.stage = 3) then 'создал проект'\n\t\twhen (a.stage = 4) then 'пробовал подключить'\n\t\twhen (a.stage = 5) then 'подключил источник'\n\t\twhen (a.stage = 6) then 'ввел IP'\n\t\twhen (a.stage = 7) then 'скачал модель'\n\t\twhen (a.stage = 8) then 'завершился триал'\n\t\twhen (a.stage = 9) then 'оплата'\n\t\twhen (a.stage = 10) then 'повторная оплата'\n\tend as stage,\n\tb.\"name\" as plan_name,\n\tb.base_cost,\n\ta.balance\nfrom\n\tusers a,\n\t\"plans\" b\nwhere\n\tb.id = a.plan_id\norder by\n\tlast_seen desc\nlimit 20",
+        "additionalFields": {}
+      },
+      "id": "291ce581-5a51-4d8f-8d8a-1abb0e94ba43",
+      "name": "Получаем пользователей",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 1,
+      "position": [
+        -780,
+        600
+      ],
+      "credentials": {
+        "postgres": {
+          "id": "6",
+          "name": "Postgres Prod"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "nocoDbApiToken",
+        "operation": "getAll",
+        "projectId": "p_f907ih5oqn9gtp",
+        "table": "md_n1yyob6hvv0plw",
+        "limit": 1,
+        "options": {
+          "where": "=(user_id,eq,{{$node[\"SplitInBatches\"].json[\"user_id\"]}})"
+        }
+      },
+      "id": "4b52f4fd-2c38-42f7-a26f-3aca5e55b1c2",
+      "name": "Ищем пользователя",
+      "type": "n8n-nodes-base.nocoDb",
+      "typeVersion": 2,
+      "position": [
+        -420,
+        600
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "nocoDbApiToken": {
+          "id": "3",
+          "name": "NocoDB"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "return [\n  {\n    json: {\n      empty: $input.all().length == 1 && Object.keys($input.all()[0].json).length == 0\n    }\n  }\n];"
+      },
+      "id": "885e216e-1883-47b8-a9c9-2a4a5784fac8",
+      "name": "Данные получены",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        -240,
+        600
+      ]
+    },
+    {
+      "parameters": {
+        "authentication": "nocoDbApiToken",
+        "operation": "create",
+        "projectId": "p_f907ih5oqn9gtp",
+        "table": "md_n1yyob6hvv0plw",
+        "fieldsUi": {
+          "fieldValues": [
+            {
+              "fieldName": "user_id",
+              "fieldValue": "={{ $node[\"SplitInBatches\"].json[\"user_id\"] }}"
+            },
+            {
+              "fieldName": "first_name",
+              "fieldValue": "={{ $node[\"SplitInBatches\"].json[\"first_name\"] }}"
+            },
+            {
+              "fieldName": "last_name",
+              "fieldValue": "={{ $node[\"SplitInBatches\"].json[\"last_name\"] }}"
+            },
+            {
+              "fieldName": "email",
+              "fieldValue": "={{ $node[\"SplitInBatches\"].json[\"email\"] }}"
+            },
+            {
+              "fieldName": "phone_number",
+              "fieldValue": "={{ $node[\"SplitInBatches\"].json[\"phone_number\"] }}"
+            },
+            {
+              "fieldName": "last_payday",
+              "fieldValue": "={{ $node[\"SplitInBatches\"].json[\"last_payday\"] }}"
+            },
+            {
+              "fieldName": "next_payday",
+              "fieldValue": "={{ $node[\"SplitInBatches\"].json[\"next_payday\"] }}"
+            },
+            {
+              "fieldName": "blocked",
+              "fieldValue": "={{ $node[\"SplitInBatches\"].json[\"blocked\"] }}"
+            },
+            {
+              "fieldName": "stage",
+              "fieldValue": "={{ $node[\"SplitInBatches\"].json[\"stage\"] }}"
+            },
+            {
+              "fieldName": "plan_name",
+              "fieldValue": "={{ $node[\"SplitInBatches\"].json[\"plan_name\"] }}"
+            },
+            {
+              "fieldName": "base_cost",
+              "fieldValue": "={{ $node[\"SplitInBatches\"].json[\"base_cost\"] }}"
+            }
+          ]
+        }
+      },
+      "id": "ea0a33b5-f97e-4b17-9656-ac1d6b390bd5",
+      "name": "Создаем пользователя",
+      "type": "n8n-nodes-base.nocoDb",
+      "typeVersion": 2,
+      "position": [
+        160,
+        420
+      ],
+      "credentials": {
+        "nocoDbApiToken": {
+          "id": "3",
+          "name": "NocoDB"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "nocoDbApiToken",
+        "operation": "update",
+        "projectId": "p_f907ih5oqn9gtp",
+        "table": "md_n1yyob6hvv0plw",
+        "id": "={{ $node[\"Ищем пользователя\"].json[\"Id\"] }}",
+        "fieldsUi": {
+          "fieldValues": [
+            {
+              "fieldName": "first_name",
+              "fieldValue": "={{ $node[\"SplitInBatches\"].json[\"first_name\"] }}"
+            },
+            {
+              "fieldName": "last_name",
+              "fieldValue": "={{ $node[\"SplitInBatches\"].json[\"last_name\"] }}"
+            },
+            {
+              "fieldName": "email",
+              "fieldValue": "={{ $node[\"SplitInBatches\"].json[\"email\"] }}"
+            },
+            {
+              "fieldName": "phone_number",
+              "fieldValue": "={{ $node[\"SplitInBatches\"].json[\"phone_number\"] }}"
+            },
+            {
+              "fieldName": "last_payday",
+              "fieldValue": "={{ $node[\"SplitInBatches\"].json[\"last_payday\"] }}"
+            },
+            {
+              "fieldName": "next_payday",
+              "fieldValue": "={{ $node[\"SplitInBatches\"].json[\"next_payday\"] }}"
+            },
+            {
+              "fieldName": "blocked",
+              "fieldValue": "={{ $node[\"SplitInBatches\"].json[\"blocked\"] }}"
+            },
+            {
+              "fieldName": "stage",
+              "fieldValue": "={{ $node[\"SplitInBatches\"].json[\"stage\"] }}"
+            },
+            {
+              "fieldName": "plan_name",
+              "fieldValue": "={{ $node[\"SplitInBatches\"].json[\"plan_name\"] }}"
+            },
+            {
+              "fieldName": "base_cost",
+              "fieldValue": "={{ $node[\"SplitInBatches\"].json[\"base_cost\"] }}"
+            }
+          ]
+        }
+      },
+      "id": "e8f1876f-abcb-4bd5-bdf0-0e4e9e7ead02",
+      "name": "Обновляем пользователя",
+      "type": "n8n-nodes-base.nocoDb",
+      "typeVersion": 2,
+      "position": [
+        160,
+        780
+      ],
+      "credentials": {
+        "nocoDbApiToken": {
+          "id": "3",
+          "name": "NocoDB"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "values": {
+          "number": [
+            {
+              "name": "userId",
+              "value": "={{ $json[\"id\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "5de2a9b8-ce95-4c91-b7b3-dfdc533f40e3",
+      "name": "Идентификатор созданного",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        340,
+        420
+      ]
+    },
+    {
+      "parameters": {
+        "values": {
+          "number": [
+            {
+              "name": "userId",
+              "value": "={{ $node[\"Ищем пользователя\"].json[\"Id\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "050c04bb-e4b9-4164-a278-624268097c9e",
+      "name": "Идентификатор найденного",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        340,
+        780
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $json[\"empty\"] }}",
+              "value2": true
+            }
+          ]
+        },
+        "combineOperation": "any"
+      },
+      "id": "82d7200d-b4a5-4526-9368-8380c25abb6b",
+      "name": "Нужно создавать?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        -60,
+        600
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "return [\n  {\n    json: {\n      userId: $input.all()[0].json.userId\n    }\n  }\n];"
+      },
+      "id": "2c48dfc4-4596-4aa9-b082-e7fe0205294f",
+      "name": "Идентификатор пользователя",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        580,
+        600
+      ]
+    },
+    {
+      "parameters": {
+        "batchSize": 1,
+        "options": {
+          "reset": "={{$node[\"SplitInBatches1\"].context[\"noItemsLeft\"]}}"
+        }
+      },
+      "id": "59d6549e-e3f6-47f3-ab18-5de3c14842f1",
+      "name": "SplitInBatches1",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 1,
+      "position": [
+        1460,
+        180
+      ]
+    },
+    {
+      "parameters": {
+        "batchSize": 1,
+        "options": {
+          "reset": "={{$node[\"SplitInBatches2\"].context[\"noItemsLeft\"]}}"
+        }
+      },
+      "id": "f1a6d88c-1676-4576-833e-0610d0ae15ae",
+      "name": "SplitInBatches2",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 1,
+      "position": [
+        3400,
+        180
+      ]
+    },
+    {
+      "parameters": {
+        "authentication": "nocoDbApiToken",
+        "operation": "getAll",
+        "projectId": "p_f907ih5oqn9gtp",
+        "table": "md_ym85t5th9pwjjy",
+        "limit": 1,
+        "options": {
+          "fields": [],
+          "where": "=(payment_id,eq,{{$node[\"SplitInBatches1\"].json[\"payment_id\"]}})"
+        }
+      },
+      "id": "473939b6-b9da-4691-b016-532714d5ad83",
+      "name": "NocoDB",
+      "type": "n8n-nodes-base.nocoDb",
+      "typeVersion": 2,
+      "position": [
+        1640,
+        180
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "nocoDbApiToken": {
+          "id": "3",
+          "name": "NocoDB"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "return [\n  {\n    json: {\n      empty: $input.all().length == 1 && Object.keys($input.all()[0].json).length == 0\n    }\n  }\n];"
+      },
+      "id": "01cfb3b4-9a21-4439-b11a-059e9554b252",
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        1820,
+        180
+      ]
+    },
+    {
+      "parameters": {
+        "authentication": "nocoDbApiToken",
+        "operation": "getAll",
+        "projectId": "p_f907ih5oqn9gtp",
+        "table": "md_uvhnzm4l589vb3",
+        "limit": 1,
+        "options": {
+          "where": "=(purchase_id,eq,{{ $json[\"purchase_id\"] }})"
+        }
+      },
+      "id": "4bd74ad4-44fd-489e-8ff9-9f2e28bb2d79",
+      "name": "NocoDB1",
+      "type": "n8n-nodes-base.nocoDb",
+      "typeVersion": 2,
+      "position": [
+        3580,
+        180
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "nocoDbApiToken": {
+          "id": "3",
+          "name": "NocoDB"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "return [\n  {\n    json: {\n      empty: $input.all().length == 1 && Object.keys($input.all()[0].json).length == 0\n    }\n  }\n];"
+      },
+      "id": "70cf0168-809a-4363-8a4f-6dc54c41a04c",
+      "name": "Code1",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        3760,
+        180
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $json[\"empty\"] }}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "2c457a2b-4b51-47de-bf75-3a20a143feea",
+      "name": "IF5",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        2000,
+        180
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $json[\"empty\"] }}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "1149608a-261a-4065-bc53-9c97abfb7160",
+      "name": "IF6",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        3940,
+        180
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "=select\n\tcount(*) as cnt\nfrom\n\tpayments\nwhere\n\tsucceeded = true\n\tand user_id = {{$node[\"SplitInBatches\"].json[\"user_id\"]}}",
+        "additionalFields": {}
+      },
+      "id": "5208a7f9-0cb5-4305-8615-ec367ce4352a",
+      "name": "Количество платежей",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 1,
+      "position": [
+        760,
+        600
+      ],
+      "alwaysOutputData": false,
+      "credentials": {
+        "postgres": {
+          "id": "6",
+          "name": "Postgres Prod"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "=select\n    id as payment_id,\n    billed as \"date\",\n\tcase\n\t\twhen (\"type\" = 1) then 'Перевод физ. лица'\n\t\twhen (\"type\" = 2) then 'Оплата на расчетный счет'\n\t\twhen (\"type\" = 3) then 'Бонус по партнерской программе'\n\t\twhen (\"type\" = 4) then 'Комиссия по партнерской программе'\n\t\twhen (\"type\" = 5) then 'Продажа шаблонов на маркетплейсе'\n\t\twhen (\"type\" = 6) then 'Вывод средств на счет пользователя'\n\tend as \"type\",\n\tamount\nfrom\n\tpayments\nwhere\n\tsucceeded = true\n\tand user_id = {{$node[\"SplitInBatches\"].json[\"user_id\"]}}\norder by id desc\nlimit 10",
+        "additionalFields": {}
+      },
+      "id": "7b6e0580-f5b6-486c-b142-5a2b857dec05",
+      "name": "Получаем платежи",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 1,
+      "position": [
+        1280,
+        180
+      ],
+      "alwaysOutputData": false,
+      "credentials": {
+        "postgres": {
+          "id": "6",
+          "name": "Postgres Prod"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "=select count(*) as cnt from purchases where amount != 0 and user_id = {{$node[\"SplitInBatches\"].json[\"user_id\"]}}",
+        "additionalFields": {}
+      },
+      "id": "5a68deaf-909e-4ea4-9937-39fed4f9b689",
+      "name": "Количество списаний",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 1,
+      "position": [
+        2760,
+        400
+      ],
+      "credentials": {
+        "postgres": {
+          "id": "6",
+          "name": "Postgres Prod"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "=select\n\ta.id as purchase_id,\n\ta.charged as \"date\",\n\tcase\n\t\twhen (a.reason = 1) then 'месячный пакет'\n\t\twhen (a.reason = 2) then 'дополнительные строки'\n\t\twhen (a.reason = 3) then 'расширенная опция'\n\t\twhen (a.reason = 4) then 'смена количества строк'\n\t\twhen (a.reason = 5) then 'смена количества проектов'\n\tend as \"type\",\n\ta.amount,\n\tb.\"name\" as plan_name\nfrom\n\tpurchases a,\n\t\"plans\" b\nwhere\n\tb.id = a.plan_id\n    and a.amount != 0 \n\tand a.user_id = {{$node[\"SplitInBatches\"].json[\"user_id\"]}}\norder by a.id desc\nlimit 10",
+        "additionalFields": {}
+      },
+      "id": "e6d9a0e3-4d83-41e3-ae6a-edb33e5d1893",
+      "name": "Получаем списания",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 1,
+      "position": [
+        3220,
+        180
+      ],
+      "credentials": {
+        "postgres": {
+          "id": "6",
+          "name": "Postgres Prod"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "number": [
+            {
+              "value1": "={{ $json[\"cnt\"] }}",
+              "operation": "larger"
+            }
+          ]
+        }
+      },
+      "id": "f7742dca-0090-48cd-a061-792602ab12b0",
+      "name": "Есть платежи?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        940,
+        600
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "number": [
+            {
+              "value1": "={{ $json[\"cnt\"] }}",
+              "operation": "larger"
+            }
+          ]
+        }
+      },
+      "id": "bad2efe5-8139-4951-9fbf-f9c08fa7e23e",
+      "name": "Есть списания?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        2940,
+        400
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "f39e755c-77a4-48c8-bd5c-a69df4fd40be",
+      "name": "Выход",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        5080,
+        780
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{$node[\"SplitInBatches1\"].context[\"noItemsLeft\"]}}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "1535c214-466b-43f3-89de-4c72b324415e",
+      "name": "Последний платеж?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        2440,
+        180
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{$node[\"SplitInBatches2\"].context[\"noItemsLeft\"]}}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "aabf0421-5654-4660-b39c-a74f928e712b",
+      "name": "Последнее списание?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        4380,
+        180
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{$node[\"SplitInBatches\"].context[\"noItemsLeft\"]}}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "89f3bbdd-d432-4ef2-83c0-8e7ef149e799",
+      "name": "Последний пользователь?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        4900,
+        800
+      ]
+    },
+    {
+      "parameters": {
+        "authentication": "nocoDbApiToken",
+        "operation": "create",
+        "projectId": "p_f907ih5oqn9gtp",
+        "table": "md_ym85t5th9pwjjy",
+        "fieldsUi": {
+          "fieldValues": [
+            {
+              "fieldName": "users_id",
+              "fieldValue": "={{ $node[\"Идентификатор пользователя\"].json[\"userId\"] }}"
+            },
+            {
+              "fieldName": "payment_id",
+              "fieldValue": "={{ $node[\"SplitInBatches1\"].json[\"payment_id\"] }}"
+            },
+            {
+              "fieldName": "date",
+              "fieldValue": "={{ $node[\"SplitInBatches1\"].json[\"date\"] }}"
+            },
+            {
+              "fieldName": "type",
+              "fieldValue": "={{ $node[\"SplitInBatches1\"].json[\"type\"] }}"
+            },
+            {
+              "fieldName": "amount",
+              "fieldValue": "={{ $node[\"SplitInBatches1\"].json[\"amount\"] }}"
+            }
+          ]
+        }
+      },
+      "id": "83d34268-bcec-4ed8-b097-15e1b7a21341",
+      "name": "Создаем платеж",
+      "type": "n8n-nodes-base.nocoDb",
+      "typeVersion": 2,
+      "position": [
+        2220,
+        80
+      ],
+      "credentials": {
+        "nocoDbApiToken": {
+          "id": "3",
+          "name": "NocoDB"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "nocoDbApiToken",
+        "operation": "update",
+        "projectId": "p_f907ih5oqn9gtp",
+        "table": "md_ym85t5th9pwjjy",
+        "id": "={{ $node[\"NocoDB\"].json[\"Id\"] }}",
+        "fieldsUi": {
+          "fieldValues": [
+            {
+              "fieldName": "users_id",
+              "fieldValue": "={{ $node[\"Идентификатор пользователя\"].json[\"userId\"] }}"
+            },
+            {
+              "fieldName": "date",
+              "fieldValue": "={{ $node[\"SplitInBatches1\"].json[\"date\"] }}"
+            },
+            {
+              "fieldName": "type",
+              "fieldValue": "={{ $node[\"SplitInBatches1\"].json[\"type\"] }}"
+            },
+            {
+              "fieldName": "amount",
+              "fieldValue": "={{ $node[\"SplitInBatches1\"].json[\"amount\"] }}"
+            }
+          ]
+        }
+      },
+      "id": "67cc9c3a-9f6b-4a82-984b-073acca8cdf4",
+      "name": "Обновляем платеж",
+      "type": "n8n-nodes-base.nocoDb",
+      "typeVersion": 2,
+      "position": [
+        2220,
+        280
+      ],
+      "credentials": {
+        "nocoDbApiToken": {
+          "id": "3",
+          "name": "NocoDB"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "nocoDbApiToken",
+        "operation": "create",
+        "projectId": "p_f907ih5oqn9gtp",
+        "table": "md_uvhnzm4l589vb3",
+        "fieldsUi": {
+          "fieldValues": [
+            {
+              "fieldName": "users_id",
+              "fieldValue": "={{ $node[\"Идентификатор пользователя\"].json[\"userId\"] }}"
+            },
+            {
+              "fieldName": "purchase_id",
+              "fieldValue": "={{ $node[\"SplitInBatches2\"].json[\"purchase_id\"] }}"
+            },
+            {
+              "fieldName": "date",
+              "fieldValue": "={{ $node[\"SplitInBatches2\"].json[\"date\"] }}"
+            },
+            {
+              "fieldName": "type",
+              "fieldValue": "={{ $node[\"SplitInBatches2\"].json[\"type\"] }}"
+            },
+            {
+              "fieldName": "amount",
+              "fieldValue": "={{ $node[\"SplitInBatches2\"].json[\"amount\"] }}"
+            },
+            {
+              "fieldName": "plan_name",
+              "fieldValue": "={{ $node[\"SplitInBatches2\"].json[\"plan_name\"] }}"
+            }
+          ]
+        }
+      },
+      "id": "8bc68610-ad78-4455-acbc-88ea968b074e",
+      "name": "Создаем списание",
+      "type": "n8n-nodes-base.nocoDb",
+      "typeVersion": 2,
+      "position": [
+        4160,
+        80
+      ],
+      "credentials": {
+        "nocoDbApiToken": {
+          "id": "3",
+          "name": "NocoDB"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "nocoDbApiToken",
+        "operation": "update",
+        "projectId": "p_f907ih5oqn9gtp",
+        "table": "md_uvhnzm4l589vb3",
+        "id": "={{$node[\"NocoDB1\"].json[\"Id\"]}}",
+        "fieldsUi": {
+          "fieldValues": [
+            {
+              "fieldName": "users_id",
+              "fieldValue": "={{ $node[\"Идентификатор пользователя\"].json[\"userId\"] }}"
+            },
+            {
+              "fieldName": "date",
+              "fieldValue": "={{ $node[\"SplitInBatches2\"].json[\"date\"] }}"
+            },
+            {
+              "fieldName": "type",
+              "fieldValue": "={{ $node[\"SplitInBatches2\"].json[\"type\"] }}"
+            },
+            {
+              "fieldName": "amount",
+              "fieldValue": "={{ $node[\"SplitInBatches2\"].json[\"amount\"] }}"
+            },
+            {
+              "fieldName": "plan_name",
+              "fieldValue": "={{ $node[\"SplitInBatches2\"].json[\"plan_name\"] }}"
+            }
+          ]
+        }
+      },
+      "id": "45ce1fe9-7bd5-46d3-b5ea-af9d5f739d0d",
+      "name": "Обновляем списание",
+      "type": "n8n-nodes-base.nocoDb",
+      "typeVersion": 2,
+      "position": [
+        4160,
+        280
+      ],
+      "credentials": {
+        "nocoDbApiToken": {
+          "id": "3",
+          "name": "NocoDB"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "triggerTimes": {
+          "item": [
+            {
+              "mode": "custom",
+              "cronExpression": "0 0 * * * *"
+            }
+          ]
+        }
+      },
+      "id": "f670c4bf-5fc0-4e8d-a6ec-6ac6eedd68df",
+      "name": "Cron",
+      "type": "n8n-nodes-base.cron",
+      "typeVersion": 1,
+      "position": [
+        -960,
+        600
+      ]
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "saveExecutionProgress": "DEFAULT",
+    "errorWorkflow": "8"
+  },
+  "staticData": null,
+  "tags": [],
+  "updatedAt": "2022-10-30T05:32:16.511Z"
+}
