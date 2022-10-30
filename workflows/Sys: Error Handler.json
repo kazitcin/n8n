@@ -1,0 +1,74 @@
+{
+  "active": false,
+  "connections": {
+    "Error Trigger": {
+      "main": [
+        [
+          {
+            "node": "Send Email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2022-10-24T19:16:07.037Z",
+  "id": 8,
+  "name": "Sys: Error Handler",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "688539f7-3acc-4664-b28c-f33cf7f25ded",
+      "name": "Start",
+      "type": "n8n-nodes-base.start",
+      "typeVersion": 1,
+      "position": [
+        180,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "fromEmail": "vts@mybi.ru",
+        "toEmail": "vts@mybi.ru",
+        "ccEmail": "sk@mybi.ru",
+        "subject": "n8n Error",
+        "text": "=Workflow faild\nWorkflow name: {{$json[\"workflow\"][\"name\"]}}\nURL of the execution: {{$json[\"execution\"][\"url\"]}}\nError massage: {{$json[\"execution\"][\"error\"][\"message\"]}}\nStack: {{$json[\"execution\"][\"error\"][\"stack\"]}}",
+        "options": {
+          "allowUnauthorizedCerts": false
+        }
+      },
+      "id": "6a0d5e10-015d-427b-81da-8974b8ba5ce3",
+      "name": "Send Email",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 1,
+      "position": [
+        400,
+        80
+      ],
+      "credentials": {
+        "smtp": {
+          "id": "7",
+          "name": "SMTP account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "id": "6e177fc4-f246-4e96-af67-4d7844ba7fe3",
+      "name": "Error Trigger",
+      "type": "n8n-nodes-base.errorTrigger",
+      "typeVersion": 1,
+      "position": [
+        180,
+        80
+      ]
+    }
+  ],
+  "pinData": {},
+  "settings": {},
+  "staticData": null,
+  "tags": [],
+  "updatedAt": "2022-10-30T08:23:51.551Z"
+}
