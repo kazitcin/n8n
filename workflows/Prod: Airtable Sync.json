@@ -1,0 +1,412 @@
+{
+  "active": true,
+  "connections": {
+    "SplitInBatches": {
+      "main": [
+        [
+          {
+            "node": "Поис записи",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Проверка наличия данных в nocodb": {
+      "main": [
+        [
+          {
+            "node": "Пользователи",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Выход",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Количество записей": {
+      "main": [
+        [
+          {
+            "node": "Проверка наличия данных в nocodb",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Пользователи": {
+      "main": [
+        [
+          {
+            "node": "SplitInBatches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Поис записи": {
+      "main": [
+        [
+          {
+            "node": "Данные получены",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Данные получены": {
+      "main": [
+        [
+          {
+            "node": "Есть данные?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "NocoDB": {
+      "main": [
+        [
+          {
+            "node": "Не последняя итерация",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Не последняя итерация": {
+      "main": [
+        [
+          {
+            "node": "Выход",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "SplitInBatches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Cron": {
+      "main": [
+        [
+          {
+            "node": "Количество записей",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Есть данные?": {
+      "main": [
+        [
+          {
+            "node": "NocoDB",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Не последняя итерация",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2022-10-25T08:51:38.994Z",
+  "id": 9,
+  "name": "Prod: Airtable Sync",
+  "nodes": [
+    {
+      "parameters": {
+        "batchSize": 1,
+        "options": {
+          "reset": false
+        }
+      },
+      "id": "fa8562b6-8300-4a39-b1e7-a91008e646c7",
+      "name": "SplitInBatches",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 1,
+      "position": [
+        880,
+        80
+      ],
+      "alwaysOutputData": false
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "number": [
+            {
+              "value1": "={{$json[\"count\"]}}",
+              "operation": "larger"
+            }
+          ]
+        }
+      },
+      "id": "9bff1f6c-3fcc-49ef-a95f-fb8a178f061e",
+      "name": "Проверка наличия данных в nocodb",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        440,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://nocodb.mybi.ru/api/v1/db/data/noco/p_f907ih5oqn9gtp/users/count",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "nocoDbApiToken",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "where",
+              "value": "(contact_id,is,null)~or((contact_id,eq,0)~and((lead_id,is,null)~and((demo_contact_id,is,null)~and((demo_lead_id,is,null)))))"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "edf0d31a-0339-4866-aa88-6a9728771649",
+      "name": "Количество записей",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        220,
+        240
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "nocoDbApiToken": {
+          "id": "3",
+          "name": "NocoDB"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "nocoDbApiToken",
+        "operation": "getAll",
+        "projectId": "p_f907ih5oqn9gtp",
+        "table": "md_n1yyob6hvv0plw",
+        "returnAll": true,
+        "options": {
+          "where": "(contact_id,is,null)~or((contact_id,eq,0)~and((lead_id,is,null)~and((demo_contact_id,is,null)~and((demo_lead_id,is,null)))))"
+        }
+      },
+      "id": "7f357622-4f8e-49bc-9ec9-247143998be4",
+      "name": "Пользователи",
+      "type": "n8n-nodes-base.nocoDb",
+      "typeVersion": 2,
+      "position": [
+        660,
+        80
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "nocoDbApiToken": {
+          "id": "3",
+          "name": "NocoDB"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "list",
+        "application": {
+          "__rl": true,
+          "value": "appnYF4wzMxltR58Y",
+          "mode": "id"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblc4InGi3HS3suBu",
+          "mode": "id"
+        },
+        "returnAll": false,
+        "limit": 1,
+        "additionalOptions": {
+          "fields": [
+            "contact_id",
+            "lead_id",
+            "demo_contact_id",
+            "demo_lead_id"
+          ],
+          "filterByFormula": "={user_id} = {{$node[\"SplitInBatches\"].json[\"user_id\"]}}"
+        }
+      },
+      "id": "da9feda3-4940-464c-b456-4a38585fb1c6",
+      "name": "Поис записи",
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 1,
+      "position": [
+        1100,
+        80
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "airtableApi": {
+          "id": "8",
+          "name": "Airtable"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "return [\n  {\n    json: {\n      empty: $input.all().length == 1 && Object.keys($input.all()[0].json).length == 0\n    }\n  }\n];"
+      },
+      "id": "b421fef0-78da-437f-ba8e-066418226fa4",
+      "name": "Данные получены",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        1320,
+        80
+      ],
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "authentication": "nocoDbApiToken",
+        "operation": "update",
+        "projectId": "p_f907ih5oqn9gtp",
+        "table": "md_n1yyob6hvv0plw",
+        "id": "={{$node[\"SplitInBatches\"].json[\"Id\"]}}",
+        "fieldsUi": {
+          "fieldValues": [
+            {
+              "fieldName": "contact_id",
+              "fieldValue": "={{$node[\"Поис записи\"].json[\"fields\"][\"contact_id\"]}}"
+            },
+            {
+              "fieldName": "lead_id",
+              "fieldValue": "={{$node[\"Поис записи\"].json[\"fields\"][\"lead_id\"]}}"
+            },
+            {
+              "fieldName": "demo_contact_id",
+              "fieldValue": "={{$node[\"Поис записи\"].json[\"fields\"][\"demo_contact_id\"]}}"
+            },
+            {
+              "fieldName": "demo_lead_id",
+              "fieldValue": "={{$node[\"Поис записи\"].json[\"fields\"][\"demo_lead_id\"]}}"
+            }
+          ]
+        }
+      },
+      "id": "263ea980-98f2-4baf-8e20-78eafe1e406e",
+      "name": "NocoDB",
+      "type": "n8n-nodes-base.nocoDb",
+      "typeVersion": 2,
+      "position": [
+        1760,
+        -60
+      ],
+      "credentials": {
+        "nocoDbApiToken": {
+          "id": "3",
+          "name": "NocoDB"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "id": "50cf86ad-c8fa-45d5-b169-f55409b87c41",
+      "name": "Выход",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        2260,
+        260
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{$node[\"SplitInBatches\"].context[\"noItemsLeft\"]}}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "7ead276b-ccaf-4b9b-84bb-0609816f8a4a",
+      "name": "Не последняя итерация",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        1980,
+        100
+      ]
+    },
+    {
+      "parameters": {
+        "triggerTimes": {
+          "item": [
+            {
+              "mode": "custom",
+              "cronExpression": "0 */30 * * * *"
+            }
+          ]
+        }
+      },
+      "id": "7e6f20d7-349f-4c89-9647-8eb2bbaebc9e",
+      "name": "Cron",
+      "type": "n8n-nodes-base.cron",
+      "typeVersion": 1,
+      "position": [
+        0,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $json[\"empty\"] }}"
+            }
+          ]
+        }
+      },
+      "id": "64e669af-0a42-4824-8234-d89fc5b845b6",
+      "name": "Есть данные?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        1540,
+        80
+      ]
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "errorWorkflow": "8"
+  },
+  "staticData": null,
+  "tags": [],
+  "updatedAt": "2022-10-30T05:31:31.213Z"
+}
