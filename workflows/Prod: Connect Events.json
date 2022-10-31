@@ -732,17 +732,6 @@
   "name": "Prod: Connect Events",
   "nodes": [
     {
-      "parameters": {},
-      "id": "3efa7844-6cc2-45bd-a34a-57592ff7438f",
-      "name": "Start",
-      "type": "n8n-nodes-base.start",
-      "typeVersion": 1,
-      "position": [
-        -160,
-        400
-      ]
-    },
-    {
       "parameters": {
         "method": "POST",
         "url": "https://mybiconnectwidgets.amocrm.ru/oauth2/access_token",
@@ -2417,5 +2406,5 @@
   "settings": {},
   "staticData": null,
   "tags": [],
-  "updatedAt": "2022-10-30T04:49:35.382Z"
+  "updatedAt": "2022-10-31T06:17:37.757Z"
 }
