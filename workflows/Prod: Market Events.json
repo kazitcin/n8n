@@ -1143,7 +1143,7 @@
     },
     {
       "parameters": {
-        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\nlet forms = {\n  'form380230425': 2127,\n  'form380227161': 1773,\n  'form380230802': 953,\n  'form380229840': 3360,\n  'form378881585': 2954,\n  'form380231530': 4067,\n  'form386679150': 4819\n}\n\nreturn $input.all();"
+        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\nlet forms = {\n  'form380230425': 2127,\n  'form380227161': 1773,\n  'form380230802': 953,\n  'form380229840': 3360,\n  'form378881585': 2954,\n  'form380231530': 4067,\n  'form386679150': 4819\n}\n\nlet data = [{value: forms[$node[\"Webhook\"].json[\"body\"][\"formid\"]]}]\n\nreturn data;"
       },
       "id": "de0e32a1-41e6-4045-928c-618fd87d7654",
       "name": "Code",
@@ -1159,5 +1159,5 @@
   "settings": {},
   "staticData": null,
   "tags": [],
-  "updatedAt": "2022-10-31T20:31:09.643Z"
+  "updatedAt": "2022-10-31T21:09:23.499Z"
 }
