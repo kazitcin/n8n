@@ -1,5 +1,5 @@
 {
-  "active": false,
+  "active": true,
   "connections": {
     "HTTP Request": {
       "main": [
@@ -782,6 +782,7 @@
     },
     {
       "parameters": {
+        "httpMethod": "POST",
         "path": "30841b7a-06c6-49d0-bc30-4504ca84fd0a",
         "options": {}
       },
@@ -932,7 +933,7 @@
     },
     {
       "parameters": {
-        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\nlet params = [{\n    \"first_name\": $node[\"Webhook\"].json[\"body\"][\"user\"][\"first_name\"],\n    \"last_name\": $node[\"Webhook\"].json[\"body\"][\"user\"][\"last_name\"],\n    \"responsible_user_id\": 6651409,\n    \"custom_fields_values\": [\n        {\n            \"field_id\": 2224997,\n            \"field_name\": \"Email\",\n            \"field_code\": \"EMAIL\",\n            \"field_type\": \"multitext\",\n            \"values\": [\n                {\n                    \"value\": $node[\"Webhook\"].json[\"body\"][\"user\"][\"email\"],\n                    \"enum_id\": 1008131,\n                    \"enum_code\": \"WORK\"\n                }\n            ]\n        },\n        {\n            \"field_id\": 2224995,\n            \"field_name\": \"Телефон\",\n            \"field_code\": \"PHONE\",\n            \"field_type\": \"multitext\",\n            \"values\": [\n                {\n                    \"value\": $node[\"Webhook\"].json[\"body\"][\"user\"][\"phone_number\"],\n                    \"enum_id\": 1008119,\n                    \"enum_code\": \"WORK\"\n                }\n            ]\n        }\n    ]\n}]\n\nreturn [{params: JSON.stringify(params)}];"
+        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\nlet params = [{\n    \"first_name\": $node[\"Webhook\"].json[\"body\"][\"user\"][\"first_name\"],\n    \"responsible_user_id\": 6651409,\n    \"custom_fields_values\": [\n        {\n            \"field_id\": 2224997,\n            \"field_name\": \"Email\",\n            \"field_code\": \"EMAIL\",\n            \"field_type\": \"multitext\",\n            \"values\": [\n                {\n                    \"value\": $node[\"Webhook\"].json[\"body\"][\"user\"][\"email\"],\n                    \"enum_id\": 1008131,\n                    \"enum_code\": \"WORK\"\n                }\n            ]\n        }\n    ]\n}]\n\nif ($node[\"Webhook\"].json[\"body\"][\"user\"][\"last_name\"]) {\n  params[0][\"last_name\"] = $node[\"Webhook\"].json[\"body\"][\"user\"][\"last_name\"]\n}\n\nif ($node[\"Webhook\"].json[\"body\"][\"user\"][\"phone_number\"]) {\n  params[0][\"custom_fields_values\"].push(\n            {\n            \"field_id\": 2224995,\n            \"field_name\": \"Телефон\",\n            \"field_code\": \"PHONE\",\n            \"field_type\": \"multitext\",\n            \"values\": [\n                {\n                    \"value\": $node[\"Webhook\"].json[\"body\"][\"user\"][\"phone_number\"],\n                    \"enum_id\": 1008119,\n                    \"enum_code\": \"WORK\"\n                }\n            ]\n        }\n  )\n}\n\n\n\nreturn [{params: JSON.stringify(params)}];"
       },
       "id": "3d098be4-ec0c-413c-94fc-d5e36379ef41",
       "name": "Параметры контакта",
@@ -1943,7 +1944,7 @@
         "authentication": "nocoDbApiToken",
         "operation": "getAll",
         "projectId": "p_g9w7m3ac8ab2rq",
-        "table": "md_y9yb7390vgyjbn",
+        "table": "md_xaeenq7krtmt1h",
         "returnAll": true,
         "options": {
           "where": "=(users_id,eq,{{$node[\"ID пользователя\"].json[\"data\"][\"record_id\"]}})~and((lost, eq, {{true}})~and(paid, eq, {{true}}))"
@@ -1984,7 +1985,7 @@
         "authentication": "nocoDbApiToken",
         "operation": "update",
         "projectId": "p_g9w7m3ac8ab2rq",
-        "table": "md_y9yb7390vgyjbn",
+        "table": "md_xaeenq7krtmt1h",
         "id": "={{$json[\"Id\"]}}",
         "fieldsUi": {
           "fieldValues": [
@@ -2204,7 +2205,7 @@
         "authentication": "nocoDbApiToken",
         "operation": "getAll",
         "projectId": "p_g9w7m3ac8ab2rq",
-        "table": "md_y9yb7390vgyjbn",
+        "table": "md_xaeenq7krtmt1h",
         "returnAll": true,
         "options": {
           "where": "=(users_id,eq,{{$node[\"ID пользователя\"].json[\"data\"][\"record_id\"]}})~and((lost, eq, {{true}})~and(paid, eq, {{true}}))"
@@ -2294,7 +2295,7 @@
         "authentication": "nocoDbApiToken",
         "operation": "update",
         "projectId": "p_g9w7m3ac8ab2rq",
-        "table": "md_y9yb7390vgyjbn",
+        "table": "md_xaeenq7krtmt1h",
         "id": "={{$json[\"Id\"]}}",
         "fieldsUi": {
           "fieldValues": [
@@ -2308,11 +2309,11 @@
             },
             {
               "fieldName": "lost",
-              "fieldValue": "={{false}}"
+              "fieldValue": "={{true}}"
             },
             {
               "fieldName": "paid",
-              "fieldValue": "={{true}}"
+              "fieldValue": "={{false}}"
             }
           ]
         }
@@ -2406,5 +2407,5 @@
   "settings": {},
   "staticData": null,
   "tags": [],
-  "updatedAt": "2022-10-31T06:17:37.757Z"
+  "updatedAt": "2022-11-02T14:57:55.799Z"
 }
