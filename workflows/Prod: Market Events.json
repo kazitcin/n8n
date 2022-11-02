@@ -644,7 +644,7 @@
       "main": [
         [
           {
-            "node": "Список демо товаров",
+            "node": "Сделка и демо контакт",
             "type": "main",
             "index": 0
           }
@@ -710,7 +710,40 @@
       "main": [
         [
           {
-            "node": "Связь счета и сделки демо",
+            "node": "Связь счета и демо сделки",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Сделка и демо контакт": {
+      "main": [
+        [
+          {
+            "node": "Связывание демо",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Связывание демо": {
+      "main": [
+        [
+          {
+            "node": "Список демо товаров",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Связь счета и демо сделки": {
+      "main": [
+        [
+          {
+            "node": "Обновление демо данных",
             "type": "main",
             "index": 0
           }
@@ -1891,7 +1924,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        2920,
+        3340,
         1060
       ]
     },
@@ -1905,7 +1938,7 @@
       "type": "n8n-nodes-base.splitInBatches",
       "typeVersion": 1,
       "position": [
-        3140,
+        3560,
         1060
       ],
       "alwaysOutputData": false
@@ -1932,7 +1965,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        3360,
+        3780,
         1060
       ]
     },
@@ -1959,7 +1992,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        3580,
+        4000,
         1060
       ]
     },
@@ -1972,7 +2005,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        3140,
+        3560,
         1280
       ]
     },
@@ -1991,7 +2024,7 @@
         },
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={{$node[\"Параметры счета\"].json[\"params\"]}}",
+        "jsonBody": "={{$node[\"Параметры демо счета\"].json[\"params\"]}}",
         "options": {}
       },
       "id": "bb740205-34d9-4093-b93e-cf9483fd3511",
@@ -1999,7 +2032,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        3340,
+        3760,
         1280
       ]
     },
@@ -2012,21 +2045,34 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        3520,
+        3940,
         1280
       ]
     },
     {
       "parameters": {
-        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\nlet params = [\n    {\n        \"entity_id\": parseInt($node[\"Ответ создания\"].json[\"data\"][\"_embedded\"][\"leads\"][0][\"id\"]),\n        \"to_entity_id\": parseInt($node[\"Счет\"].json[\"data\"][\"_embedded\"][\"elements\"][0][\"id\"]),\n        \"to_entity_type\": \"catalog_elements\",\n        \"metadata\": {\n            \"quantity\": 1.0,\n            \"catalog_id\": 7045\n        }\n    }\n]\n\nreturn [{params: JSON.stringify(params)}];"
+        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\nlet params = [\n    {\n        \"entity_id\": parseInt($node[\"ID демо сделки\"].json[\"data\"][\"_embedded\"][\"leads\"][0][\"id\"]),\n        \"to_entity_id\": parseInt($node[\"Демо счет\"].json[\"data\"][\"_embedded\"][\"elements\"][0][\"id\"]),\n        \"to_entity_type\": \"catalog_elements\",\n        \"metadata\": {\n            \"quantity\": 1.0,\n            \"catalog_id\": 7045\n        }\n    }\n]\n\nreturn [{params: JSON.stringify(params)}];"
       },
       "id": "2cad9187-555c-4967-af11-b10e30534c51",
       "name": "Демо сделка и демо счет",
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        3700,
+        4120,
         1280
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\n\nlet params = [\n    {\n        \"entity_id\": parseInt($node[\"ID демо сделки\"].json[\"data\"][\"_embedded\"][\"leads\"][0][\"id\"]),\n        \"to_entity_id\": parseInt($node[\"ID демо контакта\"].json[\"data\"][\"_embedded\"][\"contacts\"][0][\"id\"]),\n        \"to_entity_type\": \"contacts\",\n        \"metadata\": {\n            \"is_main\": true\n        }\n    }\n]\nreturn [{params: JSON.stringify(params)}];"
+      },
+      "id": "e1e21e18-4ed9-44cd-9b68-bba67b642bca",
+      "name": "Сделка и демо контакт",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        2940,
+        1060
       ]
     },
     {
@@ -2044,22 +2090,84 @@
         },
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={{$node[\"Сделка и счет\"].json[\"params\"]}}",
+        "jsonBody": "={{$node[\"Сделка и демо контакт\"].json[\"params\"]}}",
         "options": {}
       },
-      "id": "1a577b23-db93-4d91-935d-bf2164fb344b",
-      "name": "Связь счета и сделки демо",
+      "id": "8e467b1d-5a4d-4fe1-9436-d8785eba9573",
+      "name": "Связывание демо",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        3900,
+        3140,
+        1060
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://{{$node[\"Execute Workflow\"].json[\"subdomain\"]}}/api/v4/leads/link",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{$node[\"Execute Workflow\"].json[\"access_token\"]}}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{$node[\"Демо сделка и демо счет\"].json[\"params\"]}}",
+        "options": {}
+      },
+      "id": "1a577b23-db93-4d91-935d-bf2164fb344b",
+      "name": "Связь счета и демо сделки",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        4320,
         1280
       ]
+    },
+    {
+      "parameters": {
+        "authentication": "nocoDbApiToken",
+        "operation": "update",
+        "projectId": "p_g9w7m3ac8ab2rq",
+        "table": "md_y0z1qo6sry41ug",
+        "id": "={{$node[\"ID пользователя\"].json[\"data\"][\"record_id\"]}}",
+        "fieldsUi": {
+          "fieldValues": [
+            {
+              "fieldName": "demo_lead_id",
+              "fieldValue": "={{$node[\"ID демо сделки\"].json[\"data\"][\"_embedded\"][\"leads\"][0][\"id\"]}}"
+            },
+            {
+              "fieldName": "demo_contact_id",
+              "fieldValue": "={{$node[\"ID демо контакта\"].json[\"data\"][\"_embedded\"][\"contacts\"][0][\"id\"]}}"
+            }
+          ]
+        }
+      },
+      "id": "fbf4d407-4c2b-47b8-9985-c9e09522ceca",
+      "name": "Обновление демо данных",
+      "type": "n8n-nodes-base.nocoDb",
+      "typeVersion": 2,
+      "position": [
+        4540,
+        1280
+      ],
+      "credentials": {
+        "nocoDbApiToken": {
+          "id": "3",
+          "name": "NocoDB"
+        }
+      }
     }
   ],
   "pinData": {},
   "settings": {},
   "staticData": null,
   "tags": [],
-  "updatedAt": "2022-11-01T20:41:12.736Z"
+  "updatedAt": "2022-11-01T21:11:28.740Z"
 }
