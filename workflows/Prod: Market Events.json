@@ -770,6 +770,7 @@
     },
     {
       "parameters": {
+        "httpMethod": "POST",
         "path": "ff15db6a-ff62-468e-a2e6-6b171b1d7e46",
         "options": {}
       },
@@ -862,7 +863,7 @@
     },
     {
       "parameters": {
-        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\nlet params = [{\n    \"first_name\": $node[\"Webhook\"].json[\"body\"][\"Name\"],\n    \"last_name\": \"\",\n    \"responsible_user_id\": 6651409,\n    \"custom_fields_values\": [\n        {\n            \"field_id\": 2224997,\n            \"field_name\": \"Email\",\n            \"field_code\": \"EMAIL\",\n            \"field_type\": \"multitext\",\n            \"values\": [\n                {\n                    \"value\": $node[\"Webhook\"].json[\"body\"][\"Email\"],\n                    \"enum_id\": 1008131,\n                    \"enum_code\": \"WORK\"\n                }\n            ]\n        },\n        {\n            \"field_id\": 2224995,\n            \"field_name\": \"Телефон\",\n            \"field_code\": \"PHONE\",\n            \"field_type\": \"multitext\",\n            \"values\": [\n                {\n                    \"value\": $node[\"Webhook\"].json[\"body\"][\"Phone\"],\n                    \"enum_id\": 1008119,\n                    \"enum_code\": \"WORK\"\n                }\n            ]\n        }\n    ]\n}]\n\nreturn [{params: JSON.stringify(params)}];"
+        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\nlet params = [{\n    \"first_name\": $node[\"Webhook\"].json[\"body\"][\"Name\"],\n    \"responsible_user_id\": 6651409,\n    \"custom_fields_values\": [\n        {\n            \"field_id\": 2224997,\n            \"field_name\": \"Email\",\n            \"field_code\": \"EMAIL\",\n            \"field_type\": \"multitext\",\n            \"values\": [\n                {\n                    \"value\": $node[\"Webhook\"].json[\"body\"][\"Email\"],\n                    \"enum_id\": 1008131,\n                    \"enum_code\": \"WORK\"\n                }\n            ]\n        }\n    ]\n}]\n\nif ($node[\"Webhook\"].json[\"body\"][\"Phone\"]) {\n  params[0][\"custom_fields_values\"].push(\n            {\n            \"field_id\": 2224995,\n            \"field_name\": \"Телефон\",\n            \"field_code\": \"PHONE\",\n            \"field_type\": \"multitext\",\n            \"values\": [\n                {\n                    \"value\": $node[\"Webhook\"].json[\"body\"][\"Phone\"],\n                    \"enum_id\": 1008119,\n                    \"enum_code\": \"WORK\"\n                }\n            ]\n        }\n  )\n}\n\nreturn [{params: JSON.stringify(params)}];"
       },
       "id": "a4f5bf4d-c7ed-4f48-93fa-179495692ebd",
       "name": "Параметры контакта",
@@ -1306,7 +1307,7 @@
             },
             {
               "name": "from_email",
-              "value": "app@mybi.ru"
+              "value": "mail@mybi.ru"
             },
             {
               "name": "subject",
@@ -1725,7 +1726,7 @@
             },
             {
               "name": "from_email",
-              "value": "app@mybi.ru"
+              "value": "mail@mybi.ru"
             },
             {
               "name": "subject",
@@ -1838,7 +1839,7 @@
     },
     {
       "parameters": {
-        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\n\n// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\nlet demo_id = $node[\"ID пользователя\"].json[\"data\"][\"demo_id\"];\nlet params = [{\n    \"first_name\": `Покупатель № ${demo_id}`,\n    \"last_name\": \"\",\n    \"responsible_user_id\": 6651409,\n    \"custom_fields_values\": [\n        {\n            \"field_id\": 2224997,\n            \"field_name\": \"Email\",\n            \"field_code\": \"EMAIL\",\n            \"field_type\": \"multitext\",\n            \"values\": [\n                {\n                    \"value\": `${demo_id}@example.com`,\n                    \"enum_id\": 1008131,\n                    \"enum_code\": \"WORK\"\n                }\n            ]\n        },\n        {\n            \"field_id\": 2224995,\n            \"field_name\": \"Телефон\",\n            \"field_code\": \"PHONE\",\n            \"field_type\": \"multitext\",\n            \"values\": [\n                {\n                    \"value\": `+7 (000) 000-${demo_id}`,\n                    \"enum_id\": 1008119,\n                    \"enum_code\": \"WORK\"\n                }\n            ]\n        }\n    ]\n}]\n\nreturn [{params: JSON.stringify(params)}];"
+        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\n\n// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\nlet demo_id = $node[\"ID пользователя\"].json[\"data\"][\"demo_id\"];\nlet params = [{\n    \"first_name\": `Покупатель № ${demo_id}`,\n    \"responsible_user_id\": 6651409,\n    \"custom_fields_values\": [\n        {\n            \"field_id\": 2224997,\n            \"field_name\": \"Email\",\n            \"field_code\": \"EMAIL\",\n            \"field_type\": \"multitext\",\n            \"values\": [\n                {\n                    \"value\": `${demo_id}@example.com`,\n                    \"enum_id\": 1008131,\n                    \"enum_code\": \"WORK\"\n                }\n            ]\n        },\n        {\n            \"field_id\": 2224995,\n            \"field_name\": \"Телефон\",\n            \"field_code\": \"PHONE\",\n            \"field_type\": \"multitext\",\n            \"values\": [\n                {\n                    \"value\": `+7 (000) 000-${demo_id}`,\n                    \"enum_id\": 1008119,\n                    \"enum_code\": \"WORK\"\n                }\n            ]\n        }\n    ]\n}];\n\n\nreturn [{params: JSON.stringify(params)}];"
       },
       "id": "3793e0a3-25b9-41e3-83d8-675ecf00ea4c",
       "name": "Параметры демо контакта",
@@ -2169,5 +2170,5 @@
   "settings": {},
   "staticData": null,
   "tags": [],
-  "updatedAt": "2022-11-01T21:11:28.740Z"
+  "updatedAt": "2022-11-02T20:16:04.462Z"
 }
