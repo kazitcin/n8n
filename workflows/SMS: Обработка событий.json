@@ -85,32 +85,6 @@
         "table": "md_xaeenq7krtmt1h",
         "limit": 1,
         "options": {
-          "where": "=(sms_id,eq,)"
-        }
-      },
-      "id": "5470e461-d876-42bb-b579-80680b3102fd",
-      "name": "NocoDB",
-      "type": "n8n-nodes-base.nocoDb",
-      "typeVersion": 2,
-      "position": [
-        1780,
-        -440
-      ],
-      "credentials": {
-        "nocoDbApiToken": {
-          "id": "3",
-          "name": "NocoDB"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "authentication": "nocoDbApiToken",
-        "operation": "getAll",
-        "projectId": "p_g9w7m3ac8ab2rq",
-        "table": "md_xaeenq7krtmt1h",
-        "limit": 1,
-        "options": {
           "where": "=(sms_id,eq,{{$node[\"Webhook\"].json[\"body\"][\"id\"]}})"
         }
       },
@@ -231,5 +205,5 @@
   "settings": {},
   "staticData": null,
   "tags": [],
-  "updatedAt": "2022-11-02T20:08:46.444Z"
+  "updatedAt": "2022-11-03T04:56:02.284Z"
 }
