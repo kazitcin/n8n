@@ -433,7 +433,7 @@
     {
       "parameters": {
         "operation": "executeQuery",
-        "query": "select\n\ta.id as user_id,\n\ta.first_name,\n\ta.last_name,\n\ta.email,\n\ta.phone_number,\n\ta.last_payday,\n\ta.next_payday,\n\ta.blocked_date as \"blocked\",\n\tcase\n\t\twhen (a.stage = 0) then 'проекты удалены'\n\t\twhen (a.stage = 1) then 'регистрация'\n\t\twhen (a.stage = 2) then 'зашел в сервис'\n\t\twhen (a.stage = 3) then 'создал проект'\n\t\twhen (a.stage = 4) then 'пробовал подключить'\n\t\twhen (a.stage = 5) then 'подключил источник'\n\t\twhen (a.stage = 6) then 'ввел IP'\n\t\twhen (a.stage = 7) then 'скачал модель'\n\t\twhen (a.stage = 8) then 'завершился триал'\n\t\twhen (a.stage = 9) then 'оплата'\n\t\twhen (a.stage = 10) then 'повторная оплата'\n\tend as stage,\n\tb.\"name\" as plan_name,\n\tb.base_cost,\n\ta.balance\nfrom\n\tusers a,\n\t\"plans\" b\nwhere\n\tb.id = a.plan_id\norder by\n\tlast_seen desc\nlimit 20",
+        "query": "select\n\ta.id as user_id,\n\ta.first_name,\n\ta.last_name,\n\ta.email,\n\ta.phone_number,\n\ta.last_payday,\n\ta.next_payday,\n\ta.blocked_date as \"blocked\",\n\tcase\n\t\twhen (a.stage = 0) then 'проекты удалены'\n\t\twhen (a.stage = 1) then 'регистрация'\n\t\twhen (a.stage = 2) then 'зашел в сервис'\n\t\twhen (a.stage = 3) then 'создал проект'\n\t\twhen (a.stage = 4) then 'пробовал подключить'\n\t\twhen (a.stage = 5) then 'подключил источник'\n\t\twhen (a.stage = 6) then 'ввел IP'\n\t\twhen (a.stage = 7) then 'скачал модель'\n\t\twhen (a.stage = 8) then 'завершился триал'\n\t\twhen (a.stage = 9) then 'оплата'\n\t\twhen (a.stage = 10) then 'повторная оплата'\n\tend as stage,\n\tb.\"name\" as plan_name,\n\tb.base_cost,\n\ta.balance\nfrom\n\tusers a,\n\t\"plans\" b\nwhere\n\tb.id = a.plan_id\norder by\n\tlast_seen desc\nlimit 10",
         "additionalFields": {}
       },
       "id": "291ce581-5a51-4d8f-8d8a-1abb0e94ba43",
@@ -542,6 +542,10 @@
             {
               "fieldName": "base_cost",
               "fieldValue": "={{ $node[\"SplitInBatches\"].json[\"base_cost\"] }}"
+            },
+            {
+              "fieldName": "balance",
+              "fieldValue": "={{$node[\"SplitInBatches\"].json[\"balance\"]}}"
             }
           ]
         }
@@ -609,6 +613,10 @@
             {
               "fieldName": "base_cost",
               "fieldValue": "={{ $node[\"SplitInBatches\"].json[\"base_cost\"] }}"
+            },
+            {
+              "fieldName": "balance",
+              "fieldValue": "={{$node[\"SplitInBatches\"].json[\"balance\"]}}"
             }
           ]
         }
@@ -1268,5 +1276,5 @@
   },
   "staticData": null,
   "tags": [],
-  "updatedAt": "2022-10-30T05:32:16.511Z"
+  "updatedAt": "2022-11-03T09:44:57.692Z"
 }
