@@ -1,0 +1,64 @@
+{
+  "active": false,
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Postgres",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2022-11-03T20:53:58.906Z",
+  "id": 20,
+  "name": "My workflow 3",
+  "nodes": [
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "select \t\n    n.user_id,\n\tn.first_name,\n\tn.last_name,\n\tn.email,\n\tn.phone_number,\n\tn.last_payday,\n\tn.next_payday,\n\tn.\"blocked\" \nfrom notifucations n \nwhere notification_status is null",
+        "additionalFields": {}
+      },
+      "id": "94dbc6de-0509-46a5-8349-48390cf6cf65",
+      "name": "Postgres",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 1,
+      "position": [
+        560,
+        320
+      ],
+      "credentials": {
+        "postgres": {
+          "id": "6",
+          "name": "Postgres Prod"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {}
+          ]
+        }
+      },
+      "id": "b1f26a1b-2a1c-48b7-87c4-38c8e345177b",
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1,
+      "position": [
+        380,
+        320
+      ]
+    }
+  ],
+  "pinData": {},
+  "settings": {},
+  "staticData": null,
+  "tags": [],
+  "updatedAt": "2022-11-03T20:56:09.382Z"
+}
