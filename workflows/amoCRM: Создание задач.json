@@ -1,0 +1,776 @@
+{
+  "active": false,
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Execute Workflow",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Postgres": {
+      "main": [
+        [
+          {
+            "node": "SplitInBatches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Блокировка?": {
+      "main": [
+        [
+          {
+            "node": "Отправка письма о блакировке",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Удаление?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Удаление?": {
+      "main": [
+        [
+          {
+            "node": "Отправка письма о удалении",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Отправка письма о блакировке": {
+      "main": [
+        [
+          {
+            "node": "Сохранение данных о отправке",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SplitInBatches": {
+      "main": [
+        [
+          {
+            "node": "Блокировка?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow": {
+      "main": [
+        [
+          {
+            "node": "Postgres",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Сохранение данных о отправке": {
+      "main": [
+        [
+          {
+            "node": "Параметры задачи1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Параметры задачи2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Параметры задачи1": {
+      "main": [
+        [
+          {
+            "node": "Создание задачи1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Параметры задачи2": {
+      "main": [
+        [
+          {
+            "node": "Создание задачи2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Отправка письма о удалении": {
+      "main": [
+        [
+          {
+            "node": "Сохранение данных о отправке1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Сохранение данных о отправке1": {
+      "main": [
+        [
+          {
+            "node": "Параметры задачи3",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Параметры задачи4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Параметры задачи3": {
+      "main": [
+        [
+          {
+            "node": "Создание задачи3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Параметры задачи4": {
+      "main": [
+        [
+          {
+            "node": "Создание задачи",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Создание задачи1": {
+      "main": [
+        [
+          {
+            "node": "Последний пользователь?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Создание задачи2": {
+      "main": [
+        [
+          {
+            "node": "Последний пользователь?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Создание задачи3": {
+      "main": [
+        [
+          {
+            "node": "Последний пользователь?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Создание задачи": {
+      "main": [
+        [
+          {
+            "node": "Последний пользователь?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Последний пользователь?": {
+      "main": [
+        [
+          {
+            "node": "Выход",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "SplitInBatches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2022-11-03T20:53:58.906Z",
+  "id": 20,
+  "name": "amoCRM: Создание задач",
+  "nodes": [
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "select \t\n    n.user_id,\n\tn.first_name,\n\tn.last_name,\n\tn.email,\n\tn.phone_number,\n\tn.last_payday,\n\tn.next_payday,\n\tn.\"blocked\", \n        n.contact_id,\n        n.lead_id,\n        n.notification_status\nfrom notifucations n \nwhere notification_status is null\nlimit 2",
+        "additionalFields": {}
+      },
+      "id": "94dbc6de-0509-46a5-8349-48390cf6cf65",
+      "name": "Postgres",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 1,
+      "position": [
+        560,
+        320
+      ],
+      "credentials": {
+        "postgres": {
+          "id": "11",
+          "name": "Postgres Prod Stat"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {}
+          ]
+        }
+      },
+      "id": "b1f26a1b-2a1c-48b7-87c4-38c8e345177b",
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1,
+      "position": [
+        180,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{$node[\"SplitInBatches\"].json[\"notification_status\"]}}",
+              "value2": "={{null}}"
+            }
+          ]
+        }
+      },
+      "id": "4d0a7b83-1281-4d6e-a0a1-6e7407ab8a8a",
+      "name": "Блокировка?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        940,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{$node[\"SplitInBatches\"].json[\"notification_status\"]}}",
+              "value2": "=Удаление"
+            }
+          ]
+        }
+      },
+      "id": "3a0ddc60-0f25-452e-ba2e-a4a2cbf66b4d",
+      "name": "Удаление?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        1140,
+        600
+      ]
+    },
+    {
+      "parameters": {
+        "url": "http://api.dashamail.com",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "method",
+              "value": "transactional.send"
+            },
+            {
+              "name": "api_key",
+              "value": "0f0ca3c6f479fd2fab67384e9e5c15d1"
+            },
+            {
+              "name": "to",
+              "value": "vts@mybi.ru"
+            },
+            {
+              "name": "message",
+              "value": "2287082"
+            },
+            {
+              "name": "from_email",
+              "value": "mail@mybi.ru"
+            },
+            {
+              "name": "subject",
+              "value": "Тестовое"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "ff9d11c1-f70d-4488-a56d-0151996cef48",
+      "name": "Отправка письма о блакировке",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        1160,
+        60
+      ]
+    },
+    {
+      "parameters": {
+        "url": "http://api.dashamail.com",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "method",
+              "value": "transactional.send"
+            },
+            {
+              "name": "api_key",
+              "value": "0f0ca3c6f479fd2fab67384e9e5c15d1"
+            },
+            {
+              "name": "to",
+              "value": "vts@mybi.ru"
+            },
+            {
+              "name": "message",
+              "value": "2287077"
+            },
+            {
+              "name": "from_email",
+              "value": "mail@mybi.ru"
+            },
+            {
+              "name": "subject",
+              "value": "Тестовое"
+            }
+          ]
+        },
+        "options": {
+          "redirect": {
+            "redirect": {
+              "followRedirects": true
+            }
+          }
+        }
+      },
+      "id": "48ed2f6c-f1a3-439d-9ea1-2bd0c9910104",
+      "name": "Отправка письма о удалении",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        1380,
+        580
+      ]
+    },
+    {
+      "parameters": {
+        "batchSize": 1,
+        "options": {}
+      },
+      "id": "99c1da48-d2fd-4876-b1e6-fe7883845144",
+      "name": "SplitInBatches",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 1,
+      "position": [
+        760,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "13"
+      },
+      "id": "cd7b6577-5685-4dc1-8691-519380f9a79d",
+      "name": "Execute Workflow",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        360,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "authentication": "nocoDbApiToken",
+        "operation": "create",
+        "projectId": "p_g9w7m3ac8ab2rq",
+        "table": "md_zqjjjzpkxrnb52",
+        "fieldsUi": {
+          "fieldValues": [
+            {
+              "fieldName": "message_id",
+              "fieldValue": "={{$node[\"Отправка письма о блакировке\"].json[\"response\"][\"data\"][\"transaction_id\"]}}"
+            },
+            {
+              "fieldName": "dropped",
+              "fieldValue": "={{false))"
+            },
+            {
+              "fieldName": "processed",
+              "fieldValue": "={{false))"
+            },
+            {
+              "fieldName": "bounce",
+              "fieldValue": "={{false))"
+            },
+            {
+              "fieldName": "delivered",
+              "fieldValue": "={{false))"
+            },
+            {
+              "fieldName": "open",
+              "fieldValue": "={{false))"
+            },
+            {
+              "fieldName": "click",
+              "fieldValue": "={{false))"
+            },
+            {
+              "fieldName": "spamreport",
+              "fieldValue": "={{false))"
+            },
+            {
+              "fieldName": "lost",
+              "fieldValue": "={{true))"
+            },
+            {
+              "fieldName": "paid",
+              "fieldValue": "={{true))"
+            },
+            {
+              "fieldName": "users_id",
+              "fieldValue": "=189"
+            }
+          ]
+        }
+      },
+      "id": "4f1cab34-4f0b-4843-80c1-c80bfbe449fc",
+      "name": "Сохранение данных о отправке",
+      "type": "n8n-nodes-base.nocoDb",
+      "typeVersion": 2,
+      "position": [
+        1380,
+        60
+      ],
+      "credentials": {
+        "nocoDbApiToken": {
+          "id": "3",
+          "name": "NocoDB"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\nlet params = [\n    {\n        \"task_type_id\": 1,\n        \"text\": \"Отправлено с помощью DashaMail\",\n        \"responsible_user_id\": 6651409,\n        \"is_completed\": true,\n        \"complete_till\": parseInt(new Date().getTime() / 1000),\n        \"entity_id\": 5453635,\n        \"entity_type\": \"leads\",\n    }\n]\n\nreturn [{params: JSON.stringify(params)}];"
+      },
+      "id": "f9a97822-f34b-4b6c-89af-c2c5bc5381b7",
+      "name": "Параметры задачи1",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        1580,
+        -100
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\n\nvar date = new Date();\ndate.setDate(date.getDate() + 1);\n\nlet params = [\n    {\n        \"task_type_id\": 1,\n        \"text\": \" \",\n        \"responsible_user_id\": 6651409,\n        \"is_completed\": false,\n        \"complete_till\": parseInt(date.getTime() / 1000),\n        \"entity_id\": 5453635,\n        \"entity_type\": \"leads\",\n    }\n]\n\nreturn [{params: JSON.stringify(params)}];"
+      },
+      "id": "b4aee961-ad2a-46da-99c7-05dfc541547f",
+      "name": "Параметры задачи2",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        1580,
+        180
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://{{$node[\"Execute Workflow\"].json[\"subdomain\"]}}/api/v4/tasks",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{$node[\"Execute Workflow\"].json[\"access_token\"]}}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{$node[\"Параметры задачи2\"].json[\"params\"]}}",
+        "options": {}
+      },
+      "id": "be35d1b5-d480-4fe8-ad56-f6ec17e9eab1",
+      "name": "Создание задачи2",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        1800,
+        180
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://{{$node[\"Execute Workflow\"].json[\"subdomain\"]}}/api/v4/tasks",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{$node[\"Execute Workflow\"].json[\"access_token\"]}}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{$node[\"Параметры задачи1\"].json[\"params\"]}}",
+        "options": {}
+      },
+      "id": "1f2ba66d-6bc9-498e-baa1-66f8c4665d4b",
+      "name": "Создание задачи1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        1780,
+        -100
+      ]
+    },
+    {
+      "parameters": {
+        "authentication": "nocoDbApiToken",
+        "operation": "create",
+        "projectId": "p_g9w7m3ac8ab2rq",
+        "table": "md_zqjjjzpkxrnb52",
+        "fieldsUi": {
+          "fieldValues": [
+            {
+              "fieldName": "message_id",
+              "fieldValue": "={{$node[\"Отправка письма о удалении\"].json[\"response\"][\"data\"][\"transaction_id\"]}}"
+            },
+            {
+              "fieldName": "dropped",
+              "fieldValue": "={{false))"
+            },
+            {
+              "fieldName": "processed",
+              "fieldValue": "={{false))"
+            },
+            {
+              "fieldName": "bounce",
+              "fieldValue": "={{false))"
+            },
+            {
+              "fieldName": "delivered",
+              "fieldValue": "={{false))"
+            },
+            {
+              "fieldName": "open",
+              "fieldValue": "={{false))"
+            },
+            {
+              "fieldName": "click",
+              "fieldValue": "={{false))"
+            },
+            {
+              "fieldName": "spamreport",
+              "fieldValue": "={{false))"
+            },
+            {
+              "fieldName": "lost",
+              "fieldValue": "={{true))"
+            },
+            {
+              "fieldName": "paid",
+              "fieldValue": "={{true))"
+            },
+            {
+              "fieldName": "users_id",
+              "fieldValue": "=189"
+            }
+          ]
+        }
+      },
+      "id": "92add776-243c-4635-bd48-fc1539970a6e",
+      "name": "Сохранение данных о отправке1",
+      "type": "n8n-nodes-base.nocoDb",
+      "typeVersion": 2,
+      "position": [
+        1640,
+        580
+      ],
+      "credentials": {
+        "nocoDbApiToken": {
+          "id": "3",
+          "name": "NocoDB"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\nlet params = [\n    {\n        \"task_type_id\": 1,\n        \"text\": \"Отправлено с помощью DashaMail\",\n        \"responsible_user_id\": 6651409,\n        \"is_completed\": true,\n        \"complete_till\": parseInt(new Date().getTime() / 1000),\n        \"entity_id\": 5453635,\n        \"entity_type\": \"leads\",\n    }\n]\n\nreturn [{params: JSON.stringify(params)}];"
+      },
+      "id": "6f551feb-6c9a-4867-8cc8-e3dd4d0fe818",
+      "name": "Параметры задачи3",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        1840,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://{{$node[\"Execute Workflow\"].json[\"subdomain\"]}}/api/v4/tasks",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{$node[\"Execute Workflow\"].json[\"access_token\"]}}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{$node[\"Параметры задачи3\"].json[\"params\"]}}",
+        "options": {}
+      },
+      "id": "82cb8b45-106b-46fb-b6bf-0776887d59bc",
+      "name": "Создание задачи3",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        2080,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\n\nvar date = new Date();\ndate.setDate(date.getDate() + 1);\n\nlet params = [\n    {\n        \"task_type_id\": 1,\n        \"text\": \"BLANK\",\n        \"responsible_user_id\": 6651409,\n        \"is_completed\": false,\n        \"complete_till\": parseInt(date.getTime() / 1000),\n        \"entity_id\": 5453635,\n        \"entity_type\": \"leads\",\n    }\n]\n\nreturn [{params: JSON.stringify(params)}];"
+      },
+      "id": "c2e0b656-9668-491b-b5c2-2de473fcab29",
+      "name": "Параметры задачи4",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        1860,
+        680
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://{{$node[\"Execute Workflow\"].json[\"subdomain\"]}}/api/v4/tasks",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{$node[\"Execute Workflow\"].json[\"access_token\"]}}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{$node[\"Параметры задачи4\"].json[\"params\"]}}",
+        "options": {}
+      },
+      "id": "f2d4b773-7d96-4e64-8371-16fff79e8685",
+      "name": "Создание задачи",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        2120,
+        680
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{$node[\"SplitInBatches\"].context[\"noItemsLeft\"]}}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "00d3045f-8efc-4b11-9a6b-4b9b29c57f55",
+      "name": "Последний пользователь?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        2520,
+        360
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "85959f7a-7242-45fe-8d78-088e8dc41a10",
+      "name": "Выход",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        2720,
+        340
+      ]
+    }
+  ],
+  "pinData": {},
+  "settings": {},
+  "staticData": null,
+  "tags": [],
+  "updatedAt": "2022-11-04T06:07:23.067Z"
+}
