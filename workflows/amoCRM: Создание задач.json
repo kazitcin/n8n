@@ -283,7 +283,7 @@
           "string": [
             {
               "value1": "={{$node[\"SplitInBatches\"].json[\"notification_status\"]}}",
-              "value2": "={{null}}"
+              "value2": "=Блокировка"
             }
           ]
         }
@@ -487,6 +487,10 @@
             {
               "fieldName": "users_id",
               "fieldValue": "=189"
+            },
+            {
+              "fieldName": "template",
+              "fieldValue": "Блокировка"
             }
           ]
         }
@@ -508,7 +512,7 @@
     },
     {
       "parameters": {
-        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\nlet params = [\n    {\n        \"task_type_id\": 1,\n        \"text\": \"Отправлено с помощью DashaMail\",\n        \"responsible_user_id\": 6651409,\n        \"is_completed\": true,\n        \"complete_till\": parseInt(new Date().getTime() / 1000),\n        \"entity_id\": 5453635,\n        \"entity_type\": \"leads\",\n    }\n]\n\nreturn [{params: JSON.stringify(params)}];"
+        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\nlet params = [\n    {\n        \"task_type_id\": 1,\n        \"text\": \"Отправлено с помощью DashaMail\",\n        \"responsible_user_id\": 6651409,\n        \"is_completed\": true,\n        \"complete_till\": parseInt(new Date().getTime() / 1000),\n        \"entity_id\": 5453635,\n        //\"entity_id\": $node[\"SplitInBatches\"].json[\"lead_id\"],\n        \"entity_type\": \"leads\",\n    }\n]\n\nreturn [{params: JSON.stringify(params)}];"
       },
       "id": "f9a97822-f34b-4b6c-89af-c2c5bc5381b7",
       "name": "Параметры задачи1",
@@ -521,7 +525,7 @@
     },
     {
       "parameters": {
-        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\n\nvar date = new Date();\ndate.setDate(date.getDate() + 1);\n\nlet params = [\n    {\n        \"task_type_id\": 1,\n        \"text\": \" \",\n        \"responsible_user_id\": 6651409,\n        \"is_completed\": false,\n        \"complete_till\": parseInt(date.getTime() / 1000),\n        \"entity_id\": 5453635,\n        \"entity_type\": \"leads\",\n    }\n]\n\nreturn [{params: JSON.stringify(params)}];"
+        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\n\nvar date = new Date();\ndate.setDate(date.getDate() + 1);\n\nlet params = [\n    {\n        \"task_type_id\": 1,\n        \"text\": \" \",\n        \"responsible_user_id\": 6651409,\n        \"is_completed\": false,\n        \"complete_till\": parseInt(date.getTime() / 1000),\n        \"entity_id\": 5453635,\n        \"entity_id\": $node[\"SplitInBatches\"].json[\"lead_id\"],\n        \"entity_type\": \"leads\",\n    }\n]\n\nreturn [{params: JSON.stringify(params)}];"
       },
       "id": "b4aee961-ad2a-46da-99c7-05dfc541547f",
       "name": "Параметры задачи2",
@@ -637,6 +641,10 @@
             {
               "fieldName": "users_id",
               "fieldValue": "=189"
+            },
+            {
+              "fieldName": "template",
+              "fieldValue": "Удаление"
             }
           ]
         }
@@ -658,7 +666,7 @@
     },
     {
       "parameters": {
-        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\nlet params = [\n    {\n        \"task_type_id\": 1,\n        \"text\": \"Отправлено с помощью DashaMail\",\n        \"responsible_user_id\": 6651409,\n        \"is_completed\": true,\n        \"complete_till\": parseInt(new Date().getTime() / 1000),\n        \"entity_id\": 5453635,\n        \"entity_type\": \"leads\",\n    }\n]\n\nreturn [{params: JSON.stringify(params)}];"
+        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\nlet params = [\n    {\n        \"task_type_id\": 1,\n        \"text\": \"Отправлено с помощью DashaMail\",\n        \"responsible_user_id\": 6651409,\n        \"is_completed\": true,\n        \"complete_till\": parseInt(new Date().getTime() / 1000),\n        \"entity_id\": 5453635,\n        //\"entity_id\": $node[\"SplitInBatches\"].json[\"lead_id\"],\n        \"entity_type\": \"leads\",\n    }\n]\n\nreturn [{params: JSON.stringify(params)}];"
       },
       "id": "6f551feb-6c9a-4867-8cc8-e3dd4d0fe818",
       "name": "Параметры задачи3",
@@ -698,7 +706,7 @@
     },
     {
       "parameters": {
-        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\n\nvar date = new Date();\ndate.setDate(date.getDate() + 1);\n\nlet params = [\n    {\n        \"task_type_id\": 1,\n        \"text\": \"BLANK\",\n        \"responsible_user_id\": 6651409,\n        \"is_completed\": false,\n        \"complete_till\": parseInt(date.getTime() / 1000),\n        \"entity_id\": 5453635,\n        \"entity_type\": \"leads\",\n    }\n]\n\nreturn [{params: JSON.stringify(params)}];"
+        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\n\nvar date = new Date();\ndate.setDate(date.getDate() + 1);\n\nlet params = [\n    {\n        \"task_type_id\": 1,\n        \"text\": \"BLANK\",\n        \"responsible_user_id\": 6651409,\n        \"is_completed\": false,\n        \"complete_till\": parseInt(date.getTime() / 1000),\n        \"entity_id\": 5453635,\n        //\"entity_id\": $node[\"SplitInBatches\"].json[\"lead_id\"],\n        \"entity_type\": \"leads\",\n    }\n]\n\nreturn [{params: JSON.stringify(params)}];"
       },
       "id": "c2e0b656-9668-491b-b5c2-2de473fcab29",
       "name": "Параметры задачи4",
@@ -772,5 +780,5 @@
   "settings": {},
   "staticData": null,
   "tags": [],
-  "updatedAt": "2022-11-04T06:07:23.067Z"
+  "updatedAt": "2022-11-04T13:09:32.090Z"
 }
