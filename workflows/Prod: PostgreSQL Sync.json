@@ -433,7 +433,7 @@
     {
       "parameters": {
         "operation": "executeQuery",
-        "query": "select\n\ta.id as user_id,\n\ta.first_name,\n\ta.last_name,\n\ta.email,\n\ta.phone_number,\n\ta.last_payday,\n\ta.next_payday,\n\ta.blocked_date as \"blocked\",\n\tcase\n\t\twhen (a.stage = 0) then 'проекты удалены'\n\t\twhen (a.stage = 1) then 'регистрация'\n\t\twhen (a.stage = 2) then 'зашел в сервис'\n\t\twhen (a.stage = 3) then 'создал проект'\n\t\twhen (a.stage = 4) then 'пробовал подключить'\n\t\twhen (a.stage = 5) then 'подключил источник'\n\t\twhen (a.stage = 6) then 'ввел IP'\n\t\twhen (a.stage = 7) then 'скачал модель'\n\t\twhen (a.stage = 8) then 'завершился триал'\n\t\twhen (a.stage = 9) then 'оплата'\n\t\twhen (a.stage = 10) then 'повторная оплата'\n\tend as stage,\n\tb.\"name\" as plan_name,\n\tb.base_cost,\n\ta.balance\nfrom\n\tusers a,\n\t\"plans\" b\nwhere\n\tb.id = a.plan_id\norder by\n\tlast_seen desc\nlimit 10",
+        "query": "select\n\ta.id as user_id,\n\ta.first_name,\n\ta.last_name,\n\ta.email,\n\ta.phone_number,\n\ta.last_payday,\n\ta.next_payday,\n\ta.blocked_date as \"blocked\",\n\tcase\n\t\twhen (a.stage = 0) then 'проекты удалены'\n\t\twhen (a.stage = 1) then 'регистрация'\n\t\twhen (a.stage = 2) then 'зашел в сервис'\n\t\twhen (a.stage = 3) then 'создал проект'\n\t\twhen (a.stage = 4) then 'пробовал подключить'\n\t\twhen (a.stage = 5) then 'подключил источник'\n\t\twhen (a.stage = 6) then 'ввел IP'\n\t\twhen (a.stage = 7) then 'скачал модель'\n\t\twhen (a.stage = 8) then 'завершился триал'\n\t\twhen (a.stage = 9) then 'оплата'\n\t\twhen (a.stage = 10) then 'повторная оплата'\n\tend as stage,\n\tb.\"name\" as plan_name,\n\tb.base_cost,\n\ta.balance\nfrom\n\tusers a,\n\t\"plans\" b\nwhere\n\t(a.group_id = 1 or a.role_id = 11)\n\tand b.id = a.plan_id\norder by\n\ta.last_seen desc\nlimit 40",
         "additionalFields": {}
       },
       "id": "291ce581-5a51-4d8f-8d8a-1abb0e94ba43",
@@ -868,7 +868,7 @@
     {
       "parameters": {
         "operation": "executeQuery",
-        "query": "=select\n\tcount(*) as cnt\nfrom\n\tpayments\nwhere\n\tsucceeded = true\n\tand user_id = {{$node[\"SplitInBatches\"].json[\"user_id\"]}}",
+        "query": "=select\n\tcount(*) as cnt\nfrom\n\tpayments\nwhere\n\tsucceeded = true\n\tand user_id = {{$node[\"SplitInBatches\"].json[\"user_id\"]}}\n\tand date_trunc('quarter', billed) = date_trunc('quarter', (now() at time zone 'utc'))",
         "additionalFields": {}
       },
       "id": "5208a7f9-0cb5-4305-8615-ec367ce4352a",
@@ -890,7 +890,7 @@
     {
       "parameters": {
         "operation": "executeQuery",
-        "query": "=select\n    id as payment_id,\n    billed as \"date\",\n\tcase\n\t\twhen (\"type\" = 1) then 'Перевод физ. лица'\n\t\twhen (\"type\" = 2) then 'Оплата на расчетный счет'\n\t\twhen (\"type\" = 3) then 'Бонус по партнерской программе'\n\t\twhen (\"type\" = 4) then 'Комиссия по партнерской программе'\n\t\twhen (\"type\" = 5) then 'Продажа шаблонов на маркетплейсе'\n\t\twhen (\"type\" = 6) then 'Вывод средств на счет пользователя'\n\tend as \"type\",\n\tamount\nfrom\n\tpayments\nwhere\n\tsucceeded = true\n\tand user_id = {{$node[\"SplitInBatches\"].json[\"user_id\"]}}\norder by id desc\nlimit 10",
+        "query": "=select\n    id as payment_id,\n    billed as \"date\",\n\tcase\n\t\twhen (\"type\" = 1) then 'Перевод физ. лица'\n\t\twhen (\"type\" = 2) then 'Оплата на расчетный счет'\n\t\twhen (\"type\" = 3) then 'Бонус по партнерской программе'\n\t\twhen (\"type\" = 4) then 'Комиссия по партнерской программе'\n\t\twhen (\"type\" = 5) then 'Продажа шаблонов на маркетплейсе'\n\t\twhen (\"type\" = 6) then 'Вывод средств на счет пользователя'\n\tend as \"type\",\n\tamount\nfrom\n\tpayments\nwhere\n\tsucceeded = true\n\tand user_id = {{$node[\"SplitInBatches\"].json[\"user_id\"]}}\n\tand date_trunc('quarter', billed) = date_trunc('quarter', (now() at time zone 'utc'))\norder by id desc",
         "additionalFields": {}
       },
       "id": "7b6e0580-f5b6-486c-b142-5a2b857dec05",
@@ -912,7 +912,7 @@
     {
       "parameters": {
         "operation": "executeQuery",
-        "query": "=select count(*) as cnt from purchases where amount != 0 and user_id = {{$node[\"SplitInBatches\"].json[\"user_id\"]}}",
+        "query": "=select\n\tcount(*) as cnt\nfrom\n\tpurchases\nwhere\n\tamount != 0\n\tand user_id = {{$node[\"SplitInBatches\"].json[\"user_id\"]}}\n\tand date_trunc('quarter', charged) = date_trunc('quarter', (now() at time zone 'utc'))",
         "additionalFields": {}
       },
       "id": "5a68deaf-909e-4ea4-9937-39fed4f9b689",
@@ -933,7 +933,7 @@
     {
       "parameters": {
         "operation": "executeQuery",
-        "query": "=select\n\ta.id as purchase_id,\n\ta.charged as \"date\",\n\tcase\n\t\twhen (a.reason = 1) then 'месячный пакет'\n\t\twhen (a.reason = 2) then 'дополнительные строки'\n\t\twhen (a.reason = 3) then 'расширенная опция'\n\t\twhen (a.reason = 4) then 'смена количества строк'\n\t\twhen (a.reason = 5) then 'смена количества проектов'\n\tend as \"type\",\n\ta.amount,\n\tb.\"name\" as plan_name\nfrom\n\tpurchases a,\n\t\"plans\" b\nwhere\n\tb.id = a.plan_id\n    and a.amount != 0 \n\tand a.user_id = {{$node[\"SplitInBatches\"].json[\"user_id\"]}}\norder by a.id desc\nlimit 10",
+        "query": "=select\n\ta.id as purchase_id,\n\ta.charged as \"date\",\n\tcase\n\t\twhen (a.reason = 1) then 'месячный пакет'\n\t\twhen (a.reason = 2) then 'дополнительные строки'\n\t\twhen (a.reason = 3) then 'расширенная опция'\n\t\twhen (a.reason = 4) then 'смена количества строк'\n\t\twhen (a.reason = 5) then 'смена количества проектов'\n\tend as \"type\",\n\ta.amount,\n\tb.\"name\" as plan_name\nfrom\n\tpurchases a,\n\t\"plans\" b\nwhere\n\tb.id = a.plan_id\n    and a.amount != 0 \n\tand a.user_id = {{$node[\"SplitInBatches\"].json[\"user_id\"]}}\n\tand date_trunc('quarter', charged) = date_trunc('quarter', (now() at time zone 'utc'))\norder by a.id desc",
         "additionalFields": {}
       },
       "id": "e6d9a0e3-4d83-41e3-ae6a-edb33e5d1893",
@@ -1276,5 +1276,5 @@
   },
   "staticData": null,
   "tags": [],
-  "updatedAt": "2022-11-03T09:44:57.692Z"
+  "updatedAt": "2022-11-04T03:54:23.387Z"
 }
