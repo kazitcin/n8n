@@ -368,7 +368,7 @@
           "item": [
             {
               "mode": "custom",
-              "cronExpression": "0 */30 * * * *"
+              "cronExpression": "0 15 */2 * * *"
             }
           ]
         }
@@ -408,5 +408,5 @@
   },
   "staticData": null,
   "tags": [],
-  "updatedAt": "2022-10-30T05:31:31.213Z"
+  "updatedAt": "2022-11-05T04:49:35.747Z"
 }
