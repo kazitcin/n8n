@@ -1254,7 +1254,7 @@
           "item": [
             {
               "mode": "custom",
-              "cronExpression": "0 0 * * * *"
+              "cronExpression": "0 0 */2 * * *"
             }
           ]
         }
@@ -1276,5 +1276,5 @@
   },
   "staticData": null,
   "tags": [],
-  "updatedAt": "2022-11-04T03:54:23.387Z"
+  "updatedAt": "2022-11-05T04:48:56.676Z"
 }
