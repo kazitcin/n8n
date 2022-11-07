@@ -546,6 +546,10 @@
             {
               "fieldName": "balance",
               "fieldValue": "={{$node[\"SplitInBatches\"].json[\"balance\"]}}"
+            },
+            {
+              "fieldName": "recurring",
+              "fieldValue": "={{$node[\"SplitInBatches\"].json[\"recurring\"]}}"
             }
           ]
         }
@@ -1284,5 +1288,5 @@
   },
   "staticData": null,
   "tags": [],
-  "updatedAt": "2022-11-07T06:13:40.524Z"
+  "updatedAt": "2022-11-07T13:34:22.962Z"
 }
