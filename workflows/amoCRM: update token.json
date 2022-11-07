@@ -63,12 +63,18 @@
         ]
       ]
     },
-    "NocoDB2": {
+    "When Called By Another Workflow": {
       "main": [
-        []
+        [
+          {
+            "node": "Тип амо токена",
+            "type": "main",
+            "index": 0
+          }
+        ]
       ]
     },
-    "Start": {
+    "Тип амо токена": {
       "main": [
         [
           {
@@ -85,17 +91,6 @@
   "name": "amoCRM: update token",
   "nodes": [
     {
-      "parameters": {},
-      "id": "55a9a9eb-07c5-4731-ab89-4ca5cf47992a",
-      "name": "Start",
-      "type": "n8n-nodes-base.start",
-      "typeVersion": 1,
-      "position": [
-        -580,
-        240
-      ]
-    },
-    {
       "parameters": {
         "authentication": "nocoDbApiToken",
         "operation": "getAll",
@@ -103,7 +98,8 @@
         "table": "md_8za9o6ytymv7i8",
         "limit": 1,
         "options": {
-          "fields": []
+          "fields": [],
+          "where": "=(type,eq,{{$node[\"Тип амо токена\"].json[\"amoType\"]}})"
         }
       },
       "id": "6e50c566-dba2-4b95-9629-da3efe460b31",
@@ -264,11 +260,35 @@
           "name": "NocoDB"
         }
       }
+    },
+    {
+      "parameters": {},
+      "id": "db6d63b2-6068-4733-b927-26654ecaa796",
+      "name": "When Called By Another Workflow",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        -780,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\nlet amoType = $input.first().json.amoType;\nreturn [{amoType: 'prod'}];"
+      },
+      "id": "cf915ae2-d211-4800-8942-d4f0e8b8e825",
+      "name": "Тип амо токена",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        -580,
+        240
+      ]
     }
   ],
   "pinData": {},
   "settings": {},
   "staticData": null,
   "tags": [],
-  "updatedAt": "2022-10-28T19:27:37.905Z"
+  "updatedAt": "2022-11-07T08:35:17.801Z"
 }
