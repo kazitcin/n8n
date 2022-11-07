@@ -1,84 +1,11 @@
 {
-  "active": true,
+  "active": false,
   "connections": {
-    "HTTP Request": {
-      "main": [
-        [
-          {
-            "node": "Обновляем токен Amo",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Webhook": {
       "main": [
         [
           {
-            "node": "Текущий токен Amo",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Обновляем токен Amo": {
-      "main": [
-        [
-          {
-            "node": "Получаем токен Amo",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Токен Amo устарел?": {
-      "main": [
-        [
-          {
-            "node": "HTTP Request",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "Получаем токен Amo",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Определяем активность токена": {
-      "main": [
-        [
-          {
-            "node": "Токен Amo устарел?",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Текущий токен Amo": {
-      "main": [
-        [
-          {
-            "node": "Определяем активность токена",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Получаем токен Amo": {
-      "main": [
-        [
-          {
-            "node": "Поиск пользователя",
+            "node": "Тип амо токена",
             "type": "main",
             "index": 0
           }
@@ -725,61 +652,34 @@
           }
         ]
       ]
+    },
+    "Тип амо токена": {
+      "main": [
+        [
+          {
+            "node": "Execute Workflow",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow": {
+      "main": [
+        [
+          {
+            "node": "Поиск пользователя",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2022-10-25T21:15:04.454Z",
   "id": 10,
   "name": "Prod: Connect Events",
   "nodes": [
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "https://mybiconnectwidgets.amocrm.ru/oauth2/access_token",
-        "sendHeaders": true,
-        "headerParameters": {
-          "parameters": [
-            {
-              "name": "Content-type",
-              "value": "application/json"
-            }
-          ]
-        },
-        "sendBody": true,
-        "bodyParameters": {
-          "parameters": [
-            {
-              "name": "grant_type",
-              "value": "refresh_token"
-            },
-            {
-              "name": "refresh_token",
-              "value": "={{$node[\"Текущий токен Amo\"].json[\"refresh_token\"]}}"
-            },
-            {
-              "name": "client_id",
-              "value": "={{$node[\"Текущий токен Amo\"].json[\"client_id\"]}}"
-            },
-            {
-              "name": "client_secret",
-              "value": "={{$node[\"Текущий токен Amo\"].json[\"client_secret\"]}}"
-            },
-            {
-              "name": "redirect_uri",
-              "value": "={{$node[\"Текущий токен Amo\"].json[\"redirect_uri\"]}}"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "c07cbe9c-914e-4c56-8414-b9e7186613ac",
-      "name": "HTTP Request",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 3,
-      "position": [
-        700,
-        140
-      ]
-    },
     {
       "parameters": {
         "httpMethod": "POST",
@@ -791,132 +691,10 @@
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 1,
       "position": [
-        -160,
-        240
-      ],
-      "webhookId": "30841b7a-06c6-49d0-bc30-4504ca84fd0a"
-    },
-    {
-      "parameters": {
-        "authentication": "nocoDbApiToken",
-        "operation": "update",
-        "projectId": "p_g9w7m3ac8ab2rq",
-        "table": "md_8za9o6ytymv7i8",
-        "id": "={{$node[\"Текущий токен Amo\"].json[\"Id\"]}}",
-        "fieldsUi": {
-          "fieldValues": [
-            {
-              "fieldName": "access_token",
-              "fieldValue": "={{ $json[\"access_token\"] }}"
-            },
-            {
-              "fieldName": "refresh_token",
-              "fieldValue": "={{$node[\"HTTP Request\"].json[\"refresh_token\"]}}"
-            },
-            {
-              "fieldName": "expires_in",
-              "fieldValue": "={{$node[\"HTTP Request\"].json[\"expires_in\"]}}"
-            }
-          ]
-        }
-      },
-      "id": "8f214144-082f-4e66-b0a0-717b63567f85",
-      "name": "Обновляем токен Amo",
-      "type": "n8n-nodes-base.nocoDb",
-      "typeVersion": 2,
-      "position": [
-        920,
-        140
-      ],
-      "credentials": {
-        "nocoDbApiToken": {
-          "id": "3",
-          "name": "NocoDB"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "authentication": "nocoDbApiToken",
-        "operation": "getAll",
-        "projectId": "p_g9w7m3ac8ab2rq",
-        "table": "md_8za9o6ytymv7i8",
-        "limit": 1,
-        "options": {}
-      },
-      "id": "58d10571-523b-4147-a8a0-e03985de8d55",
-      "name": "Получаем токен Amo",
-      "type": "n8n-nodes-base.nocoDb",
-      "typeVersion": 2,
-      "position": [
-        1180,
+        800,
         260
       ],
-      "alwaysOutputData": true,
-      "credentials": {
-        "nocoDbApiToken": {
-          "id": "3",
-          "name": "NocoDB"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "conditions": {
-          "boolean": [
-            {
-              "value1": "={{$node[\"Определяем активность токена\"].json[\"isActive\"]}}"
-            }
-          ]
-        }
-      },
-      "id": "f82257b7-796a-49ea-a9e6-38668746c438",
-      "name": "Токен Amo устарел?",
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 1,
-      "position": [
-        500,
-        240
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\nlet current_timestamp = new Date().getTime();\nlet received_at = new Date($input.first().json.UpdatedAt).getTime();\nlet isActive = (current_timestamp - received_at) < (86400 * 0.95)\n\n\n\nreturn [{isActive}];"
-      },
-      "id": "e64aca7c-1470-42df-819a-5d3b6cbcdd38",
-      "name": "Определяем активность токена",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 1,
-      "position": [
-        280,
-        240
-      ]
-    },
-    {
-      "parameters": {
-        "authentication": "nocoDbApiToken",
-        "operation": "getAll",
-        "projectId": "p_g9w7m3ac8ab2rq",
-        "table": "md_8za9o6ytymv7i8",
-        "limit": 1,
-        "options": {
-          "fields": []
-        }
-      },
-      "id": "f24f9e25-b876-4d86-a591-d061668f9979",
-      "name": "Текущий токен Amo",
-      "type": "n8n-nodes-base.nocoDb",
-      "typeVersion": 2,
-      "position": [
-        60,
-        240
-      ],
-      "credentials": {
-        "nocoDbApiToken": {
-          "id": "3",
-          "name": "NocoDB"
-        }
-      }
+      "webhookId": "30841b7a-06c6-49d0-bc30-4504ca84fd0a"
     },
     {
       "parameters": {
@@ -947,13 +725,13 @@
     {
       "parameters": {
         "method": "POST",
-        "url": "=https://{{$node[\"Получаем токен Amo\"].json[\"subdomain\"]}}/api/v4/contacts",
+        "url": "=https://{{$node[\"Execute Workflow\"].json[\"subdomain\"]}}/api/v4/contacts",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
             {
               "name": "Authorization",
-              "value": "=Bearer {{$node[\"Получаем токен Amo\"].json[\"access_token\"]}}"
+              "value": "=Bearer {{$node[\"Execute Workflow\"].json[\"access_token\"]}}"
             }
           ]
         },
@@ -1162,13 +940,13 @@
     {
       "parameters": {
         "method": "POST",
-        "url": "=https://{{$node[\"Получаем токен Amo\"].json[\"subdomain\"]}}/api/v4/leads",
+        "url": "=https://{{$node[\"Execute Workflow\"].json[\"subdomain\"]}}/api/v4/leads",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
             {
               "name": "Authorization",
-              "value": "=Bearer {{$node[\"Получаем токен Amo\"].json[\"access_token\"]}}"
+              "value": "=Bearer {{$node[\"Execute Workflow\"].json[\"access_token\"]}}"
             }
           ]
         },
@@ -1314,13 +1092,13 @@
     {
       "parameters": {
         "method": "POST",
-        "url": "=https://{{$node[\"Получаем токен Amo\"].json[\"subdomain\"]}}/api/v4/leads/link",
+        "url": "=https://{{$node[\"Execute Workflow\"].json[\"subdomain\"]}}/api/v4/leads/link",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
             {
               "name": "Authorization",
-              "value": "=Bearer {{$node[\"Получаем токен Amo\"].json[\"access_token\"]}}"
+              "value": "=Bearer {{$node[\"Execute Workflow\"].json[\"access_token\"]}}"
             }
           ]
         },
@@ -1393,13 +1171,13 @@
     {
       "parameters": {
         "method": "PATCH",
-        "url": "=https://{{$node[\"Получаем токен Amo\"].json[\"subdomain\"]}}/api/v4/leads",
+        "url": "=https://{{$node[\"Execute Workflow\"].json[\"subdomain\"]}}/api/v4/leads",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
             {
               "name": "Authorization",
-              "value": "=Bearer {{$node[\"Получаем токен Amo\"].json[\"access_token\"]}}"
+              "value": "=Bearer {{$node[\"Execute Workflow\"].json[\"access_token\"]}}"
             }
           ]
         },
@@ -2401,11 +2179,37 @@
         4440,
         260
       ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\n\n\nreturn [{amoType: 'prod'}];"
+      },
+      "id": "620be3bc-3de6-4d45-97e7-95a650078bc6",
+      "name": "Тип амо токена",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        980,
+        260
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "13"
+      },
+      "id": "e4e10fe1-d8ac-4758-8437-0c75f7062be0",
+      "name": "Execute Workflow",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        1200,
+        260
+      ]
     }
   ],
   "pinData": {},
   "settings": {},
   "staticData": null,
   "tags": [],
-  "updatedAt": "2022-11-02T14:57:55.799Z"
+  "updatedAt": "2022-11-07T08:58:25.911Z"
 }
