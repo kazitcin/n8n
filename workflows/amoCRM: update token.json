@@ -94,8 +94,8 @@
       "parameters": {
         "authentication": "nocoDbApiToken",
         "operation": "getAll",
-        "projectId": "p_g9w7m3ac8ab2rq",
-        "table": "md_8za9o6ytymv7i8",
+        "projectId": "p_f907ih5oqn9gtp",
+        "table": "md_j04lph4zvy0dhp",
         "limit": 1,
         "options": {
           "fields": [],
@@ -202,8 +202,8 @@
       "parameters": {
         "authentication": "nocoDbApiToken",
         "operation": "update",
-        "projectId": "p_g9w7m3ac8ab2rq",
-        "table": "md_8za9o6ytymv7i8",
+        "projectId": "p_f907ih5oqn9gtp",
+        "table": "md_j04lph4zvy0dhp",
         "id": "={{$node[\"NocoDB\"].json[\"Id\"]}}",
         "fieldsUi": {
           "fieldValues": [
@@ -241,8 +241,8 @@
       "parameters": {
         "authentication": "nocoDbApiToken",
         "operation": "getAll",
-        "projectId": "p_g9w7m3ac8ab2rq",
-        "table": "md_8za9o6ytymv7i8",
+        "projectId": "p_f907ih5oqn9gtp",
+        "table": "md_j04lph4zvy0dhp",
         "limit": 1,
         "options": {}
       },
@@ -274,7 +274,7 @@
     },
     {
       "parameters": {
-        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\nlet amoType = $input.first().json.amoType;\nreturn [{amoType: 'prod'}];"
+        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\nlet amoType = $input.first().json.amoType;\nreturn [{amoType}];"
       },
       "id": "cf915ae2-d211-4800-8942-d4f0e8b8e825",
       "name": "Тип амо токена",
@@ -290,5 +290,5 @@
   "settings": {},
   "staticData": null,
   "tags": [],
-  "updatedAt": "2022-11-07T08:35:17.801Z"
+  "updatedAt": "2022-11-07T10:30:48.653Z"
 }
