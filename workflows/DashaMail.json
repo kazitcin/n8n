@@ -1,0 +1,30 @@
+{
+  "active": true,
+  "connections": {},
+  "createdAt": "2022-11-08T02:53:43.380Z",
+  "id": 25,
+  "name": "DashaMail",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "0462c25b-06b7-4fa2-8086-887775a9ecfb",
+        "options": {}
+      },
+      "id": "e6a72850-ab6e-439e-99c9-e65c455a6e37",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        880,
+        420
+      ],
+      "webhookId": "0462c25b-06b7-4fa2-8086-887775a9ecfb"
+    }
+  ],
+  "pinData": {},
+  "settings": {},
+  "staticData": null,
+  "tags": [],
+  "updatedAt": "2022-11-08T02:53:53.996Z"
+}
