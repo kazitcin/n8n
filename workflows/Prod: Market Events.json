@@ -16,7 +16,7 @@
       "main": [
         [
           {
-            "node": "Execute Workflow",
+            "node": "Set",
             "type": "main",
             "index": 0
           }
@@ -418,6 +418,13 @@
             "type": "main",
             "index": 0
           }
+        ],
+        [
+          {
+            "node": "Set2",
+            "type": "main",
+            "index": 0
+          }
         ]
       ]
     },
@@ -425,7 +432,7 @@
       "main": [
         [
           {
-            "node": "Параметры  сделки",
+            "node": "Code",
             "type": "main",
             "index": 0
           }
@@ -491,12 +498,12 @@
       "main": [
         [
           {
-            "node": "Есть email?",
+            "node": "Параметры примечания",
             "type": "main",
             "index": 0
           },
           {
-            "node": "Параметры примечания",
+            "node": "Есть email?",
             "type": "main",
             "index": 0
           }
@@ -540,7 +547,7 @@
       "main": [
         [
           {
-            "node": "Параметры демо контакта",
+            "node": "Set1",
             "type": "main",
             "index": 0
           }
@@ -749,6 +756,72 @@
           }
         ]
       ]
+    },
+    "Set": {
+      "main": [
+        [
+          {
+            "node": "Execute Workflow",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set1": {
+      "main": [
+        [
+          {
+            "node": "Execute Workflow1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow1": {
+      "main": [
+        [
+          {
+            "node": "Параметры демо контакта",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "Данные автора",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set2": {
+      "main": [
+        [
+          {
+            "node": "Данные автора",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Данные автора": {
+      "main": [
+        [
+          {
+            "node": "Параметры  сделки",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2022-10-28T19:21:32.910Z",
@@ -764,8 +837,8 @@
       "type": "n8n-nodes-base.executeWorkflow",
       "typeVersion": 1,
       "position": [
-        -20,
-        260
+        -620,
+        720
       ]
     },
     {
@@ -779,8 +852,8 @@
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 1,
       "position": [
-        -200,
-        260
+        -980,
+        720
       ],
       "webhookId": "ff15db6a-ff62-468e-a2e6-6b171b1d7e46"
     },
@@ -807,16 +880,16 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        960,
-        60
+        360,
+        560
       ]
     },
     {
       "parameters": {
         "authentication": "nocoDbApiToken",
         "operation": "create",
-        "projectId": "p_g9w7m3ac8ab2rq",
-        "table": "md_y0z1qo6sry41ug",
+        "projectId": "p_f907ih5oqn9gtp",
+        "table": "md_n1yyob6hvv0plw",
         "fieldsUi": {
           "fieldValues": [
             {
@@ -851,8 +924,8 @@
       "type": "n8n-nodes-base.nocoDb",
       "typeVersion": 2,
       "position": [
-        1340,
-        60
+        720,
+        560
       ],
       "credentials": {
         "nocoDbApiToken": {
@@ -863,36 +936,36 @@
     },
     {
       "parameters": {
-        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\nlet params = [{\n    \"first_name\": $node[\"Webhook\"].json[\"body\"][\"Name\"],\n    \"responsible_user_id\": 6651409,\n    \"custom_fields_values\": [\n        {\n            \"field_id\": 2224997,\n            \"field_name\": \"Email\",\n            \"field_code\": \"EMAIL\",\n            \"field_type\": \"multitext\",\n            \"values\": [\n                {\n                    \"value\": $node[\"Webhook\"].json[\"body\"][\"Email\"],\n                    \"enum_id\": 1008131,\n                    \"enum_code\": \"WORK\"\n                }\n            ]\n        }\n    ]\n}]\n\nif ($node[\"Webhook\"].json[\"body\"][\"Phone\"]) {\n  params[0][\"custom_fields_values\"].push(\n            {\n            \"field_id\": 2224995,\n            \"field_name\": \"Телефон\",\n            \"field_code\": \"PHONE\",\n            \"field_type\": \"multitext\",\n            \"values\": [\n                {\n                    \"value\": $node[\"Webhook\"].json[\"body\"][\"Phone\"],\n                    \"enum_id\": 1008119,\n                    \"enum_code\": \"WORK\"\n                }\n            ]\n        }\n  )\n}\n\nreturn [{params: JSON.stringify(params)}];"
+        "jsCode": "let params = [{\n  \"first_name\": $node[\"Webhook\"].json[\"body\"][\"Name\"],\n  \"responsible_user_id\": 289686,\n  \"custom_fields_values\": [\n    {\n      \"field_id\": 763227,\n      \"values\": [\n        {\n          \"value\": $node[\"Webhook\"].json[\"body\"][\"Email\"],\n          \"enum_id\": 570365\n        }\n      ]\n    }\n  ]\n}]\n\nif ($node[\"Webhook\"].json[\"body\"][\"Phone\"]) {\n  params[0][\"custom_fields_values\"].push(\n    {\n      \"field_id\": 763225,\n      \"values\": [\n        {\n          \"value\": $node[\"Webhook\"].json[\"body\"][\"Phone\"],\n          \"enum_id\": 570353\n        }\n      ]\n    }\n  )\n}\n\nreturn [{ params: JSON.stringify(params) }];"
       },
       "id": "a4f5bf4d-c7ed-4f48-93fa-179495692ebd",
       "name": "Параметры контакта",
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        780,
-        60
+        180,
+        560
       ]
     },
     {
       "parameters": {
-        "jsCode": "return [{data: JSON.parse($input.all()[0].json.data)}];"
+        "jsCode": "return [\n  {\n    data: JSON.parse($input.all()[0].json.data)\n  }\n];"
       },
       "id": "bf7256e5-5de6-4798-b799-5cf4157735fd",
       "name": "ID контакта",
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        1140,
-        60
+        540,
+        560
       ]
     },
     {
       "parameters": {
         "authentication": "nocoDbApiToken",
         "operation": "getAll",
-        "projectId": "p_g9w7m3ac8ab2rq",
-        "table": "md_y0z1qo6sry41ug",
+        "projectId": "p_f907ih5oqn9gtp",
+        "table": "md_n1yyob6hvv0plw",
         "limit": 1,
         "options": {
           "where": "=(email,eq,{{$node[\"Webhook\"].json[\"body\"][\"Email\"]}})"
@@ -903,8 +976,8 @@
       "type": "n8n-nodes-base.nocoDb",
       "typeVersion": 2,
       "position": [
-        200,
-        260
+        -440,
+        720
       ],
       "alwaysOutputData": true,
       "credentials": {
@@ -923,8 +996,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        380,
-        260
+        -260,
+        720
       ]
     },
     {
@@ -968,8 +1041,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 1,
       "position": [
-        740,
-        500
+        540,
+        880
       ]
     },
     {
@@ -1013,8 +1086,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 1,
       "position": [
-        1560,
-        60
+        900,
+        560
       ]
     },
     {
@@ -1026,34 +1099,34 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        980,
-        340
+        1160,
+        720
       ]
     },
     {
       "parameters": {
-        "jsCode": "let products = $node[\"Webhook\"].json[\"body\"][\"payment\"][\"products\"];\nlet result = [];\nfor(let i = 0; i < products.length; i++) {\n  products[i]\n  result.push(`${i+1}. ${products[i].name} - ${products[i].quantity} шт. / ${products[i].price}`)\n}\n\nreturn [{products: result.join('\\n')}];\n\n"
+        "jsCode": "let products = $node[\"Webhook\"].json[\"body\"][\"payment\"][\"products\"];\nlet result = [];\n\nfor (let i = 0; i < products.length; i++) {\n  products[i]\n  result.push(`${i + 1}. ${products[i].name} - ${products[i].quantity} шт. / ${products[i].price}`)\n}\n\nreturn [{ products: result.join('\\n') }];"
       },
       "id": "939ebad3-e54e-40f6-bb14-7dcc06ca7ad4",
       "name": "Товары",
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        1400,
-        320
+        1680,
+        -240
       ]
     },
     {
       "parameters": {
-        "jsCode": "let params = [\n    {\n        \"name\": `Заказ № ${$node[\"Webhook\"].json[\"body\"][\"payment\"][\"orderid\"]}`, \n        \"price\": parseInt($node[\"Webhook\"].json[\"body\"][\"payment\"][\"amount\"]),\n        \"responsible_user_id\": 6651409,\n        \"status_id\": 52278730,\n        \"pipeline_id\": 6014764,\n        \"custom_fields_values\": null\n    }\n]\n\n\nreturn [{params: JSON.stringify(params)}];"
+        "jsCode": "let params = [\n  {\n    \"name\": `Заказ № ${$node[\"Webhook\"].json[\"body\"][\"payment\"][\"orderid\"]}`,\n    \"price\": parseInt($node[\"Webhook\"].json[\"body\"][\"payment\"][\"amount\"]),\n    \"responsible_user_id\": 289686,\n    \"status_id\": 39207736,\n    \"pipeline_id\": 4163434,\n    \"custom_fields_values\": [\n      {\n        \"field_id\": 889027,\n        \"values\": [\n          {\n            \"value\": $node[\"Товары\"].json.products\n          }\n        ]\n      }\n    ]\n  }\n]\n\nreturn [{ params: JSON.stringify(params) }];"
       },
       "id": "d33b970f-fba8-4e8a-a600-4799de544d6c",
       "name": "Параметры создания сделки",
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        1600,
-        320
+        1860,
+        -240
       ]
     },
     {
@@ -1079,34 +1152,34 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        1800,
-        320
+        2040,
+        -240
       ]
     },
     {
       "parameters": {
-        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\nreturn [{data: JSON.parse($input.all()[0].json.data)}];"
+        "jsCode": "return [\n  {\n    data: JSON.parse($input.all()[0].json.data)\n  }\n];"
       },
       "id": "c119ec1a-ac6b-4460-8823-c9c6b0e1925f",
       "name": "Ответ создания",
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        2020,
-        320
+        2220,
+        -240
       ]
     },
     {
       "parameters": {
-        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\nlet params = [\n    {\n        \"entity_id\": parseInt($node[\"Ответ создания\"].json[\"data\"][\"_embedded\"][\"leads\"][0][\"id\"]),\n        \"to_entity_id\": parseInt($node[\"ID пользователя\"].json[\"data\"][\"contact_id\"]),\n        \"to_entity_type\": \"contacts\",\n        \"metadata\": {\n            \"is_main\": true\n        }\n    }\n]\nreturn [{params: JSON.stringify(params)}];"
+        "jsCode": "let params = [\n  {\n    \"entity_id\": parseInt($node[\"Ответ создания\"].json[\"data\"][\"_embedded\"][\"leads\"][0][\"id\"]),\n    \"to_entity_id\": parseInt($node[\"ID пользователя\"].json[\"data\"][\"contact_id\"]),\n    \"to_entity_type\": \"contacts\",\n    \"metadata\": {\n      \"is_main\": true\n    }\n  }\n]\n\nreturn [{ params: JSON.stringify(params) }];"
       },
       "id": "6aa200d9-53b3-4b7f-84d3-5f54a444b227",
       "name": "Параметры связывания контакта",
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        2240,
-        320
+        2400,
+        -240
       ]
     },
     {
@@ -1125,8 +1198,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        560,
-        260
+        -80,
+        720
       ]
     },
     {
@@ -1145,8 +1218,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        1180,
-        340
+        1420,
+        160
       ]
     },
     {
@@ -1172,21 +1245,21 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        2440,
-        320
+        2580,
+        -240
       ]
     },
     {
       "parameters": {
-        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\nlet data = [{\nexternalid: 820119,\nname: \"Отчет по продажам amoCRM\",\namount: \"499\",\nquantity: \"1\",\nprice: \"499\"\n}, {\nexternalid: 820115,\nname: \"Модель данных amoCRM\",\namount: \"99\",\nquantity: \"1\",\nprice: \"99\"\n}];\n\n//return $node[\"Webhook\"].json[\"body\"][\"payment\"][\"products\"];\nreturn data;"
+        "jsCode": "return $node[\"Webhook\"].json[\"body\"][\"payment\"][\"products\"];"
       },
       "id": "2fec995c-c961-4e24-95cb-6ffb69edfd43",
       "name": "Список товаров",
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        2660,
-        320
+        2760,
+        -240
       ]
     },
     {
@@ -1199,30 +1272,30 @@
       "type": "n8n-nodes-base.splitInBatches",
       "typeVersion": 1,
       "position": [
-        2860,
-        160
+        3020,
+        -400
       ],
       "alwaysOutputData": false
     },
     {
       "parameters": {
-        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\nlet params = [\n    {\n        \"entity_id\": parseInt($node[\"Ответ создания\"].json[\"data\"][\"_embedded\"][\"leads\"][0][\"id\"]),\n        \"to_entity_id\": parseInt($node[\"Параметры товара\"].json[\"product_id\"]),\n        \"to_entity_type\": \"catalog_elements\",\n        \"metadata\": {\n            \"quantity\": 1.0,\n            \"catalog_id\": 7041\n        }\n    }\n]\n\nreturn [{params: JSON.stringify(params)}];"
+        "jsCode": "let params = [\n  {\n    \"entity_id\": parseInt($node[\"Ответ создания\"].json[\"data\"][\"_embedded\"][\"leads\"][0][\"id\"]),\n    \"to_entity_id\": parseInt($node[\"Параметры товара\"].json[\"product_id\"]),\n    \"to_entity_type\": \"catalog_elements\",\n    \"metadata\": {\n      \"quantity\": parseInt($node[\"SplitInBatches\"].json[\"quantity\"]),\n      \"catalog_id\": 4293\n    }\n  }\n]\n\nreturn [{ params: JSON.stringify(params) }];"
       },
       "id": "72c22a1b-dc42-4624-ad93-ba9acf6eb0bf",
       "name": "Параметры привязки товара",
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        3260,
-        160
+        3380,
+        -400
       ]
     },
     {
       "parameters": {
         "authentication": "nocoDbApiToken",
         "operation": "getAll",
-        "projectId": "p_g9w7m3ac8ab2rq",
-        "table": "md_krgepwthzb9kz3",
+        "projectId": "p_f907ih5oqn9gtp",
+        "table": "md_t8cq3zpwwv80h2",
         "limit": 1,
         "options": {
           "where": "=(product_id,eq,{{$node[\"SplitInBatches\"].json[\"externalid\"]}})"
@@ -1233,8 +1306,8 @@
       "type": "n8n-nodes-base.nocoDb",
       "typeVersion": 2,
       "position": [
-        3060,
-        160
+        3200,
+        -400
       ],
       "credentials": {
         "nocoDbApiToken": {
@@ -1266,21 +1339,21 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        3480,
-        160
+        3560,
+        -400
       ]
     },
     {
       "parameters": {
-        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\n\nlet params = {\n  user_name: $node[\"Webhook\"].json[\"body\"][\"Name\"],\n  template_name: $node[\"SplitInBatches\"].json[\"name\"],\n  download_url: `https://app.mybi.ru/market/download/${$node[\"Параметры товара\"].json[\"code\"]}`,\n  support_url: $node[\"Параметры товара\"].json[\"support_url\"]\n}\n\nreturn [{params: JSON.stringify(params)}];"
+        "jsCode": "let params = {\n  user_name: $node[\"Webhook\"].json[\"body\"][\"Name\"],\n  template_name: $node[\"SplitInBatches\"].json[\"name\"],\n  download_url: `https://app.mybi.ru/market/download/${$node[\"Параметры товара\"].json[\"code\"]}`,\n  support_url: $node[\"Параметры товара\"].json[\"support_url\"]\n}\n\nreturn [{ params: JSON.stringify(params) }];"
       },
       "id": "02ab6397-73cb-4e29-8670-9efa13bb322d",
       "name": "Параметры письма",
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        3700,
-        160
+        3740,
+        -400
       ]
     },
     {
@@ -1327,26 +1400,26 @@
       "typeVersion": 3,
       "position": [
         3920,
-        160
+        -400
       ]
     },
     {
       "parameters": {
-        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\nlet params = {\n  user_id: parseInt($node[\"Параметры товара\"].json[\"user_id\"]),\n  amount: parseInt($node[\"SplitInBatches\"].json[\"amount\"]),\n  comment: `Продажа отчета ${$node[\"SplitInBatches\"].json[\"name\"]}`\n}\n\n\nreturn [{params: JSON.stringify(params)}];"
+        "jsCode": "let params = {\n  user_id: parseInt($node[\"Параметры товара\"].json[\"user_id\"]),\n  amount: parseInt($node[\"SplitInBatches\"].json[\"amount\"]),\n  comment: `Продажа отчета ${$node[\"SplitInBatches\"].json[\"name\"]}`\n}\n\nreturn [{params: JSON.stringify(params)}];"
       },
       "id": "04784cd1-bc77-48ac-85dc-0e222b13ee6e",
       "name": "Параметры myBI",
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        4120,
-        160
+        4100,
+        -400
       ]
     },
     {
       "parameters": {
         "method": "POST",
-        "url": "https://dev.mybi.ru/payments/market/callback",
+        "url": "https://app.mybi.ru/payments/market/callback",
         "sendQuery": true,
         "specifyQuery": "json",
         "jsonQuery": "={{$node[\"Параметры myBI\"].json[\"params\"]}}",
@@ -1357,27 +1430,27 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        4320,
-        160
+        4280,
+        -400
       ]
     },
     {
       "parameters": {
-        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\nlet products = [];\nlet data = $input.all();\n\nfor(let i = 0; i < data.length; i++) {\n  products.push({\n    \"value\": {\n      \"sku\": \"\",\n      \"product_id\": data[i].json[\"externalid\"],\n      \"description\": data[i].json[\"name\"],\n      \"unit_price\": parseFloat(data[i].json[\"price\"]),\n      \"unit_type\": \"шт\",\n      \"quantity\": data[i].json[\"quantity\"]\n    }})\n}\n\nlet params = [{\n    \"name\": `\"Покупка № ${$node[\"Webhook\"].json[\"body\"][\"payment\"][\"orderid\"]}`,\n    \"custom_fields_values\": [\n        {\n            \"field_id\": 2225277,\n            \"field_name\": \"Статус\",\n            \"values\": [\n                {\n                    \"value\": \"Оплачен\"\n                }\n            ]\n        },\n        {\n            \"field_id\": 2225281,\n            \"field_name\": \"Плательщик\",\n            \"values\": [\n                {\n                    \"value\": {\n                        \"entity_id\": parseInt($node[\"ID пользователя\"].json[\"data\"][\"contact_id\"]),\n                        \"entity_type\": \"contacts\",\n                        \"catalog_id\": null\n                    }\n                }\n            ]\n        },\n        {\n            \"field_id\": 2225285,\n            \"field_name\": \"Дата оплаты\",\n            \"values\": [\n                {\n                    \"value\": parseInt(new Date().getTime()/1000)\n                }\n            ]\n        },\n        {\n            \"field_id\": 2225287,\n            \"field_name\": \"Позиции счета\",\n            \"field_code\": \"ITEMS\",\n            \"field_type\": \"items\",\n            \"values\": products\n        },\n        {\n            \"field_id\": 2225291,\n            \"field_name\": \"Стоимость\",\n            \"values\": [\n                {\n                    \"value\": $node[\"Webhook\"].json[\"body\"][\"payment\"][\"amount\"]\n                }\n            ]\n        }\n    ]\n}];\n\n\n\nreturn [{params: JSON.stringify(params)}];"
+        "jsCode": "let products = [];\nlet data = $input.all();\n\nfor (let i = 0; i < data.length; i++) {\n  products.push({\n    \"value\": {\n      \"sku\": \"\",\n      \"product_id\": data[i].json[\"externalid\"],\n      \"description\": data[i].json[\"name\"],\n      \"unit_price\": parseFloat(data[i].json[\"price\"]),\n      \"unit_type\": \"шт\",\n      \"quantity\": data[i].json[\"quantity\"]\n    }\n  })\n}\n\nlet params = [{\n  \"name\": `\"Покупка № ${$node[\"Webhook\"].json[\"body\"][\"payment\"][\"orderid\"]}`,\n  \"custom_fields_values\": [\n    {\n      \"field_id\": 1158437,\n      \"values\": [\n        {\n          \"value\": \"Оплачен\"\n        }\n      ]\n    },\n    {\n      \"field_id\": 1158441,\n      \"values\": [\n        {\n          \"value\": {\n            \"entity_id\": parseInt($node[\"ID пользователя\"].json[\"data\"][\"contact_id\"]),\n            \"entity_type\": \"contacts\"\n          }\n        }\n      ]\n    },\n    {\n      \"field_id\": 1158445,\n      \"field_name\": \"Дата оплаты\",\n      \"values\": [\n        {\n          \"value\": parseInt(new Date().getTime() / 1000)\n        }\n      ]\n    },\n    {\n      \"field_id\": 1158447,\n      \"values\": products\n    },\n    {\n      \"field_id\": 1158451,\n      \"field_name\": \"Стоимость\",\n      \"values\": [\n        {\n          \"value\": $node[\"Webhook\"].json[\"body\"][\"payment\"][\"amount\"]\n        }\n      ]\n    },\n    {\n      \"field_id\": 1158449,\n      \"values\": [\n        {\n          \"value\": $node[\"Webhook\"].json[\"body\"][\"payment\"][\"sys\"]\n        }\n      ]\n    },\n    {\n      \"field_id\": 1158455,\n      \"values\": [\n        {\n          \"value\": $node[\"Webhook\"].json[\"body\"][\"payment\"][\"systranid\"]\n        }\n      ]\n    }\n  ]\n}];\n\nreturn [{ params: JSON.stringify(params) }];"
       },
       "id": "a413e29e-19d7-4d9d-afcf-d51d8a913dec",
       "name": "Параметры счета",
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        2840,
-        440
+        3020,
+        -80
       ]
     },
     {
       "parameters": {
         "method": "POST",
-        "url": "=https://{{$node[\"Execute Workflow\"].json[\"subdomain\"]}}/api/v4/catalogs/7045/elements",
+        "url": "=https://{{$node[\"Execute Workflow\"].json[\"subdomain\"]}}/api/v4/catalogs/9477/elements",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
@@ -1397,34 +1470,34 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        3060,
-        440
+        3200,
+        -80
       ]
     },
     {
       "parameters": {
-        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\nreturn [{data: JSON.parse($input.all()[0].json.data)}];"
+        "jsCode": "return [{data: JSON.parse($input.all()[0].json.data)}];"
       },
       "id": "21f44c14-131b-4c93-8d35-54dbc74407dd",
       "name": "Счет",
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        3280,
-        440
+        3380,
+        -80
       ]
     },
     {
       "parameters": {
-        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\nlet params = [\n    {\n        \"entity_id\": parseInt($node[\"Ответ создания\"].json[\"data\"][\"_embedded\"][\"leads\"][0][\"id\"]),\n        \"to_entity_id\": parseInt($node[\"Счет\"].json[\"data\"][\"_embedded\"][\"elements\"][0][\"id\"]),\n        \"to_entity_type\": \"catalog_elements\",\n        \"metadata\": {\n            \"quantity\": 1.0,\n            \"catalog_id\": 7045\n        }\n    }\n]\n\nreturn [{params: JSON.stringify(params)}];"
+        "jsCode": "let params = [\n  {\n    \"entity_id\": parseInt($node[\"Ответ создания\"].json[\"data\"][\"_embedded\"][\"leads\"][0][\"id\"]),\n    \"to_entity_id\": parseInt($node[\"Счет\"].json[\"data\"][\"_embedded\"][\"elements\"][0][\"id\"]),\n    \"to_entity_type\": \"catalog_elements\",\n    \"metadata\": {\n      \"quantity\": 1.0,\n      \"catalog_id\": 9477\n    }\n  }\n]\n\nreturn [{ params: JSON.stringify(params) }];"
       },
       "id": "0febc4b3-e82b-4af8-9760-7914034e7909",
       "name": "Сделка и счет",
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        3500,
-        440
+        3560,
+        -80
       ]
     },
     {
@@ -1450,13 +1523,13 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        3700,
-        440
+        3740,
+        -80
       ]
     },
     {
       "parameters": {
-        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\nlet params = [\n    {\n        \"id\": parseInt($node[\"Ответ создания\"].json[\"data\"][\"_embedded\"][\"leads\"][0][\"id\"]),\n        \"name\": 'Отчет отправлен',\n        \"responsible_user_id\": 6651409,\n        \"status_id\": 52278730,\n        \"pipeline_id\": 6014764,\n        \"custom_fields_values\": null\n    }\n]\n\nreturn [{params: JSON.stringify(params)}];"
+        "jsCode": "let params = [\n  {\n    \"id\": parseInt($node[\"Ответ создания\"].json[\"data\"][\"_embedded\"][\"leads\"][0][\"id\"]),\n    \"responsible_user_id\": 289686,\n    \"status_id\": 39207742,\n    \"pipeline_id\": 4163434\n  }\n]\n\nreturn [{ params: JSON.stringify(params) }];"
       },
       "id": "87b43af3-a09d-4fdd-8a91-d99bfb0381d6",
       "name": "Параметры обновления сделки",
@@ -1464,7 +1537,7 @@
       "typeVersion": 1,
       "position": [
         3920,
-        440
+        -80
       ]
     },
     {
@@ -1490,21 +1563,21 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        4140,
-        440
+        4100,
+        -80
       ]
     },
     {
       "parameters": {
-        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\nlet forms = {\n  'form380230425': 2127,\n  'form380227161': 1773,\n  'form380230802': 953,\n  'form380229840': 3360,\n  'form378881585': 2954,\n  'form380231530': 4067,\n  'form386679150': 4819\n}\n\nlet data = [{value: forms[$node[\"Webhook\"].json[\"body\"][\"formid\"]]}]\n\nreturn data;"
+        "jsCode": "let forms = {\n  'form380230425': 2127,\n  'form380227161': 1773,\n  'form380230802': 953,\n  'form380229840': 3360,\n  'form378881585': 2954,\n  'form380231530': 4067,\n  'form386679150': 4819\n}\n\nlet data = [{ value: forms[$node[\"Webhook\"].json[\"body\"][\"formid\"]] }]\n\nreturn data;"
       },
       "id": "de0e32a1-41e6-4045-928c-618fd87d7654",
       "name": "ID формы обращения",
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        1360,
-        720
+        1680,
+        560
       ]
     },
     {
@@ -1524,16 +1597,16 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        1580,
-        720
+        1860,
+        560
       ]
     },
     {
       "parameters": {
         "authentication": "nocoDbApiToken",
         "operation": "getAll",
-        "projectId": "p_g9w7m3ac8ab2rq",
-        "table": "md_y0z1qo6sry41ug",
+        "projectId": "p_f907ih5oqn9gtp",
+        "table": "md_n1yyob6hvv0plw",
         "limit": 1,
         "options": {
           "where": "=(user_id,eq,{{$node[\"ID формы обращения\"].json[\"value\"]}})"
@@ -1544,8 +1617,8 @@
       "type": "n8n-nodes-base.nocoDb",
       "typeVersion": 2,
       "position": [
-        1800,
-        700
+        2120,
+        400
       ],
       "credentials": {
         "nocoDbApiToken": {
@@ -1556,15 +1629,15 @@
     },
     {
       "parameters": {
-        "jsCode": "let fullName = $node[\"Поиск автора\"].json[\"first_name\"];\nif ($node[\"Поиск автора\"].json[\"last_name\"]) {\n  fullName += ' ' + $node[\"Поиск автора\"].json[\"last_name\"]\n}\n\nlet params = [\n    {\n        \"name\": $node[\"Webhook\"].json[\"body\"][\"Name\"], \n        \"responsible_user_id\": 6651409,\n        \"status_id\": 52278730,\n        \"pipeline_id\": 6014764,\n        \"custom_fields_values\": null\n    }\n]\n\n\nreturn [{params: JSON.stringify(params)}];"
+        "jsCode": "let params = [\n  {\n    \"name\": $node[\"Webhook\"].json[\"body\"][\"Name\"],\n    \"responsible_user_id\": 289686,\n    \"status_id\": 44373853,\n    \"pipeline_id\": 4901218\n  }\n]\n\nif ($input.first().json.fullName) {\n  params[0][\"custom_fields_values\"] = [\n    {\n      \"field_id\": 1158461,\n      \"values\": [\n        {\n          \"value\": $input.first().json.fullName\n        }\n      ]\n    }\n  ]\n}\n\nreturn [{ params: JSON.stringify(params) }];"
       },
       "id": "13b904c5-ad88-4ad4-9129-36b9cc2b1cd2",
       "name": "Параметры  сделки",
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        2020,
-        700
+        2760,
+        560
       ]
     },
     {
@@ -1590,34 +1663,34 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        2240,
-        700
+        2940,
+        560
       ]
     },
     {
       "parameters": {
-        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\nreturn [{data: JSON.parse($input.all()[0].json.data)}];"
+        "jsCode": "return [{data: JSON.parse($input.all()[0].json.data)}];"
       },
       "id": "c29c3f80-560f-49a8-a453-8f689a885d5a",
       "name": "Данные о сделке",
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        2460,
-        700
+        3120,
+        560
       ]
     },
     {
       "parameters": {
-        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\nlet params = [\n    {\n        \"entity_id\": parseInt($node[\"Данные о сделке\"].json[\"data\"][\"_embedded\"][\"leads\"][0][\"id\"]),\n        \"to_entity_id\": parseInt($node[\"Поиск автора\"].json[\"contact_id\"]),\n        \"to_entity_type\": \"contacts\",\n        \"metadata\": {\n            \"is_main\": true\n        }\n    }\n]\nreturn [{params: JSON.stringify(params)}];"
+        "jsCode": "let params = [\n  {\n    \"entity_id\": parseInt($node[\"Данные о сделке\"].json[\"data\"][\"_embedded\"][\"leads\"][0][\"id\"]),\n    \"to_entity_id\": parseInt($node[\"ID пользователя\"].json[\"data\"][\"contact_id\"]),\n    \"to_entity_type\": \"contacts\",\n    \"metadata\": {\n      \"is_main\": true\n    }\n  }\n]\n\nreturn [{ params: JSON.stringify(params) }];"
       },
       "id": "d4baa8ed-7686-4399-9a8e-033473f523e9",
       "name": "Сделка и контакт",
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        2660,
-        700
+        3300,
+        560
       ]
     },
     {
@@ -1643,8 +1716,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        2860,
-        700
+        3480,
+        560
       ]
     },
     {
@@ -1664,8 +1737,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        3080,
-        700
+        3660,
+        560
       ]
     },
     {
@@ -1673,7 +1746,7 @@
         "conditions": {
           "string": [
             {
-              "value1": "={{$node[\"Webhook\"].json[\"body\"][\"Email\"]}}",
+              "value1": "={{$node[\"Данные автора\"].json[\"email\"]}}",
               "operation": "notEqual",
               "value2": "={{null}}"
             }
@@ -1685,21 +1758,21 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        3300,
-        680
+        3900,
+        380
       ]
     },
     {
       "parameters": {
-        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\nlet description = `${$node[\"Webhook\"].json[\"body\"][\"Task_info\"]} \\n\\nИсточник данных: ${$node[\"Webhook\"].json[\"body\"][\"Data_source\"]}`;\n\nlet params = {\n  user_name: $node[\"Webhook\"].json[\"body\"][\"Name\"],\n  client_name: $node[\"Поиск автора\"].json[\"first_name\"], \n  client_phone: $node[\"Webhook\"].json[\"body\"][\"Phone\"], \n  client_email: $node[\"Webhook\"].json[\"body\"][\"Email\"], \n  description: description\n}\n\nreturn [{params: JSON.stringify(params)}];"
+        "jsCode": "let description = `${$node[\"Webhook\"].json[\"body\"][\"Task_info\"]} \\n\\nИсточник данных: ${$node[\"Webhook\"].json[\"body\"][\"Data_source\"]}`;\n\nlet params = {\n  user_name: $node[\"Данные автора\"].json[\"data\"][\"fullName\"],\n  client_name: $node[\"Webhook\"].json[\"body\"][\"Name\"],\n  client_phone: $node[\"Webhook\"].json[\"body\"][\"Phone\"],\n  client_email: $node[\"Webhook\"].json[\"body\"][\"Email\"],\n  description: description\n}\n\nreturn [{ params: JSON.stringify(params) }];"
       },
       "id": "5c64bb24-9606-42bb-b43b-bf3a2b3825f0",
       "name": "Данные письма",
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        3520,
-        660
+        4180,
+        220
       ]
     },
     {
@@ -1745,8 +1818,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        3740,
-        660
+        4360,
+        220
       ]
     },
     {
@@ -1772,21 +1845,21 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        3520,
-        860
+        4100,
+        700
       ]
     },
     {
       "parameters": {
-        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\nlet text = `${$node[\"Webhook\"].json[\"body\"][\"Task_info\"]} \\n\\nИсточник данных: ${$node[\"Webhook\"].json[\"body\"][\"Data_source\"]}`;\n\nlet params = [\n    {\n        \"entity_id\": parseInt($node[\"Данные о сделке\"].json[\"data\"][\"_embedded\"][\"leads\"][0][\"id\"]),\n        \"note_type\": \"common\",\n        \"params\": {\n            \"text\": text\n        }\n    }\n]\nreturn [{params: JSON.stringify(params)}];"
+        "jsCode": "let text = `${$node[\"Webhook\"].json[\"body\"][\"Task_info\"]} \\n\\nИсточник данных: ${$node[\"Webhook\"].json[\"body\"][\"Data_source\"]}`;\n\nlet params = [\n  {\n    \"entity_id\": parseInt($node[\"Данные о сделке\"].json[\"data\"][\"_embedded\"][\"leads\"][0][\"id\"]),\n    \"note_type\": \"common\",\n    \"params\": {\n      \"text\": text\n    }\n  }\n]\n\nreturn [{ params: JSON.stringify(params) }];"
       },
       "id": "fc1e84b4-74b4-4a22-8e64-8ac137614540",
       "name": "Параметры примечания",
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        3300,
-        860
+        3920,
+        700
       ]
     },
     {
@@ -1806,20 +1879,20 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        1220,
-        1080
+        1420,
+        1300
       ]
     },
     {
       "parameters": {
         "method": "POST",
-        "url": "=https://{{$node[\"Execute Workflow\"].json[\"subdomain\"]}}/api/v4/contacts",
+        "url": "=https://{{$node[\"Execute Workflow1\"].json[\"subdomain\"]}}/api/v4/contacts",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
             {
               "name": "Authorization",
-              "value": "=Bearer {{$node[\"Execute Workflow\"].json[\"access_token\"]}}"
+              "value": "=Bearer {{$node[\"Execute Workflow1\"].json[\"access_token\"]}}"
             }
           ]
         },
@@ -1833,21 +1906,21 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        1680,
-        1060
+        2220,
+        1140
       ]
     },
     {
       "parameters": {
-        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\n\n// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\nlet demo_id = $node[\"ID пользователя\"].json[\"data\"][\"demo_id\"];\nlet params = [{\n    \"first_name\": `Покупатель № ${demo_id}`,\n    \"responsible_user_id\": 6651409,\n    \"custom_fields_values\": [\n        {\n            \"field_id\": 2224997,\n            \"field_name\": \"Email\",\n            \"field_code\": \"EMAIL\",\n            \"field_type\": \"multitext\",\n            \"values\": [\n                {\n                    \"value\": `${demo_id}@example.com`,\n                    \"enum_id\": 1008131,\n                    \"enum_code\": \"WORK\"\n                }\n            ]\n        },\n        {\n            \"field_id\": 2224995,\n            \"field_name\": \"Телефон\",\n            \"field_code\": \"PHONE\",\n            \"field_type\": \"multitext\",\n            \"values\": [\n                {\n                    \"value\": `+7 (000) 000-${demo_id}`,\n                    \"enum_id\": 1008119,\n                    \"enum_code\": \"WORK\"\n                }\n            ]\n        }\n    ]\n}];\n\n\nreturn [{params: JSON.stringify(params)}];"
+        "jsCode": "let demo_id = $node[\"ID пользователя\"].json[\"data\"][\"demo_id\"];\nlet params = [{\n  \"first_name\": `Покупатель № ${demo_id}`,\n  \"responsible_user_id\": 6651409,\n  \"custom_fields_values\": [\n    {\n      \"field_id\": 2224997,\n      \"values\": [\n        {\n          \"value\": `${demo_id}@example.com`,\n          \"enum_id\": 1008131\n        }\n      ]\n    },\n    {\n      \"field_id\": 2224995,\n      \"values\": [\n        {\n          \"value\": `+7 (000) 000-${demo_id}`,\n          \"enum_id\": 1008119\n        }\n      ]\n    }\n  ]\n}];\n\nreturn [{ params: JSON.stringify(params) }];"
       },
       "id": "3793e0a3-25b9-41e3-83d8-675ecf00ea4c",
       "name": "Параметры демо контакта",
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        1460,
-        1060
+        2040,
+        1140
       ]
     },
     {
@@ -1859,8 +1932,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        1880,
-        1060
+        2400,
+        1140
       ]
     },
     {
@@ -1872,33 +1945,33 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        2080,
-        1060
+        2580,
+        1140
       ]
     },
     {
       "parameters": {
-        "jsCode": "\nlet params = [\n    {\n        \"name\": `Заказ № ${$node[\"Webhook\"].json[\"body\"][\"payment\"][\"orderid\"]}`, \n        \"responsible_user_id\": 6651409,\n        \"status_id\": 52278730,\n        \"pipeline_id\": 6014764,\n        \"custom_fields_values\": null\n    }\n]\n\n\nreturn [{params: JSON.stringify(params)}];"
+        "jsCode": "let params = [\n  {\n    \"name\": `Заказ № ${$node[\"Webhook\"].json[\"body\"][\"payment\"][\"orderid\"]}`,\n    \"responsible_user_id\": 6651409,\n    \"status_id\": 52278730,\n    \"pipeline_id\": 6014764,\n    \"custom_fields_values\": null\n  }\n]\n\nreturn [{ params: JSON.stringify(params) }];"
       },
       "id": "7b8e0f05-6676-42f2-a515-f0eac97dce6d",
       "name": "Параметры демо сделки",
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        2300,
-        1060
+        2760,
+        1140
       ]
     },
     {
       "parameters": {
         "method": "POST",
-        "url": "=https://{{$node[\"Execute Workflow\"].json[\"subdomain\"]}}/api/v4/leads",
+        "url": "=https://{{$node[\"Execute Workflow1\"].json[\"subdomain\"]}}/api/v4/leads",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
             {
               "name": "Authorization",
-              "value": "=Bearer {{$node[\"Execute Workflow\"].json[\"access_token\"]}}"
+              "value": "=Bearer {{$node[\"Execute Workflow1\"].json[\"access_token\"]}}"
             }
           ]
         },
@@ -1912,21 +1985,21 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        2500,
-        1060
+        2940,
+        1140
       ]
     },
     {
       "parameters": {
-        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\nlet data = [{\nexternalid: 820119,\nname: \"Отчет по продажам amoCRM\",\namount: \"499\",\nquantity: \"1\",\nprice: \"499\"\n}, {\nexternalid: 820115,\nname: \"Модель данных amoCRM\",\namount: \"99\",\nquantity: \"1\",\nprice: \"99\"\n}];\n\n//return $node[\"Webhook\"].json[\"body\"][\"payment\"][\"products\"];\nreturn data;"
+        "jsCode": "let data = [{\n  externalid: 820119,\n  name: \"Отчет по продажам amoCRM\",\n  amount: \"499\",\n  quantity: \"1\",\n  price: \"499\"\n}, {\n  externalid: 820115,\n  name: \"Модель данных amoCRM\",\n  amount: \"99\",\n  quantity: \"1\",\n  price: \"99\"\n}];\n\n//return $node[\"Webhook\"].json[\"body\"][\"payment\"][\"products\"];\nreturn data;"
       },
       "id": "c3634051-522e-427e-ba03-584689285dc9",
       "name": "Список демо товаров",
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        3340,
-        1060
+        3660,
+        1140
       ]
     },
     {
@@ -1939,47 +2012,47 @@
       "type": "n8n-nodes-base.splitInBatches",
       "typeVersion": 1,
       "position": [
-        3560,
-        1060
+        3920,
+        980
       ],
       "alwaysOutputData": false
     },
     {
       "parameters": {
-        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\nreturn [{data: JSON.parse($input.all()[0].json.data)}];"
+        "jsCode": "return [{data: JSON.parse($input.all()[0].json.data)}];"
       },
       "id": "f163bd46-654c-4bde-b06c-b84d2c70d092",
       "name": "ID демо сделки",
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        2720,
-        1060
+        3120,
+        1140
       ]
     },
     {
       "parameters": {
-        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\n\nlet params = [\n    {\n        \"entity_id\": parseInt($node[\"ID демо сделки\"].json[\"data\"][\"_embedded\"][\"leads\"][0][\"id\"]),\n        \"to_entity_id\": parseInt($node[\"SplitInBatches1\"].json[\"externalid\"]),\n        \"to_entity_type\": \"catalog_elements\",\n        \"metadata\": {\n            \"quantity\": 1.0,\n            \"catalog_id\": 7041\n        }\n    }\n]\n\nreturn [{params: JSON.stringify(params)}];"
+        "jsCode": "let params = [\n  {\n    \"entity_id\": parseInt($node[\"ID демо сделки\"].json[\"data\"][\"_embedded\"][\"leads\"][0][\"id\"]),\n    \"to_entity_id\": parseInt($node[\"SplitInBatches1\"].json[\"externalid\"]),\n    \"to_entity_type\": \"catalog_elements\",\n    \"metadata\": {\n      \"quantity\": 1.0,\n      \"catalog_id\": 7041\n    }\n  }\n]\n\nreturn [{ params: JSON.stringify(params) }];"
       },
       "id": "07e9099e-0c06-4f25-b220-986fd7953ca7",
       "name": "Параметры привязки демо товара",
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        3780,
-        1060
+        4100,
+        980
       ]
     },
     {
       "parameters": {
         "method": "POST",
-        "url": "=https://{{$node[\"Execute Workflow\"].json[\"subdomain\"]}}/api/v4/leads/link",
+        "url": "=https://{{$node[\"Execute Workflow1\"].json[\"subdomain\"]}}/api/v4/leads/link",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
             {
               "name": "Authorization",
-              "value": "=Bearer {{$node[\"Execute Workflow\"].json[\"access_token\"]}}"
+              "value": "=Bearer {{$node[\"Execute Workflow1\"].json[\"access_token\"]}}"
             }
           ]
         },
@@ -1993,33 +2066,33 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        4000,
-        1060
+        4280,
+        980
       ]
     },
     {
       "parameters": {
-        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\nlet products = [];\nlet data = $input.all();\n\nfor(let i = 0; i < data.length; i++) {\n  products.push({\n    \"value\": {\n      \"sku\": \"\",\n      \"product_id\": data[i].json[\"externalid\"],\n      \"description\": data[i].json[\"name\"],\n      \"unit_price\": parseFloat(data[i].json[\"price\"]),\n      \"unit_type\": \"шт\",\n      \"quantity\": data[i].json[\"quantity\"]\n    }})\n}\n\nlet params = [{\n    \"name\": `\"Покупка № ${$node[\"Webhook\"].json[\"body\"][\"payment\"][\"orderid\"]}`,\n    \"custom_fields_values\": [\n        {\n            \"field_id\": 2225277,\n            \"field_name\": \"Статус\",\n            \"values\": [\n                {\n                    \"value\": \"Оплачен\"\n                }\n            ]\n        },\n        {\n            \"field_id\": 2225281,\n            \"field_name\": \"Плательщик\",\n            \"values\": [\n                {\n                    \"value\": {\n                        \"entity_id\": parseInt($node[\"ID пользователя\"].json[\"data\"][\"contact_id\"]),\n                        \"entity_type\": \"contacts\",\n                        \"catalog_id\": null\n                    }\n                }\n            ]\n        },\n        {\n            \"field_id\": 2225285,\n            \"field_name\": \"Дата оплаты\",\n            \"values\": [\n                {\n                    \"value\": parseInt(new Date().getTime()/1000)\n                }\n            ]\n        },\n        {\n            \"field_id\": 2225287,\n            \"field_name\": \"Позиции счета\",\n            \"field_code\": \"ITEMS\",\n            \"field_type\": \"items\",\n            \"values\": products\n        },\n        {\n            \"field_id\": 2225291,\n            \"field_name\": \"Стоимость\",\n            \"values\": [\n                {\n                    \"value\": $node[\"Webhook\"].json[\"body\"][\"payment\"][\"amount\"]\n                }\n            ]\n        }\n    ]\n}];\n\n\n\nreturn [{params: JSON.stringify(params)}];"
+        "jsCode": "let products = [];\nlet data = $input.all();\n\nfor (let i = 0; i < data.length; i++) {\n  products.push({\n    \"value\": {\n      \"sku\": \"\",\n      \"product_id\": data[i].json[\"externalid\"],\n      \"description\": data[i].json[\"name\"],\n      \"unit_price\": parseFloat(data[i].json[\"price\"]),\n      \"unit_type\": \"шт\",\n      \"quantity\": data[i].json[\"quantity\"]\n    }\n  })\n}\n\nlet params = [{\n  \"name\": `\"Покупка № ${$node[\"Webhook\"].json[\"body\"][\"payment\"][\"orderid\"]}`,\n  \"custom_fields_values\": [\n    {\n      \"field_id\": 2225277,\n      \"field_name\": \"Статус\",\n      \"values\": [\n        {\n          \"value\": \"Оплачен\"\n        }\n      ]\n    },\n    {\n      \"field_id\": 2225281,\n      \"field_name\": \"Плательщик\",\n      \"values\": [\n        {\n          \"value\": {\n            \"entity_id\": parseInt($node[\"ID пользователя\"].json[\"data\"][\"contact_id\"]),\n            \"entity_type\": \"contacts\",\n            \"catalog_id\": null\n          }\n        }\n      ]\n    },\n    {\n      \"field_id\": 2225285,\n      \"field_name\": \"Дата оплаты\",\n      \"values\": [\n        {\n          \"value\": parseInt(new Date().getTime() / 1000)\n        }\n      ]\n    },\n    {\n      \"field_id\": 2225287,\n      \"field_name\": \"Позиции счета\",\n      \"field_code\": \"ITEMS\",\n      \"field_type\": \"items\",\n      \"values\": products\n    },\n    {\n      \"field_id\": 2225291,\n      \"field_name\": \"Стоимость\",\n      \"values\": [\n        {\n          \"value\": $node[\"Webhook\"].json[\"body\"][\"payment\"][\"amount\"]\n        }\n      ]\n    }\n  ]\n}];\n\nreturn [{ params: JSON.stringify(params) }];"
       },
       "id": "4db5f042-c221-4d96-9a61-a0bb09cc9a46",
       "name": "Параметры демо счета",
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        3560,
-        1280
+        3920,
+        1300
       ]
     },
     {
       "parameters": {
         "method": "POST",
-        "url": "=https://{{$node[\"Execute Workflow\"].json[\"subdomain\"]}}/api/v4/catalogs/7045/elements",
+        "url": "=https://{{$node[\"Execute Workflow1\"].json[\"subdomain\"]}}/api/v4/catalogs/7045/elements",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
             {
               "name": "Authorization",
-              "value": "=Bearer {{$node[\"Execute Workflow\"].json[\"access_token\"]}}"
+              "value": "=Bearer {{$node[\"Execute Workflow1\"].json[\"access_token\"]}}"
             }
           ]
         },
@@ -2033,59 +2106,59 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        3760,
-        1280
+        4100,
+        1300
       ]
     },
     {
       "parameters": {
-        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\nreturn [{data: JSON.parse($input.all()[0].json.data)}];"
+        "jsCode": "return [{data: JSON.parse($input.all()[0].json.data)}];"
       },
       "id": "798a2268-b19e-4224-beb0-527a53bf8f08",
       "name": "Демо счет",
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        3940,
-        1280
+        4280,
+        1300
       ]
     },
     {
       "parameters": {
-        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\nlet params = [\n    {\n        \"entity_id\": parseInt($node[\"ID демо сделки\"].json[\"data\"][\"_embedded\"][\"leads\"][0][\"id\"]),\n        \"to_entity_id\": parseInt($node[\"Демо счет\"].json[\"data\"][\"_embedded\"][\"elements\"][0][\"id\"]),\n        \"to_entity_type\": \"catalog_elements\",\n        \"metadata\": {\n            \"quantity\": 1.0,\n            \"catalog_id\": 7045\n        }\n    }\n]\n\nreturn [{params: JSON.stringify(params)}];"
+        "jsCode": "let params = [\n  {\n    \"entity_id\": parseInt($node[\"ID демо сделки\"].json[\"data\"][\"_embedded\"][\"leads\"][0][\"id\"]),\n    \"to_entity_id\": parseInt($node[\"Демо счет\"].json[\"data\"][\"_embedded\"][\"elements\"][0][\"id\"]),\n    \"to_entity_type\": \"catalog_elements\",\n    \"metadata\": {\n      \"quantity\": 1.0,\n      \"catalog_id\": 7045\n    }\n  }\n]\n\nreturn [{ params: JSON.stringify(params) }];"
       },
       "id": "2cad9187-555c-4967-af11-b10e30534c51",
       "name": "Демо сделка и демо счет",
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        4120,
-        1280
+        4460,
+        1300
       ]
     },
     {
       "parameters": {
-        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\n\nlet params = [\n    {\n        \"entity_id\": parseInt($node[\"ID демо сделки\"].json[\"data\"][\"_embedded\"][\"leads\"][0][\"id\"]),\n        \"to_entity_id\": parseInt($node[\"ID демо контакта\"].json[\"data\"][\"_embedded\"][\"contacts\"][0][\"id\"]),\n        \"to_entity_type\": \"contacts\",\n        \"metadata\": {\n            \"is_main\": true\n        }\n    }\n]\nreturn [{params: JSON.stringify(params)}];"
+        "jsCode": "let params = [\n  {\n    \"entity_id\": parseInt($node[\"ID демо сделки\"].json[\"data\"][\"_embedded\"][\"leads\"][0][\"id\"]),\n    \"to_entity_id\": parseInt($node[\"ID демо контакта\"].json[\"data\"][\"_embedded\"][\"contacts\"][0][\"id\"]),\n    \"to_entity_type\": \"contacts\",\n    \"metadata\": {\n      \"is_main\": true\n    }\n  }\n]\n\nreturn [{ params: JSON.stringify(params) }];"
       },
       "id": "e1e21e18-4ed9-44cd-9b68-bba67b642bca",
       "name": "Сделка и демо контакт",
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        2940,
-        1060
+        3300,
+        1140
       ]
     },
     {
       "parameters": {
         "method": "POST",
-        "url": "=https://{{$node[\"Execute Workflow\"].json[\"subdomain\"]}}/api/v4/leads/link",
+        "url": "=https://{{$node[\"Execute Workflow1\"].json[\"subdomain\"]}}/api/v4/leads/link",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
             {
               "name": "Authorization",
-              "value": "=Bearer {{$node[\"Execute Workflow\"].json[\"access_token\"]}}"
+              "value": "=Bearer {{$node[\"Execute Workflow1\"].json[\"access_token\"]}}"
             }
           ]
         },
@@ -2099,20 +2172,20 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        3140,
-        1060
+        3480,
+        1140
       ]
     },
     {
       "parameters": {
         "method": "POST",
-        "url": "=https://{{$node[\"Execute Workflow\"].json[\"subdomain\"]}}/api/v4/leads/link",
+        "url": "=https://{{$node[\"Execute Workflow1\"].json[\"subdomain\"]}}/api/v4/leads/link",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
             {
               "name": "Authorization",
-              "value": "=Bearer {{$node[\"Execute Workflow\"].json[\"access_token\"]}}"
+              "value": "=Bearer {{$node[\"Execute Workflow1\"].json[\"access_token\"]}}"
             }
           ]
         },
@@ -2126,16 +2199,16 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        4320,
-        1280
+        4640,
+        1300
       ]
     },
     {
       "parameters": {
         "authentication": "nocoDbApiToken",
         "operation": "update",
-        "projectId": "p_g9w7m3ac8ab2rq",
-        "table": "md_y0z1qo6sry41ug",
+        "projectId": "p_f907ih5oqn9gtp",
+        "table": "md_n1yyob6hvv0plw",
         "id": "={{$node[\"ID пользователя\"].json[\"data\"][\"record_id\"]}}",
         "fieldsUi": {
           "fieldValues": [
@@ -2155,8 +2228,8 @@
       "type": "n8n-nodes-base.nocoDb",
       "typeVersion": 2,
       "position": [
-        4540,
-        1280
+        4820,
+        1300
       ],
       "credentials": {
         "nocoDbApiToken": {
@@ -2164,11 +2237,117 @@
           "name": "NocoDB"
         }
       }
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "amoType",
+              "value": "prod"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "273a2ea9-23cb-4199-814a-54dad8f6e990",
+      "name": "Set",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        -800,
+        720
+      ]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "amoType",
+              "value": "demo"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "79aa201c-53ae-4bd7-bf62-6bd94597cc23",
+      "name": "Set1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        1680,
+        1140
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "13"
+      },
+      "id": "c67b66e5-0b57-43be-9b9f-a165959be9ec",
+      "name": "Execute Workflow1",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        1860,
+        1140
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "let email = $node[\"Поиск автора\"].json[\"email\"];\nlet fullName = $node[\"Поиск автора\"].json[\"first_name\"];\n\nif ($node[\"Поиск автора\"].json[\"last_name\"]) {\n  fullName += \" \" + $node[\"Поиск автора\"].json[\"last_name\"]\n}\n\nreturn [{ fullName, email }];"
+      },
+      "id": "0238e02e-81b4-459e-8fef-40d91fb755c7",
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        2320,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "fullName",
+              "value": "={{null}}"
+            },
+            {
+              "name": "email",
+              "value": "={{null}}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "8ecf922d-dd01-46c4-9170-ca72896030f7",
+      "name": "Set2",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        2220,
+        720
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "return [\n  {\n    data: $input.all()[0].json\n  }\n];"
+      },
+      "id": "c037b949-50c4-4d0a-9155-6cf9175dbb13",
+      "name": "Данные автора",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        2580,
+        560
+      ]
     }
   ],
   "pinData": {},
   "settings": {},
   "staticData": null,
   "tags": [],
-  "updatedAt": "2022-11-02T20:16:04.462Z"
+  "updatedAt": "2022-11-08T07:34:53.753Z"
 }
