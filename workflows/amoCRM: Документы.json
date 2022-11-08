@@ -103,7 +103,7 @@
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1,
       "position": [
-        300,
+        440,
         320
       ]
     },
@@ -118,7 +118,7 @@
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 1,
       "position": [
-        740,
+        800,
         320
       ],
       "credentials": {
@@ -137,7 +137,7 @@
       "type": "n8n-nodes-base.executeWorkflow",
       "typeVersion": 1,
       "position": [
-        520,
+        620,
         320
       ]
     },
@@ -164,7 +164,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        1200,
+        1160,
         320
       ]
     },
@@ -191,7 +191,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        1420,
+        1340,
         320
       ]
     },
@@ -211,7 +211,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        1620,
+        1520,
         320
       ]
     },
@@ -222,7 +222,7 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        1840,
+        1720,
         300
       ]
     }
@@ -231,5 +231,5 @@
   "settings": {},
   "staticData": null,
   "tags": [],
-  "updatedAt": "2022-11-04T11:29:31.925Z"
+  "updatedAt": "2022-11-08T02:42:47.419Z"
 }
