@@ -18,17 +18,6 @@
   "name": "Sys: Error Handler",
   "nodes": [
     {
-      "parameters": {},
-      "id": "688539f7-3acc-4664-b28c-f33cf7f25ded",
-      "name": "Start",
-      "type": "n8n-nodes-base.start",
-      "typeVersion": 1,
-      "position": [
-        180,
-        240
-      ]
-    },
-    {
       "parameters": {
         "fromEmail": "vts@mybi.ru",
         "toEmail": "vts@mybi.ru",
@@ -61,7 +50,7 @@
       "type": "n8n-nodes-base.errorTrigger",
       "typeVersion": 1,
       "position": [
-        180,
+        220,
         80
       ]
     }
@@ -70,5 +59,5 @@
   "settings": {},
   "staticData": null,
   "tags": [],
-  "updatedAt": "2022-10-30T08:23:51.551Z"
+  "updatedAt": "2022-11-08T02:41:09.857Z"
 }
