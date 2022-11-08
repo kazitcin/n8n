@@ -107,7 +107,7 @@
       "type": "n8n-nodes-base.nocoDb",
       "typeVersion": 2,
       "position": [
-        -400,
+        -320,
         240
       ],
       "credentials": {
@@ -126,7 +126,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        -180,
+        -140,
         240
       ]
     },
@@ -194,7 +194,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        240,
+        300,
         140
       ]
     },
@@ -227,7 +227,7 @@
       "type": "n8n-nodes-base.nocoDb",
       "typeVersion": 2,
       "position": [
-        460,
+        480,
         140
       ],
       "credentials": {
@@ -251,7 +251,7 @@
       "type": "n8n-nodes-base.nocoDb",
       "typeVersion": 2,
       "position": [
-        720,
+        740,
         260
       ],
       "credentials": {
@@ -268,7 +268,7 @@
       "type": "n8n-nodes-base.executeWorkflowTrigger",
       "typeVersion": 1,
       "position": [
-        -780,
+        -680,
         240
       ]
     },
@@ -281,7 +281,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        -580,
+        -500,
         240
       ]
     }
@@ -290,5 +290,5 @@
   "settings": {},
   "staticData": null,
   "tags": [],
-  "updatedAt": "2022-11-07T10:30:48.653Z"
+  "updatedAt": "2022-11-08T02:34:39.222Z"
 }
