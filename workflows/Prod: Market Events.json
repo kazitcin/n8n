@@ -1867,7 +1867,7 @@
         "conditions": {
           "number": [
             {
-              "value1": "={{$node[\"ID пользователя\"].json[\"data\"][\"demo_contact_id\"]}}",
+              "value1": "={{$node[\"ID пользователя\"].json[\"data\"][\"user_id\"]}}",
               "operation": "equal",
               "value2": "={{null}}"
             }
@@ -1912,7 +1912,7 @@
     },
     {
       "parameters": {
-        "jsCode": "let demo_id = $node[\"ID пользователя\"].json[\"data\"][\"demo_id\"];\nlet params = [{\n  \"first_name\": `Покупатель № ${demo_id}`,\n  \"responsible_user_id\": 6651409,\n  \"custom_fields_values\": [\n    {\n      \"field_id\": 2224997,\n      \"values\": [\n        {\n          \"value\": `${demo_id}@example.com`,\n          \"enum_id\": 1008131\n        }\n      ]\n    },\n    {\n      \"field_id\": 2224995,\n      \"values\": [\n        {\n          \"value\": `+7 (000) 000-${demo_id}`,\n          \"enum_id\": 1008119\n        }\n      ]\n    }\n  ]\n}];\n\nreturn [{ params: JSON.stringify(params) }];"
+        "jsCode": "let demo_id = $node[\"ID пользователя\"].json[\"data\"][\"demo_id\"];\nlet params = [{\n  \"first_name\": `Покупатель № ${demo_id}`,\n  \"responsible_user_id\": 289686,\n  \"custom_fields_values\": [\n    {\n      \"field_id\": 556273,\n      \"values\": [\n        {\n          \"value\": `${demo_id}@example.com`,\n          \"enum_id\": 374317,\n        }\n      ]\n    },\n    {\n      \"field_id\": 556271,\n      \"values\": [\n        {\n          \"value\": `+7 (000) 000-${demo_id}`,\n          \"enum_id\": 374305,\n        }\n      ]\n    }\n  ]\n}];\n\nreturn [{ params: JSON.stringify(params) }];"
       },
       "id": "3793e0a3-25b9-41e3-83d8-675ecf00ea4c",
       "name": "Параметры демо контакта",
@@ -1951,7 +1951,7 @@
     },
     {
       "parameters": {
-        "jsCode": "let params = [\n  {\n    \"name\": `Заказ № ${$node[\"Webhook\"].json[\"body\"][\"payment\"][\"orderid\"]}`,\n    \"responsible_user_id\": 6651409,\n    \"status_id\": 52278730,\n    \"pipeline_id\": 6014764,\n    \"custom_fields_values\": null\n  }\n]\n\nreturn [{ params: JSON.stringify(params) }];"
+        "jsCode": "let params = [\n  {\n    \"name\": `Заказ № ${$node[\"Webhook\"].json[\"body\"][\"payment\"][\"orderid\"]}`,\n    \"responsible_user_id\": 289686,\n    \"status_id\": 143,\n    \"pipeline_id\": 5723533,\n    \"custom_fields_values\": [\n          {\n              \"field_id\": 837471,\n              \"values\": [\n                  {\n                      \"value\": $node[\"Доболнительные параметры\"].json[\"ga\"]\n                  }\n              ]\n          },\n          {\n              \"field_id\": 837469,\n              \"values\": [\n                  {\n                      \"value\": $node[\"Доболнительные параметры\"].json[\"marker\"]\n                  }\n              ]\n          }\n    ]\n  }\n]\n\nreturn [{ params: JSON.stringify(params) }];"
       },
       "id": "7b8e0f05-6676-42f2-a515-f0eac97dce6d",
       "name": "Параметры демо сделки",
@@ -2349,5 +2349,5 @@
   "settings": {},
   "staticData": null,
   "tags": [],
-  "updatedAt": "2022-11-08T07:34:53.753Z"
+  "updatedAt": "2022-11-08T14:28:13.904Z"
 }
