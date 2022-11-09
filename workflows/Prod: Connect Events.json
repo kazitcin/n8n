@@ -609,17 +609,6 @@
         ]
       ]
     },
-    "Execute Workflow1": {
-      "main": [
-        [
-          {
-            "node": "Параметры демо",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Есть демо сделка?": {
       "main": [
         [
@@ -647,6 +636,17 @@
         [
           {
             "node": "Execute Workflow1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow1": {
+      "main": [
+        [
+          {
+            "node": "Параметры демо",
             "type": "main",
             "index": 0
           }
@@ -729,7 +729,7 @@
     },
     {
       "parameters": {
-        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\nconst userStatuses = {\n  'регистрация': 40719214,\n  'зашел в сервис': 40719217,\n  'создал проект': 40719220,\n  'пробовал подключить': 40719223,\n  'подключил источник': 40719226,\n  'завершился триал': 40719229,\n  'оплата': 40719232,\n  'повторная оплата': 40719235,\n  'проекты удалены': 143,\n}\n\nreturn [{data: userStatuses}];"
+        "jsCode": "const userStatuses = {\n  'регистрация': 40719214,\n  'зашел в сервис': 40719217,\n  'создал проект': 40719220,\n  'пробовал подключить': 40719223,\n  'подключил источник': 40719226,\n  'завершился триал': 40719229,\n  'оплата': 40719232,\n  'повторная оплата': 40719235,\n  'проекты удалены': 143,\n}\n\nreturn [{ data: userStatuses }];"
       },
       "id": "681555ce-e2ba-4a5f-9291-dd53ef71086e",
       "name": "Этап",
@@ -742,7 +742,7 @@
     },
     {
       "parameters": {
-        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\n\n\nreturn [{data: JSON.parse($input.all()[0].json.data)}];"
+        "jsCode": "return [{ data: JSON.parse($input.all()[0].json.data) }];"
       },
       "id": "ab7a5909-aa2c-4b7e-9e07-c89cde84df5f",
       "name": "ID контакта",
@@ -1056,7 +1056,7 @@
     },
     {
       "parameters": {
-        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\nlet params = [\n    {\n        \"entity_id\": parseInt($node[\"Ответ создания\"].json[\"data\"][\"_embedded\"][\"leads\"][0][\"id\"]),\n        \"to_entity_id\": parseInt($node[\"ID пользователя\"].json[\"data\"][\"contact_id\"]),\n        \"to_entity_type\": \"contacts\",\n        \"metadata\": {\n            \"is_main\": true\n        }\n    }\n]\nreturn [{params: JSON.stringify(params)}];"
+        "jsCode": "let params = [\n  {\n    \"entity_id\": parseInt($node[\"Ответ создания\"].json[\"data\"][\"_embedded\"][\"leads\"][0][\"id\"]),\n    \"to_entity_id\": parseInt($node[\"ID пользователя\"].json[\"data\"][\"contact_id\"]),\n    \"to_entity_type\": \"contacts\",\n    \"metadata\": {\n      \"is_main\": true\n    }\n  }\n]\n\nreturn [{ params: JSON.stringify(params) }];"
       },
       "id": "1016a57a-4d54-4584-8405-95f74cf053a0",
       "name": "Параметры связывания контакта",
@@ -1096,7 +1096,7 @@
     },
     {
       "parameters": {
-        "jsCode": "let params = [\n    {\n        \"name\": '№'+ $node[\"Webhook\"].json[\"body\"][\"user\"][\"id\"],\n        \"price\": parseInt($node[\"Webhook\"].json[\"body\"][\"user\"][\"plan\"][\"base_cost\"]),\n        \"responsible_user_id\": 289686,\n        \"status_id\": $node[\"Этап\"].json.data[$node[\"Webhook\"].json[\"body\"][\"user\"][\"stage\"]],\n        \"pipeline_id\": 4377628,\n        \"custom_fields_values\": [\n               {\n                  \"field_id\": 1103195,\n                  \"values\": [\n                      {\n                          \"value\": $node[\"Webhook\"].json[\"body\"][\"user\"][\"plan\"][\"name\"]\n                      }\n                  ]\n              },\n              {\n                \"field_id\": 1103197,\n                \"values\": [\n                  {\n                        \"value\": $node[\"Webhook\"].json[\"body\"][\"user\"][\"recurring\"]\n                    }\n                ]\n              }\n        ]\n    }\n]\n\n\nreturn [{params: JSON.stringify(params)}];"
+        "jsCode": "let params = [\n  {\n    \"name\": '№' + $node[\"Webhook\"].json[\"body\"][\"user\"][\"id\"],\n    \"price\": parseInt($node[\"Webhook\"].json[\"body\"][\"user\"][\"plan\"][\"base_cost\"]),\n    \"responsible_user_id\": 289686,\n    \"status_id\": $node[\"Этап\"].json.data[$node[\"Webhook\"].json[\"body\"][\"user\"][\"stage\"]],\n    \"pipeline_id\": 4377628,\n    \"custom_fields_values\": [\n      {\n        \"field_id\": 1103195,\n        \"values\": [\n          {\n            \"value\": $node[\"Webhook\"].json[\"body\"][\"user\"][\"plan\"][\"name\"]\n          }\n        ]\n      },\n      {\n        \"field_id\": 1103197,\n        \"values\": [\n          {\n            \"value\": $node[\"Webhook\"].json[\"body\"][\"user\"][\"recurring\"]\n          }\n        ]\n      }\n    ]\n  }\n]\n\nreturn [{ params: JSON.stringify(params) }];"
       },
       "id": "f02c6404-253d-4765-8ba6-22cd07752933",
       "name": "Параметры создания сделки",
@@ -1109,7 +1109,7 @@
     },
     {
       "parameters": {
-        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\n//\"status_id\": $node[\"Этап\"].json[\"data\"][$node[\"Webhook\"].json[\"body\"][\"user\"][\"stage\"]]\nlet params = [\n    {\n        \"id\": parseInt($node[\"ID пользователя\"].json[\"data\"][\"lead_id\"]),\n        \"name\": '№'+ $node[\"Webhook\"].json[\"body\"][\"user\"][\"id\"],\n        \"price\": parseInt($node[\"Webhook\"].json[\"body\"][\"user\"][\"plan\"][\"base_cost\"]),\n        \"responsible_user_id\": 289686,\n        \"status_id\": $node[\"Этап\"].json.data[$node[\"Webhook\"].json[\"body\"][\"user\"][\"stage\"]],\n        \"pipeline_id\": 4377628,\n        \"custom_fields_values\": [\n               {\n                  \"field_id\": 1103195,\n                  \"values\": [\n                      {\n                          \"value\": $node[\"Webhook\"].json[\"body\"][\"user\"][\"plan\"][\"name\"]\n                      }\n                  ]\n              },\n              {\n                \"field_id\": 1103197,\n                \"values\": [\n                  {\n                        \"value\": $node[\"Webhook\"].json[\"body\"][\"user\"][\"recurring\"]\n                    }\n                ]\n              }\n        ]\n    }\n]\n\nreturn [{params: JSON.stringify(params)}];"
+        "jsCode": "let params = [\n  {\n    \"id\": parseInt($node[\"ID пользователя\"].json[\"data\"][\"lead_id\"]),\n    \"name\": '№' + $node[\"Webhook\"].json[\"body\"][\"user\"][\"id\"],\n    \"price\": parseInt($node[\"Webhook\"].json[\"body\"][\"user\"][\"plan\"][\"base_cost\"]),\n    \"responsible_user_id\": 289686,\n    \"status_id\": $node[\"Этап\"].json.data[$node[\"Webhook\"].json[\"body\"][\"user\"][\"stage\"]],\n    \"pipeline_id\": 4377628,\n    \"custom_fields_values\": [\n      {\n        \"field_id\": 1103195,\n        \"values\": [\n          {\n            \"value\": $node[\"Webhook\"].json[\"body\"][\"user\"][\"plan\"][\"name\"]\n          }\n        ]\n      },\n      {\n        \"field_id\": 1103197,\n        \"values\": [\n          {\n            \"value\": $node[\"Webhook\"].json[\"body\"][\"user\"][\"recurring\"]\n          }\n        ]\n      }\n    ]\n  }\n]\n\nreturn [{ params: JSON.stringify(params) }];"
       },
       "id": "770da403-2544-4f28-831a-c450255b5627",
       "name": "Параметры обновления сделки",
@@ -1122,7 +1122,7 @@
     },
     {
       "parameters": {
-        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\n\n\nreturn [{data: JSON.parse($input.all()[0].json.data)}];"
+        "jsCode": "return [{ data: JSON.parse($input.all()[0].json.data) }];"
       },
       "id": "a7b9f7e4-4693-4ba9-b380-fa641e7599b0",
       "name": "Ответ обновления",
@@ -1135,7 +1135,7 @@
     },
     {
       "parameters": {
-        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\nreturn [{data: JSON.parse($input.all()[0].json.data)}];"
+        "jsCode": "return [{ data: JSON.parse($input.all()[0].json.data) }];"
       },
       "id": "cf43843d-ff49-4221-92dd-e1f882ca7da2",
       "name": "Ответ создания",
@@ -1363,7 +1363,7 @@
     },
     {
       "parameters": {
-        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\nlet goods = {\n  'месячный пакет': 1178955,\n  'дополнительные строки': 1178959,\n  'расширенная опция': 1178961,\n  'смена тарифного плана': 1178963\n} \n\nlet params = [{\n    \"name\": \"Списание № \" + $node[\"Webhook\"].json[\"body\"][\"event\"][\"data\"][\"id\"],\n    \"custom_fields_values\": [\n      {\n          \"field_id\": 1158437,\n           \"values\": [{\"value\": \"Оплачен\"}]\n       },\n       {\n          \"field_id\": 1158447,\n\t\t  \"values\": [{\n            \"value\": {\n              \"sku\": \"\",\n              \"product_id\": goods[$node[\"Webhook\"].json[\"body\"][\"event\"][\"data\"][\"type\"]],\n\t\t\t  \"description\": $node[\"Webhook\"].json[\"body\"][\"event\"][\"data\"][\"type\"],\n\t\t\t  \"unit_price\": parseFloat($node[\"Webhook\"].json[\"body\"][\"event\"][\"data\"][\"amount\"]),\n\t\t\t  \"unit_type\": \"шт\",\n\t\t\t  \"quantity\": 1.0\n\t\t     }\n          }]\n       },\n       {\n          \"field_id\": 1158451,\n          \"values\": [{\n                 \"value\": $node[\"Webhook\"].json[\"body\"][\"event\"][\"data\"][\"amount\"]}]\n       },\n       {\n          \"field_id\": 1158441,\n\t\t  \"values\": [{\n\t\t\t   \"value\": {\n\t\t\t   \"entity_id\": parseInt($node[\"ID пользователя\"].json[\"data\"][\"contact_id\"]),\n\t\t\t   \"entity_type\": \"contacts\",\n\t\t\t   \"catalog_id\": null\n\t\t\t   }\n          }]\n          },\n          {\n             \"field_id\": 1158445,\n             \"values\": [{\n                  \"value\": parseInt(new Date().getTime())\n                  }]\n          }\n    ]\n}]\n\nreturn [{params: JSON.stringify(params)}];"
+        "jsCode": "let goods = {\n  'месячный пакет': 1178955,\n  'дополнительные строки': 1178959,\n  'расширенная опция': 1178961,\n  'смена тарифного плана': 1178963\n}\n\nlet params = [{\n  \"name\": \"Списание № \" + $node[\"Webhook\"].json[\"body\"][\"event\"][\"data\"][\"id\"],\n  \"custom_fields_values\": [\n    {\n      \"field_id\": 1158437,\n      \"values\": [{ \"value\": \"Оплачен\" }]\n    },\n    {\n      \"field_id\": 1158447,\n      \"values\": [{\n        \"value\": {\n          \"sku\": \"\",\n          \"product_id\": goods[$node[\"Webhook\"].json[\"body\"][\"event\"][\"data\"][\"type\"]],\n          \"description\": $node[\"Webhook\"].json[\"body\"][\"event\"][\"data\"][\"type\"],\n          \"unit_price\": parseFloat($node[\"Webhook\"].json[\"body\"][\"event\"][\"data\"][\"amount\"]),\n          \"unit_type\": \"шт\",\n          \"quantity\": 1.0\n        }\n      }]\n    },\n    {\n      \"field_id\": 1158451,\n      \"values\": [{\n        \"value\": $node[\"Webhook\"].json[\"body\"][\"event\"][\"data\"][\"amount\"]\n      }]\n    },\n    {\n      \"field_id\": 1158441,\n      \"values\": [{\n        \"value\": {\n          \"entity_id\": parseInt($node[\"ID пользователя\"].json[\"data\"][\"contact_id\"]),\n          \"entity_type\": \"contacts\",\n          \"catalog_id\": null\n        }\n      }]\n    },\n    {\n      \"field_id\": 1158445,\n      \"values\": [{\n        \"value\": parseInt(new Date().getTime())\n      }]\n    }\n  ]\n}]\n\nreturn [{ params: JSON.stringify(params) }];"
       },
       "id": "03b77338-bdca-4dbd-82c5-f632d0547c82",
       "name": "Параметры счета",
@@ -1403,7 +1403,7 @@
     },
     {
       "parameters": {
-        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\nreturn [{data: JSON.parse($input.all()[0].json.data)}];"
+        "jsCode": "return [{ data: JSON.parse($input.all()[0].json.data) }];"
       },
       "id": "ea6fc527-5505-4d9c-b6c1-6da6b7b99475",
       "name": "Счет",
@@ -1416,7 +1416,7 @@
     },
     {
       "parameters": {
-        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\nlet params = [\n    {\n        \"entity_id\": $node[\"ID сделки\"].json[\"data\"][\"lead_id\"],\n        \"to_entity_id\": $node[\"Счет\"].json[\"data\"][\"_embedded\"][\"elements\"][0][\"id\"],\n        \"to_entity_type\": \"catalog_elements\",\n        \"metadata\": {\n            \"quantity\": 1.0,\n            \"catalog_id\": 9477\n        }\n    }\n]\n\nreturn [{params: JSON.stringify(params)}];"
+        "jsCode": "let params = [\n  {\n    \"entity_id\": $node[\"ID сделки\"].json[\"data\"][\"lead_id\"],\n    \"to_entity_id\": $node[\"Счет\"].json[\"data\"][\"_embedded\"][\"elements\"][0][\"id\"],\n    \"to_entity_type\": \"catalog_elements\",\n    \"metadata\": {\n      \"quantity\": 1.0,\n      \"catalog_id\": 9477\n    }\n  }\n]\n\nreturn [{ params: JSON.stringify(params) }];"
       },
       "id": "29b9fecb-61c2-4a0e-b9b4-358f39c9d803",
       "name": "Сделка и счет",
@@ -1482,7 +1482,7 @@
     },
     {
       "parameters": {
-        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\n//\"status_id\": $node[\"Этап\"].json[\"data\"][$node[\"Webhook\"].json[\"body\"][\"user\"][\"stage\"]]\n\nlet userStatuses = {\n  'покупка шаблона': 50286925,\n  'зашел в сервис': 50286928,\n  'подключил источник': 50286931,\n  'использование шаблона': 50286934,\n  'завершился триал': 50496463,\n  'оплата': 142,\n  'проекты удалены': 143\n};\n\n\nlet params = [\n    {\n        \"id\": parseInt($node[\"ID пользователя\"].json[\"data\"][\"demo_lead_id\"]),\n        \"price\": parseInt($node[\"Webhook\"].json[\"body\"][\"user\"][\"balance\"][\"base_cost\"]) + parseInt($node[\"Webhook\"].json[\"body\"][\"user\"][\"plan\"][\"base_cost\"]),\n        \"status_id\": userStatuses[$node[\"Webhook\"].json[\"body\"][\"user\"][\"stage\"]],\n        \"pipeline_id\": 6014764,\n        \"custom_fields_values\": null\n    }\n]\n\nreturn [{params: JSON.stringify(params)}];"
+        "jsCode": "let userStatuses = {\n  'покупка шаблона': 50286925,\n  'зашел в сервис': 50286928,\n  'подключил источник': 50286931,\n  'использование шаблона': 50286934,\n  'завершился триал': 50496463,\n  'оплата': 142,\n  'проекты удалены': 143\n};\n\nlet params = [\n  {\n    \"id\": parseInt($node[\"ID пользователя\"].json[\"data\"][\"demo_lead_id\"]),\n    \"price\": parseInt($node[\"Webhook\"].json[\"body\"][\"user\"][\"balance\"]) + parseInt($node[\"Webhook\"].json[\"body\"][\"user\"][\"plan\"][\"base_cost\"]),\n    \"status_id\": userStatuses[$node[\"Webhook\"].json[\"body\"][\"user\"][\"stage\"]],\n    \"pipeline_id\": 5723533,\n  }\n]\n\nreturn [{ params: JSON.stringify(params) }];"
       },
       "id": "28d674c8-4dee-44b4-afcf-a55e4080c56d",
       "name": "Параметры демо",
@@ -1496,13 +1496,13 @@
     {
       "parameters": {
         "method": "PATCH",
-        "url": "=https://{{$node[\"Получаем токен Amo\"].json[\"subdomain\"]}}/api/v4/leads",
+        "url": "=https://{{$node[\"Execute Workflow1\"].json[\"subdomain\"]}}/api/v4/leads",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
             {
               "name": "Authorization",
-              "value": "=Bearer {{$node[\"Получаем токен Amo\"].json[\"access_token\"]}}"
+              "value": "=Bearer {{$node[\"Execute Workflow1\"].json[\"access_token\"]}}"
             }
           ]
         },
@@ -2085,19 +2085,6 @@
     },
     {
       "parameters": {
-        "workflowId": "13"
-      },
-      "id": "bc115b61-f7b0-4a5e-bb39-003b3654ed9a",
-      "name": "Execute Workflow1",
-      "type": "n8n-nodes-base.executeWorkflow",
-      "typeVersion": 1,
-      "position": [
-        5180,
-        1060
-      ]
-    },
-    {
-      "parameters": {
         "values": {
           "string": [
             {
@@ -2137,11 +2124,24 @@
         5000,
         1060
       ]
+    },
+    {
+      "parameters": {
+        "workflowId": "13"
+      },
+      "id": "5218bad4-6701-42b2-a3a2-1285b236a9d3",
+      "name": "Execute Workflow1",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        5180,
+        1060
+      ]
     }
   ],
   "pinData": {},
   "settings": {},
   "staticData": null,
   "tags": [],
-  "updatedAt": "2022-11-08T13:17:47.635Z"
+  "updatedAt": "2022-11-09T02:30:39.866Z"
 }
