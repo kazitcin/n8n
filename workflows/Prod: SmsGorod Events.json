@@ -1,0 +1,155 @@
+{
+  "active": false,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Поиск SMS",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Поиск SMS": {
+      "main": [
+        [
+          {
+            "node": "SMS статус",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SMS статус": {
+      "main": [
+        [
+          {
+            "node": "Обновление данны",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2022-11-02T14:01:02.515Z",
+  "id": 19,
+  "name": "Prod: SmsGorod Events",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "c561da41-8739-4107-b71f-7291853768c9",
+        "options": {}
+      },
+      "id": "d9588eff-107c-4022-b921-2362f104a833",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        460,
+        280
+      ],
+      "webhookId": "c561da41-8739-4107-b71f-7291853768c9"
+    },
+    {
+      "parameters": {
+        "authentication": "nocoDbApiToken",
+        "operation": "getAll",
+        "projectId": "p_g9w7m3ac8ab2rq",
+        "table": "md_xaeenq7krtmt1h",
+        "limit": 1,
+        "options": {
+          "where": "=(sms_id,eq,{{$node[\"Webhook\"].json[\"body\"][\"id\"]}})"
+        }
+      },
+      "id": "234c857f-a8e2-46bb-80c2-b15e53c299e4",
+      "name": "Поиск SMS",
+      "type": "n8n-nodes-base.nocoDb",
+      "typeVersion": 2,
+      "position": [
+        640,
+        280
+      ],
+      "alwaysOutputData": false,
+      "credentials": {
+        "nocoDbApiToken": {
+          "id": "3",
+          "name": "NocoDB"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\nlet isDelivered = $node[\"Webhook\"].json[\"body\"][\"status\"] == \"delivered\";\nreturn [{isDelivered}];"
+      },
+      "id": "0396ec49-057b-430d-828a-f07c3b61e63d",
+      "name": "SMS статус",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        820,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "authentication": "nocoDbApiToken",
+        "operation": "update",
+        "projectId": "p_g9w7m3ac8ab2rq",
+        "table": "md_xaeenq7krtmt1h",
+        "id": "={{$node[\"Поиск SMS\"].json[\"Id\"]}}",
+        "fieldsUi": {
+          "fieldValues": [
+            {
+              "fieldName": "accepted",
+              "fieldValue": "={{null}}"
+            },
+            {
+              "fieldName": "delivered",
+              "fieldValue": "={{$node[\"SMS статус\"].json[\"isDelivered\"]}}"
+            },
+            {
+              "fieldName": "lost",
+              "fieldValue": "={{null}}"
+            },
+            {
+              "fieldName": "paid",
+              "fieldValue": "={{null}}"
+            },
+            {
+              "fieldName": "cost",
+              "fieldValue": "={{$node[\"Webhook\"].json[\"body\"][\"cost\"]}}"
+            },
+            {
+              "fieldName": "error_description",
+              "fieldValue": "={{$node[\"Webhook\"].json[\"body\"][\"error_description\"]}}"
+            }
+          ]
+        }
+      },
+      "id": "f96b85ec-a3da-484f-b207-d59c14858163",
+      "name": "Обновление данны",
+      "type": "n8n-nodes-base.nocoDb",
+      "typeVersion": 2,
+      "position": [
+        1000,
+        280
+      ],
+      "credentials": {
+        "nocoDbApiToken": {
+          "id": "3",
+          "name": "NocoDB"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {},
+  "staticData": null,
+  "tags": [],
+  "updatedAt": "2022-11-09T02:14:43.650Z"
+}
