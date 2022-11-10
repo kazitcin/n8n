@@ -1,5 +1,5 @@
 {
-  "active": false,
+  "active": true,
   "connections": {
     "Execute Workflow": {
       "main": [
@@ -1302,7 +1302,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        3240,
+        3120,
         -240
       ]
     },
@@ -1316,21 +1316,21 @@
       "type": "n8n-nodes-base.splitInBatches",
       "typeVersion": 1,
       "position": [
-        3500,
+        3380,
         -400
       ],
       "alwaysOutputData": false
     },
     {
       "parameters": {
-        "jsCode": "\nlet params = [\n  {\n    \"entity_id\": parseInt($node[\"Ответ создания\"].json[\"data\"][\"_embedded\"][\"leads\"][0][\"id\"]),\n    \"to_entity_id\": $node[\"SplitInBatches\"].json[\"externalid\"],\n    \"to_entity_type\": \"catalog_elements\",\n    \"metadata\": {\n      \"quantity\": parseInt($node[\"SplitInBatches\"].json[\"quantity\"]),\n      \"catalog_id\": 4293\n    }\n  }\n]\n\nreturn [{ params: JSON.stringify(params) }];"
+        "jsCode": "\nlet params = [\n  {\n    \"entity_id\": parseInt($node[\"Ответ создания\"].json[\"data\"][\"_embedded\"][\"leads\"][0][\"id\"]),\n    \"to_entity_id\": parseInt($node[\"SplitInBatches\"].json[\"externalid\"]),\n    \"to_entity_type\": \"catalog_elements\",\n    \"metadata\": {\n      \"quantity\": parseInt($node[\"SplitInBatches\"].json[\"quantity\"]),\n      \"catalog_id\": 4293\n    }\n  }\n]\n\nreturn [{ params: JSON.stringify(params) }];"
       },
       "id": "72c22a1b-dc42-4624-ad93-ba9acf6eb0bf",
       "name": "Параметры привязки товара",
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        3740,
+        3560,
         -400
       ]
     },
@@ -1348,7 +1348,7 @@
       "type": "n8n-nodes-base.nocoDb",
       "typeVersion": 2,
       "position": [
-        2800,
+        2760,
         -240
       ],
       "credentials": {
@@ -1381,7 +1381,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        3980,
+        3740,
         -400
       ]
     },
@@ -1394,7 +1394,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        4180,
+        3920,
         -400
       ]
     },
@@ -1445,7 +1445,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        4400,
+        4100,
         -400
       ]
     },
@@ -1458,7 +1458,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        4580,
+        4280,
         -400
       ]
     },
@@ -1476,7 +1476,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        4760,
+        4460,
         -400
       ]
     },
@@ -1489,7 +1489,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        3500,
+        3380,
         -80
       ]
     },
@@ -1516,7 +1516,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        3680,
+        3560,
         -80
       ]
     },
@@ -1529,7 +1529,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        3860,
+        3740,
         -80
       ]
     },
@@ -1542,7 +1542,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        4040,
+        3920,
         -80
       ]
     },
@@ -1569,7 +1569,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        4220,
+        4100,
         -80
       ]
     },
@@ -1582,7 +1582,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        4400,
+        4280,
         -80
       ]
     },
@@ -1609,7 +1609,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        4580,
+        4460,
         -80
       ]
     },
@@ -2463,7 +2463,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        3040,
+        2940,
         -240
       ]
     }
@@ -2476,5 +2476,5 @@
   },
   "staticData": null,
   "tags": [],
-  "updatedAt": "2022-11-09T10:58:08.522Z"
+  "updatedAt": "2022-11-10T04:51:32.389Z"
 }
