@@ -1,5 +1,5 @@
 {
-  "active": false,
+  "active": true,
   "connections": {
     "Webhook": {
       "main": [
@@ -1289,7 +1289,7 @@
           "fieldValues": [
             {
               "fieldName": "user_id",
-              "fieldValue": "={{$node[\"ID пользователя\"].json[\"data\"][\"user_id\"]}}"
+              "fieldValue": "={{$node[\"Webhook\"].json[\"body\"][\"user\"][\"id\"]}}"
             },
             {
               "fieldName": "contact_id",
@@ -2140,8 +2140,12 @@
     }
   ],
   "pinData": {},
-  "settings": {},
+  "settings": {
+    "saveExecutionProgress": "DEFAULT",
+    "callerPolicy": "any",
+    "errorWorkflow": "8"
+  },
   "staticData": null,
   "tags": [],
-  "updatedAt": "2022-11-09T02:30:39.866Z"
+  "updatedAt": "2022-11-10T05:14:53.011Z"
 }
