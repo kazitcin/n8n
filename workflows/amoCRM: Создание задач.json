@@ -5,7 +5,7 @@
       "main": [
         [
           {
-            "node": "Execute Workflow",
+            "node": "Set",
             "type": "main",
             "index": 0
           }
@@ -27,36 +27,14 @@
       "main": [
         [
           {
-            "node": "Отправка письма о блакировке",
+            "node": "Отправка письма о блокировке",
             "type": "main",
             "index": 0
           }
         ],
         [
           {
-            "node": "Удаление?",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Удаление?": {
-      "main": [
-        [
-          {
             "node": "Отправка письма о удалении",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Отправка письма о блакировке": {
-      "main": [
-        [
-          {
-            "node": "Сохранение данных о отправке",
             "type": "main",
             "index": 0
           }
@@ -92,11 +70,6 @@
             "node": "Параметры задачи1",
             "type": "main",
             "index": 0
-          },
-          {
-            "node": "Параметры задачи2",
-            "type": "main",
-            "index": 0
           }
         ]
       ]
@@ -106,17 +79,6 @@
         [
           {
             "node": "Создание задачи1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Параметры задачи2": {
-      "main": [
-        [
-          {
-            "node": "Создание задачи2",
             "type": "main",
             "index": 0
           }
@@ -141,11 +103,6 @@
             "node": "Параметры задачи3",
             "type": "main",
             "index": 0
-          },
-          {
-            "node": "Параметры задачи4",
-            "type": "main",
-            "index": 0
           }
         ]
       ]
@@ -155,17 +112,6 @@
         [
           {
             "node": "Создание задачи3",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Параметры задачи4": {
-      "main": [
-        [
-          {
-            "node": "Создание задачи",
             "type": "main",
             "index": 0
           }
@@ -183,29 +129,7 @@
         ]
       ]
     },
-    "Создание задачи2": {
-      "main": [
-        [
-          {
-            "node": "Последний пользователь?",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Создание задачи3": {
-      "main": [
-        [
-          {
-            "node": "Последний пользователь?",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Создание задачи": {
       "main": [
         [
           {
@@ -233,6 +157,28 @@
           }
         ]
       ]
+    },
+    "Set": {
+      "main": [
+        [
+          {
+            "node": "Execute Workflow",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Отправка письма о блокировке": {
+      "main": [
+        [
+          {
+            "node": "Сохранение данных о отправке",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2022-11-03T20:53:58.906Z",
@@ -242,7 +188,7 @@
     {
       "parameters": {
         "operation": "executeQuery",
-        "query": "select \t\n    n.user_id,\n\tn.first_name,\n\tn.last_name,\n\tn.email,\n\tn.phone_number,\n\tn.last_payday,\n\tn.next_payday,\n\tn.\"blocked\", \n        n.contact_id,\n        n.lead_id,\n        n.notification_status\nfrom notifucations n \nwhere notification_status is null\nlimit 2",
+        "query": "select \t\n    n.user_id,\n\tn.first_name,\n\tn.last_name,\n\tn.email,\n\tn.phone_number,\n\tn.last_payday,\n\tn.next_payday,\n\tn.\"blocked\", \n        n.contact_id,\n        n.lead_id,\n        n.notification_status\nfrom notifucations n \nwhere notification_status is not null",
         "additionalFields": {}
       },
       "id": "94dbc6de-0509-46a5-8349-48390cf6cf65",
@@ -250,7 +196,7 @@
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 1,
       "position": [
-        560,
+        800,
         320
       ],
       "credentials": {
@@ -264,7 +210,10 @@
       "parameters": {
         "rule": {
           "interval": [
-            {}
+            {
+              "field": "cronExpression",
+              "expression": "30 7 * * *"
+            }
           ]
         }
       },
@@ -273,7 +222,7 @@
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1,
       "position": [
-        180,
+        260,
         320
       ]
     },
@@ -293,32 +242,12 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        940,
+        1160,
         320
       ]
     },
     {
       "parameters": {
-        "conditions": {
-          "string": [
-            {
-              "value1": "={{$node[\"SplitInBatches\"].json[\"notification_status\"]}}",
-              "value2": "=Удаление"
-            }
-          ]
-        }
-      },
-      "id": "3a0ddc60-0f25-452e-ba2e-a4a2cbf66b4d",
-      "name": "Удаление?",
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 1,
-      "position": [
-        1140,
-        600
-      ]
-    },
-    {
-      "parameters": {
         "url": "http://api.dashamail.com",
         "sendQuery": true,
         "queryParameters": {
@@ -333,50 +262,7 @@
             },
             {
               "name": "to",
-              "value": "vts@mybi.ru"
-            },
-            {
-              "name": "message",
-              "value": "2287082"
-            },
-            {
-              "name": "from_email",
-              "value": "mail@mybi.ru"
-            },
-            {
-              "name": "subject",
-              "value": "Тестовое"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "ff9d11c1-f70d-4488-a56d-0151996cef48",
-      "name": "Отправка письма о блакировке",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 3,
-      "position": [
-        1160,
-        60
-      ]
-    },
-    {
-      "parameters": {
-        "url": "http://api.dashamail.com",
-        "sendQuery": true,
-        "queryParameters": {
-          "parameters": [
-            {
-              "name": "method",
-              "value": "transactional.send"
-            },
-            {
-              "name": "api_key",
-              "value": "0f0ca3c6f479fd2fab67384e9e5c15d1"
-            },
-            {
-              "name": "to",
-              "value": "vts@mybi.ru"
+              "value": "sk@mybi.ru"
             },
             {
               "name": "message",
@@ -388,7 +274,11 @@
             },
             {
               "name": "subject",
-              "value": "Тестовое"
+              "value": "myBI Connect - Оплата сервиса"
+            },
+            {
+              "name": "from_name",
+              "value": "Алексей Сидоров"
             }
           ]
         },
@@ -405,8 +295,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        1380,
-        580
+        1420,
+        480
       ]
     },
     {
@@ -419,7 +309,7 @@
       "type": "n8n-nodes-base.splitInBatches",
       "typeVersion": 1,
       "position": [
-        760,
+        980,
         320
       ]
     },
@@ -432,7 +322,7 @@
       "type": "n8n-nodes-base.executeWorkflow",
       "typeVersion": 1,
       "position": [
-        360,
+        620,
         320
       ]
     },
@@ -440,13 +330,13 @@
       "parameters": {
         "authentication": "nocoDbApiToken",
         "operation": "create",
-        "projectId": "p_g9w7m3ac8ab2rq",
-        "table": "md_zqjjjzpkxrnb52",
+        "projectId": "p_f907ih5oqn9gtp",
+        "table": "md_wnb7sjajswprjb",
         "fieldsUi": {
           "fieldValues": [
             {
               "fieldName": "message_id",
-              "fieldValue": "={{$node[\"Отправка письма о блакировке\"].json[\"response\"][\"data\"][\"transaction_id\"]}}"
+              "fieldValue": "={{$node[\"Отправка письма о блокировке\"].json[\"response\"][\"data\"][\"transaction_id\"]}}"
             },
             {
               "fieldName": "dropped",
@@ -500,8 +390,8 @@
       "type": "n8n-nodes-base.nocoDb",
       "typeVersion": 2,
       "position": [
-        1380,
-        60
+        1600,
+        160
       ],
       "credentials": {
         "nocoDbApiToken": {
@@ -512,55 +402,15 @@
     },
     {
       "parameters": {
-        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\nlet params = [\n    {\n        \"task_type_id\": 1,\n        \"text\": \"Отправлено с помощью DashaMail\",\n        \"responsible_user_id\": 6651409,\n        \"is_completed\": true,\n        \"complete_till\": parseInt(new Date().getTime() / 1000),\n        \"entity_id\": 5453635,\n        //\"entity_id\": $node[\"SplitInBatches\"].json[\"lead_id\"],\n        \"entity_type\": \"leads\",\n    }\n]\n\nreturn [{params: JSON.stringify(params)}];"
+        "jsCode": "let params = [\n  {\n    \"task_type_id\": 1,\n    \"text\": \"Отправлено с помощью DashaMail\",\n    \"responsible_user_id\": 289686,\n    \"is_completed\": true,\n    \"complete_till\": parseInt(new Date().getTime() / 1000),\n    \"entity_id\":parseInt($node[\"SplitInBatches\"].json[\"lead_id\"]),\n    \"entity_type\": \"leads\",\n  }\n]\n\nreturn [{ params: JSON.stringify(params) }];"
       },
       "id": "f9a97822-f34b-4b6c-89af-c2c5bc5381b7",
       "name": "Параметры задачи1",
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        1580,
-        -100
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\n\nvar date = new Date();\ndate.setDate(date.getDate() + 1);\n\nlet params = [\n    {\n        \"task_type_id\": 1,\n        \"text\": \" \",\n        \"responsible_user_id\": 6651409,\n        \"is_completed\": false,\n        \"complete_till\": parseInt(date.getTime() / 1000),\n        \"entity_id\": 5453635,\n        \"entity_id\": $node[\"SplitInBatches\"].json[\"lead_id\"],\n        \"entity_type\": \"leads\",\n    }\n]\n\nreturn [{params: JSON.stringify(params)}];"
-      },
-      "id": "b4aee961-ad2a-46da-99c7-05dfc541547f",
-      "name": "Параметры задачи2",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 1,
-      "position": [
-        1580,
-        180
-      ]
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "=https://{{$node[\"Execute Workflow\"].json[\"subdomain\"]}}/api/v4/tasks",
-        "sendHeaders": true,
-        "headerParameters": {
-          "parameters": [
-            {
-              "name": "Authorization",
-              "value": "=Bearer {{$node[\"Execute Workflow\"].json[\"access_token\"]}}"
-            }
-          ]
-        },
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "={{$node[\"Параметры задачи2\"].json[\"params\"]}}",
-        "options": {}
-      },
-      "id": "be35d1b5-d480-4fe8-ad56-f6ec17e9eab1",
-      "name": "Создание задачи2",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 3,
-      "position": [
-        1800,
-        180
+        1780,
+        160
       ]
     },
     {
@@ -586,16 +436,16 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        1780,
-        -100
+        1960,
+        160
       ]
     },
     {
       "parameters": {
         "authentication": "nocoDbApiToken",
         "operation": "create",
-        "projectId": "p_g9w7m3ac8ab2rq",
-        "table": "md_zqjjjzpkxrnb52",
+        "projectId": "p_f907ih5oqn9gtp",
+        "table": "md_wnb7sjajswprjb",
         "fieldsUi": {
           "fieldValues": [
             {
@@ -654,8 +504,8 @@
       "type": "n8n-nodes-base.nocoDb",
       "typeVersion": 2,
       "position": [
-        1640,
-        580
+        1600,
+        480
       ],
       "credentials": {
         "nocoDbApiToken": {
@@ -666,15 +516,15 @@
     },
     {
       "parameters": {
-        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\nlet params = [\n    {\n        \"task_type_id\": 1,\n        \"text\": \"Отправлено с помощью DashaMail\",\n        \"responsible_user_id\": 6651409,\n        \"is_completed\": true,\n        \"complete_till\": parseInt(new Date().getTime() / 1000),\n        \"entity_id\": 5453635,\n        //\"entity_id\": $node[\"SplitInBatches\"].json[\"lead_id\"],\n        \"entity_type\": \"leads\",\n    }\n]\n\nreturn [{params: JSON.stringify(params)}];"
+        "jsCode": "let params = [\n  {\n    \"task_type_id\": 1,\n    \"text\": \"Отправлено с помощью DashaMail\",\n    \"responsible_user_id\": 289686,\n    \"is_completed\": true,\n    \"complete_till\": parseInt(new Date().getTime() / 1000),\n    \"entity_id\": parseInt($node[\"SplitInBatches\"].json[\"lead_id\"]),\n    \"entity_type\": \"leads\",\n  }\n]\n\nreturn [{ params: JSON.stringify(params) }];"
       },
       "id": "6f551feb-6c9a-4867-8cc8-e3dd4d0fe818",
       "name": "Параметры задачи3",
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        1840,
-        360
+        1780,
+        480
       ]
     },
     {
@@ -700,48 +550,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        2080,
-        360
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\n\nvar date = new Date();\ndate.setDate(date.getDate() + 1);\n\nlet params = [\n    {\n        \"task_type_id\": 1,\n        \"text\": \"BLANK\",\n        \"responsible_user_id\": 6651409,\n        \"is_completed\": false,\n        \"complete_till\": parseInt(date.getTime() / 1000),\n        \"entity_id\": 5453635,\n        //\"entity_id\": $node[\"SplitInBatches\"].json[\"lead_id\"],\n        \"entity_type\": \"leads\",\n    }\n]\n\nreturn [{params: JSON.stringify(params)}];"
-      },
-      "id": "c2e0b656-9668-491b-b5c2-2de473fcab29",
-      "name": "Параметры задачи4",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 1,
-      "position": [
-        1860,
-        680
-      ]
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "=https://{{$node[\"Execute Workflow\"].json[\"subdomain\"]}}/api/v4/tasks",
-        "sendHeaders": true,
-        "headerParameters": {
-          "parameters": [
-            {
-              "name": "Authorization",
-              "value": "=Bearer {{$node[\"Execute Workflow\"].json[\"access_token\"]}}"
-            }
-          ]
-        },
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "={{$node[\"Параметры задачи4\"].json[\"params\"]}}",
-        "options": {}
-      },
-      "id": "f2d4b773-7d96-4e64-8371-16fff79e8685",
-      "name": "Создание задачи",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 3,
-      "position": [
-        2120,
-        680
+        1960,
+        480
       ]
     },
     {
@@ -760,8 +570,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        2520,
-        360
+        2220,
+        480
       ]
     },
     {
@@ -771,14 +581,85 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        2720,
-        340
+        2400,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "amoType",
+              "value": "prod"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "1d7a1048-7c40-4c80-9085-ebf5263fcd5e",
+      "name": "Set",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        440,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "url": "http://api.dashamail.com",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "method",
+              "value": "transactional.send"
+            },
+            {
+              "name": "api_key",
+              "value": "0f0ca3c6f479fd2fab67384e9e5c15d1"
+            },
+            {
+              "name": "to",
+              "value": "sk@mybi.ru"
+            },
+            {
+              "name": "message",
+              "value": "2287082"
+            },
+            {
+              "name": "from_email",
+              "value": "mail@mybi.ru"
+            },
+            {
+              "name": "subject",
+              "value": "myBI Connect - Оплата сервиса"
+            },
+            {
+              "name": "from_name",
+              "value": "Алексей Сидоров"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "ff9d11c1-f70d-4488-a56d-0151996cef48",
+      "name": "Отправка письма о блокировке",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        1420,
+        160
       ]
     }
   ],
   "pinData": {},
-  "settings": {},
+  "settings": {
+    "callerPolicy": "any",
+    "errorWorkflow": "8"
+  },
   "staticData": null,
   "tags": [],
-  "updatedAt": "2022-11-04T13:09:32.090Z"
+  "updatedAt": "2022-11-10T07:43:35.361Z"
 }
