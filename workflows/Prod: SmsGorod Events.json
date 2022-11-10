@@ -1,5 +1,5 @@
 {
-  "active": false,
+  "active": true,
   "connections": {
     "Webhook": {
       "main": [
@@ -59,8 +59,8 @@
       "parameters": {
         "authentication": "nocoDbApiToken",
         "operation": "getAll",
-        "projectId": "p_g9w7m3ac8ab2rq",
-        "table": "md_xaeenq7krtmt1h",
+        "projectId": "p_f907ih5oqn9gtp",
+        "table": "md_3ypp2osxwtbu73",
         "limit": 1,
         "options": {
           "where": "=(sms_id,eq,{{$node[\"Webhook\"].json[\"body\"][\"id\"]}})"
@@ -84,7 +84,7 @@
     },
     {
       "parameters": {
-        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\nlet isDelivered = $node[\"Webhook\"].json[\"body\"][\"status\"] == \"delivered\";\nreturn [{isDelivered}];"
+        "jsCode": "let isDelivered = $node[\"Webhook\"].json[\"body\"][\"status\"] == \"delivered\";\nreturn [{ isDelivered }];"
       },
       "id": "0396ec49-057b-430d-828a-f07c3b61e63d",
       "name": "SMS статус",
@@ -99,8 +99,8 @@
       "parameters": {
         "authentication": "nocoDbApiToken",
         "operation": "update",
-        "projectId": "p_g9w7m3ac8ab2rq",
-        "table": "md_xaeenq7krtmt1h",
+        "projectId": "p_f907ih5oqn9gtp",
+        "table": "md_3ypp2osxwtbu73",
         "id": "={{$node[\"Поиск SMS\"].json[\"Id\"]}}",
         "fieldsUi": {
           "fieldValues": [
@@ -151,5 +151,5 @@
   "settings": {},
   "staticData": null,
   "tags": [],
-  "updatedAt": "2022-11-09T02:14:43.650Z"
+  "updatedAt": "2022-11-10T06:04:13.063Z"
 }
