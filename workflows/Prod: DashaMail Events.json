@@ -27,7 +27,7 @@
       "main": [
         [
           {
-            "node": "Set",
+            "node": "Письмо не доставлено?",
             "type": "main",
             "index": 0
           }
@@ -60,25 +60,7 @@
       "main": [
         [
           {
-            "node": "IF",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "IF": {
-      "main": [
-        [
-          {
-            "node": "Параметры задачи на блокировку",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "Параметры задачи на удалений",
+            "node": "Блокировка?",
             "type": "main",
             "index": 0
           }
@@ -106,6 +88,35 @@
           }
         ]
       ]
+    },
+    "Блокировка?": {
+      "main": [
+        [
+          {
+            "node": "Параметры задачи на блокировку",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Параметры задачи на удалений",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Письмо не доставлено?": {
+      "main": [
+        [
+          {
+            "node": "Set",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2022-11-08T09:09:38.242Z",
@@ -123,8 +134,8 @@
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 1,
       "position": [
-        700,
-        80
+        660,
+        240
       ],
       "webhookId": "60713656-039a-42ef-a929-4a40f1aebd1a"
     },
@@ -132,8 +143,8 @@
       "parameters": {
         "authentication": "nocoDbApiToken",
         "operation": "getAll",
-        "projectId": "p_g9w7m3ac8ab2rq",
-        "table": "md_zqjjjzpkxrnb52",
+        "projectId": "p_f907ih5oqn9gtp",
+        "table": "md_wnb7sjajswprjb",
         "limit": 1,
         "options": {
           "where": "=(message_id,eq,{{$node[\"Webhook\"].json[\"body\"][\"message_id\"]}})"
@@ -144,8 +155,8 @@
       "type": "n8n-nodes-base.nocoDb",
       "typeVersion": 2,
       "position": [
-        880,
-        80
+        840,
+        240
       ],
       "credentials": {
         "nocoDbApiToken": {
@@ -158,8 +169,8 @@
       "parameters": {
         "authentication": "nocoDbApiToken",
         "operation": "update",
-        "projectId": "p_g9w7m3ac8ab2rq",
-        "table": "md_zqjjjzpkxrnb52",
+        "projectId": "p_f907ih5oqn9gtp",
+        "table": "md_wnb7sjajswprjb",
         "id": "={{$node[\"Поиск сообщения\"].json[\"Id\"]}}",
         "fieldsUi": {
           "fieldValues": [
@@ -175,8 +186,8 @@
       "type": "n8n-nodes-base.nocoDb",
       "typeVersion": 2,
       "position": [
-        1240,
-        80
+        1200,
+        240
       ],
       "credentials": {
         "nocoDbApiToken": {
@@ -187,15 +198,15 @@
     },
     {
       "parameters": {
-        "jsCode": "let map = {\n  \"clicked\": \"click\",\n  \"delivered\": \"delivered\",\n  \"opened\": \"open\"\n}\n\nlet field = map[$node[\"Webhook\"].json[\"body\"][\"event\"]];\n\nreturn [{ field }];"
+        "jsCode": "let map = {\n  \"clicked\": \"click\",\n  \"delivered\": \"delivered\",\n  \"opened\": \"open\",\n  \"bounce\": \"bounce\"\n}\n\nlet field = map[$node[\"Webhook\"].json[\"body\"][\"event\"]];\n\nreturn [{ field }];"
       },
       "id": "5cc8fea3-4467-4350-992a-7614828f43c7",
       "name": "Тип события",
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        1060,
-        80
+        1020,
+        240
       ]
     },
     {
@@ -207,27 +218,7 @@
       "type": "n8n-nodes-base.executeWorkflow",
       "typeVersion": 1,
       "position": [
-        1600,
-        80
-      ]
-    },
-    {
-      "parameters": {
-        "conditions": {
-          "string": [
-            {
-              "value1": "={{$node[\"Поиск сообщения\"].json[\"template\"]}}",
-              "value2": "Блокировка"
-            }
-          ]
-        }
-      },
-      "id": "a4563a88-56b7-4f0e-a422-ef5331939881",
-      "name": "IF",
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 1,
-      "position": [
-        1780,
+        1820,
         80
       ]
     },
@@ -248,7 +239,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 1,
       "position": [
-        1420,
+        1640,
         80
       ]
     },
@@ -261,7 +252,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        2040,
+        2260,
         -80
       ]
     },
@@ -274,7 +265,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        2040,
+        2260,
         240
       ]
     },
@@ -301,7 +292,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        2220,
+        2440,
         240
       ]
     },
@@ -328,8 +319,48 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        2220,
+        2440,
         -80
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{$node[\"Поиск сообщения\"].json[\"template\"]}}",
+              "value2": "Блокировка"
+            }
+          ]
+        }
+      },
+      "id": "a4563a88-56b7-4f0e-a422-ef5331939881",
+      "name": "Блокировка?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        2000,
+        80
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "{{$node[\"Тип события\"].json[\"field\"]}}",
+              "value2": "bounce"
+            }
+          ]
+        }
+      },
+      "id": "7891c6e7-fea8-4278-9ba1-b1aad1aeb3db",
+      "name": "Письмо не доставлено?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        1380,
+        240
       ]
     }
   ],
@@ -337,5 +368,5 @@
   "settings": {},
   "staticData": null,
   "tags": [],
-  "updatedAt": "2022-11-09T02:06:48.711Z"
+  "updatedAt": "2022-11-10T07:43:13.928Z"
 }
