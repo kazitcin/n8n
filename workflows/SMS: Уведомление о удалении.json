@@ -116,8 +116,8 @@
       "parameters": {
         "authentication": "nocoDbApiToken",
         "operation": "getAll",
-        "projectId": "p_g9w7m3ac8ab2rq",
-        "table": "md_zqjjjzpkxrnb52",
+        "projectId": "p_f907ih5oqn9gtp",
+        "table": "md_wnb7sjajswprjb",
         "returnAll": true,
         "options": {
           "where": "=(template,eq,'Удаление')~and((open,is,false)~and(CreatedAt,ge,{{$node[\"Code\"].json[\"date\"]}}))"
@@ -140,6 +140,7 @@
     },
     {
       "parameters": {
+        "batchSize": 1,
         "options": {}
       },
       "id": "d5130a40-19a9-42f3-be3b-06b90fa3cbc3",
@@ -179,7 +180,7 @@
             },
             {
               "name": "webhookUrl",
-              "value": "https://n8n.mybi.ru/webhook-test/c561da41-8739-4107-b71f-7291853768c9"
+              "value": "https://n8n.mybi.ru/webhook/c561da41-8739-4107-b71f-7291853768c9"
             }
           ]
         },
@@ -307,7 +308,7 @@
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1,
       "position": [
-        200,
+        180,
         260
       ]
     },
@@ -320,14 +321,17 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        380,
+        360,
         260
       ]
     }
   ],
   "pinData": {},
-  "settings": {},
+  "settings": {
+    "callerPolicy": "any",
+    "errorWorkflow": "8"
+  },
   "staticData": null,
   "tags": [],
-  "updatedAt": "2022-11-04T19:49:47.607Z"
+  "updatedAt": "2022-11-10T06:10:50.388Z"
 }
