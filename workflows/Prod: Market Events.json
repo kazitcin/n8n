@@ -1575,7 +1575,7 @@
     },
     {
       "parameters": {
-        "jsCode": "let params = [\n  {\n    \"id\": parseInt($node[\"Ответ создания\"].json[\"data\"][\"_embedded\"][\"leads\"][0][\"id\"]),\n    \"responsible_user_id\": 289686,\n    \"status_id\": 39207742,\n    \"pipeline_id\": 4163434\n  }\n]\n\nreturn [{ params: JSON.stringify(params) }];"
+        "jsCode": "let params = [\n  {\n    \"id\": parseInt($node[\"Ответ создания\"].json[\"data\"][\"_embedded\"][\"leads\"][0][\"id\"]),\n    \"responsible_user_id\": 289686,\n    \"status_id\": 40402399,\n    \"pipeline_id\": 4163434\n  }\n]\n\nreturn [{ params: JSON.stringify(params) }];"
       },
       "id": "87b43af3-a09d-4fdd-8a91-d99bfb0381d6",
       "name": "Параметры обновления сделки",
@@ -2476,5 +2476,5 @@
   },
   "staticData": null,
   "tags": [],
-  "updatedAt": "2022-11-10T04:51:32.389Z"
+  "updatedAt": "2022-11-10T13:38:53.269Z"
 }
