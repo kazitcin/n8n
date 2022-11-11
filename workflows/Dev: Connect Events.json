@@ -1,30 +1,30 @@
 {
   "active": true,
   "connections": {},
-  "createdAt": "2022-10-28T03:12:02.516Z",
-  "id": 11,
+  "createdAt": "2022-11-10T13:25:32.220Z",
+  "id": 30,
   "name": "Dev: Connect Events",
   "nodes": [
     {
       "parameters": {
         "httpMethod": "POST",
-        "path": "70529c57-d870-4188-8f5d-55eea91bc820",
+        "path": "bf208696-8eb5-47a1-b744-da14ef782233",
         "options": {}
       },
-      "id": "301196ec-c296-4cb9-9d40-b10f673ca211",
+      "id": "5997c51a-99d1-4e77-ba2a-92861d75ff8e",
       "name": "Webhook",
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 1,
       "position": [
-        400,
-        240
+        880,
+        420
       ],
-      "webhookId": "70529c57-d870-4188-8f5d-55eea91bc820"
+      "webhookId": "bf208696-8eb5-47a1-b744-da14ef782233"
     }
   ],
   "pinData": {},
   "settings": {},
   "staticData": null,
   "tags": [],
-  "updatedAt": "2022-10-30T05:29:40.253Z"
+  "updatedAt": "2022-11-11T00:55:14.729Z"
 }
