@@ -1,0 +1,632 @@
+{
+  "active": false,
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Set",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SplitInBatches": {
+      "main": [
+        [
+          {
+            "node": "Поис пользователя",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Создание пользователя": {
+      "main": [
+        [
+          {
+            "node": "Все пользователи обработаны?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Поис пользователя": {
+      "main": [
+        [
+          {
+            "node": "Флаг получения данных",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Флаг получения данных": {
+      "main": [
+        [
+          {
+            "node": "Пользователь не найден?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Пользователь не найден?": {
+      "main": [
+        [
+          {
+            "node": "Создание пользователя",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Записи в отдельную таблицу": {
+      "main": [
+        [
+          {
+            "node": "Все пользователи обработаны?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Все пользователи обработаны?": {
+      "main": [
+        [
+          {
+            "node": "Code3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "SplitInBatches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IF": {
+      "main": [
+        [
+          {
+            "node": "Все пользователи обработаны?",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Записи в отдельную таблицу",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "IF",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Code2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set": {
+      "main": [
+        [
+          {
+            "node": "Параметры",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code3": {
+      "main": [
+        [
+          {
+            "node": "Параметры",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Параметры": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code2": {
+      "main": [
+        [
+          {
+            "node": "IF1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IF1": {
+      "main": [
+        [
+          {
+            "node": "NoOp1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Code1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code1": {
+      "main": [
+        [
+          {
+            "node": "SplitInBatches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2022-11-30T10:02:51.736Z",
+  "id": 31,
+  "name": "My workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "54 16 * * *"
+            }
+          ]
+        }
+      },
+      "id": "3196ef7d-a815-4fc3-9dd1-6ecd6eadfd28",
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1,
+      "position": [
+        -440,
+        -140
+      ]
+    },
+    {
+      "parameters": {
+        "batchSize": 1,
+        "options": {}
+      },
+      "id": "f6287a2f-c985-4e64-ace5-814fb7517c52",
+      "name": "SplitInBatches",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 1,
+      "position": [
+        1000,
+        -120
+      ]
+    },
+    {
+      "parameters": {
+        "authentication": "nocoDbApiToken",
+        "operation": "create",
+        "projectId": "p_g9w7m3ac8ab2rq",
+        "table": "md_y0z1qo6sry41ug",
+        "fieldsUi": {
+          "fieldValues": [
+            {
+              "fieldName": "user_id",
+              "fieldValue": "={{$node[\"SplitInBatches\"].json[\"fields\"][\"user_id\"]}}"
+            },
+            {
+              "fieldName": "contact_id",
+              "fieldValue": "={{$node[\"SplitInBatches\"].json[\"fields\"][\"contact_id\"]}}"
+            },
+            {
+              "fieldName": "lead_id",
+              "fieldValue": "={{$node[\"SplitInBatches\"].json[\"fields\"][\"lead_id\"]}}"
+            },
+            {
+              "fieldName": "email",
+              "fieldValue": "={{$node[\"SplitInBatches\"].json[\"fields\"][\"email\"]}}"
+            },
+            {
+              "fieldName": "balance",
+              "fieldValue": "={{$node[\"SplitInBatches\"].json[\"fields\"][\"balance\"]}}"
+            },
+            {
+              "fieldName": "blocked",
+              "fieldValue": "={{$node[\"SplitInBatches\"].json[\"fields\"][\"blocked\"]}}"
+            },
+            {
+              "fieldName": "stage",
+              "fieldValue": "={{$node[\"SplitInBatches\"].json[\"fields\"][\"stage\"]}}"
+            },
+            {
+              "fieldName": "phone_number",
+              "fieldValue": "={{$node[\"SplitInBatches\"].json[\"fields\"][\"phone_number\"]}}"
+            },
+            {
+              "fieldName": "first_name",
+              "fieldValue": "={{$node[\"SplitInBatches\"].json[\"fields\"][\"first_name\"]}}"
+            },
+            {
+              "fieldName": "last_payday",
+              "fieldValue": "={{$node[\"SplitInBatches\"].json[\"fields\"][\"last_payday\"]}}"
+            },
+            {
+              "fieldName": "next_payday",
+              "fieldValue": "={{$node[\"SplitInBatches\"].json[\"fields\"][\"next_payday\"]}}"
+            }
+          ]
+        }
+      },
+      "id": "f13fef51-7889-4b0a-9abd-8d7085036685",
+      "name": "Создание пользователя",
+      "type": "n8n-nodes-base.nocoDb",
+      "typeVersion": 2,
+      "position": [
+        2040,
+        -600
+      ],
+      "credentials": {
+        "nocoDbApiToken": {
+          "id": "3",
+          "name": "NocoDB"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "nocoDbApiToken",
+        "operation": "getAll",
+        "projectId": "p_g9w7m3ac8ab2rq",
+        "table": "md_y0z1qo6sry41ug",
+        "limit": 1,
+        "options": {
+          "where": "=(user_id,eq,{{$node[\"SplitInBatches\"].json[\"fields\"][\"user_id\"]}})"
+        }
+      },
+      "id": "22316642-5fb2-4362-96dc-b39d1cc8dea0",
+      "name": "Поис пользователя",
+      "type": "n8n-nodes-base.nocoDb",
+      "typeVersion": 2,
+      "position": [
+        1220,
+        -120
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "nocoDbApiToken": {
+          "id": "3",
+          "name": "NocoDB"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "return [\n  {\n    json: {\n      empty: $input.all().length == 1 && Object.keys($input.all()[0].json).length == 0\n    }\n  }\n];"
+      },
+      "id": "b676c6d8-96a3-494d-bd70-bf7da0d508d0",
+      "name": "Флаг получения данных",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        1440,
+        -120
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{$node[\"Флаг получения данных\"].json[\"empty\"]}}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "3670a4c2-625d-43c0-b4d2-deec6963f13f",
+      "name": "Пользователь не найден?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        1660,
+        -120
+      ]
+    },
+    {
+      "parameters": {
+        "authentication": "nocoDbApiToken",
+        "operation": "create",
+        "projectId": "p_g9w7m3ac8ab2rq",
+        "table": "md_li47qney6s6gdz",
+        "fieldsUi": {
+          "fieldValues": [
+            {
+              "fieldName": "=user_id",
+              "fieldValue": "={{$node[\"SplitInBatches\"].json[\"fields\"][\"user_id\"]}}"
+            },
+            {
+              "fieldName": "email",
+              "fieldValue": "={{$node[\"SplitInBatches\"].json[\"fields\"][\"email\"]}}"
+            },
+            {
+              "fieldName": "lead_id",
+              "fieldValue": "={{$node[\"SplitInBatches\"].json[\"fields\"][\"lead_id\"]}}"
+            },
+            {
+              "fieldName": "contact_id",
+              "fieldValue": "={{$node[\"SplitInBatches\"].json[\"fields\"][\"contact_id\"]}}"
+            }
+          ]
+        }
+      },
+      "id": "60fd01c5-de15-4e96-b3b1-5d69c9470ce3",
+      "name": "Записи в отдельную таблицу",
+      "type": "n8n-nodes-base.nocoDb",
+      "typeVersion": 2,
+      "position": [
+        2240,
+        -120
+      ],
+      "credentials": {
+        "nocoDbApiToken": {
+          "id": "3",
+          "name": "NocoDB"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{$node[\"SplitInBatches\"].context[\"noItemsLeft\"]}}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "ae002659-0876-498c-8aa0-047368d97f4a",
+      "name": "Все пользователи обработаны?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        2560,
+        -120
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{$node[\"Code\"].json[\"result\"]}}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "fc2eb538-aca1-402a-af98-e2b167561bf2",
+      "name": "IF",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        2040,
+        -340
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\nlet airtable_contact_id = $node[\"SplitInBatches\"].json[\"fields\"][\"contact_id\"];\nlet noco_contact_id = $node[\"Поис пользователя\"].json[\"contact_id\"];\n\nlet airtable_lead_id = $node[\"SplitInBatches\"].json[\"fields\"][\"lead_id\"];\nlet noco_lead_id = $node[\"Поис пользователя\"].json[\"lead_id\"];\n\nlet airtable_stage = $node[\"SplitInBatches\"].json[\"fields\"][\"stage\"];\nlet noco_stage = $node[\"Поис пользователя\"].json[\"stage\"];\n\nlet result = (\n  airtable_contact_id == noco_contact_id && \n  airtable_lead_id == noco_lead_id &&\n  airtable_stage == noco_stage\n)\n\nreturn [{result}];"
+      },
+      "id": "ccfbc990-342b-4922-bdb0-0f3517514c78",
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        1860,
+        -100
+      ]
+    },
+    {
+      "parameters": {
+        "url": "=https://api.airtable.com/v0/appnYF4wzMxltR58Y/tblc4InGi3HS3suBu",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "airtableApi",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "=offset",
+              "value": "={{ $json[\"offset\"] }}"
+            },
+            {
+              "name": "pageSize",
+              "value": "={{ $json[\"pageSize\"] }}"
+            },
+            {
+              "name": "=view",
+              "value": "={{ $json[\"view\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "8279d132-f4a4-4053-86b7-e250e4ceb8d0",
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        120,
+        -140
+      ],
+      "credentials": {
+        "airtableApi": {
+          "id": "8",
+          "name": "Airtable"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": " return [\n  {\n     json: {\n      empty: $input.all().length == 1 && Object.keys($input.all()[0].json).length == 0\n     }\n   }\n ];\n\n"
+      },
+      "id": "4bf4885a-77e8-4a64-9144-78fe43c7e9f8",
+      "name": "Code2",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        340,
+        -140
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{$node[\"HTTP Request\"].json[\"offset\"]}}",
+              "operation": "isEmpty"
+            }
+          ]
+        }
+      },
+      "id": "cd983e83-7d73-49c3-b5f7-7cbf58693c7e",
+      "name": "IF1",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        540,
+        -140
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\nlet params = {\n  pageSize: 100,\n  offset: $node[\"HTTP Request\"].json[\"offset\"],\n  view: 'viwgputJoTQdWxhlQ'\n}\n\nreturn [params];"
+      },
+      "id": "fb709760-8e5d-4242-bee2-725862e0cf44",
+      "name": "Code3",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        2860,
+        -20
+      ]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "offset",
+              "value": "={{null}}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "caeec25a-91c1-464f-be96-de83be976d84",
+      "name": "Set",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        -260,
+        -140
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\nlet offset = $input.all()[0].json[\"offset\"];\nlet params = {\n  pageSize: 100,\n  offset: offset,\n  view: 'viwgputJoTQdWxhlQ'\n}\n\nreturn [params];"
+      },
+      "id": "89d105ad-c5d5-4c59-93a0-a808a5164726",
+      "name": "Параметры",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        -80,
+        -140
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "bae25bc2-c0c2-4a42-87b0-ff6b48fafa70",
+      "name": "NoOp1",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        760,
+        -300
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\nreturn $node[\"HTTP Request\"].json[\"records\"];"
+      },
+      "id": "6c7e32f6-5224-485c-99d8-67b6170d4803",
+      "name": "Code1",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        760,
+        -120
+      ]
+    }
+  ],
+  "pinData": {},
+  "settings": {},
+  "staticData": null,
+  "tags": [],
+  "updatedAt": "2022-11-30T15:53:48.159Z"
+}
