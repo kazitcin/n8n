@@ -1,5 +1,5 @@
 {
-  "active": false,
+  "active": true,
   "connections": {
     "Schedule Trigger": {
       "main": [
@@ -154,17 +154,6 @@
         ]
       ]
     },
-    "Code3": {
-      "main": [
-        [
-          {
-            "node": "Параметры",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Параметры": {
       "main": [
         [
@@ -215,6 +204,17 @@
           }
         ]
       ]
+    },
+    "Code3": {
+      "main": [
+        [
+          {
+            "node": "Параметры",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2022-11-30T10:02:51.736Z",
@@ -227,7 +227,7 @@
           "interval": [
             {
               "field": "cronExpression",
-              "expression": "54 16 * * *"
+              "expression": "01 12 * * *"
             }
           ]
         }
@@ -244,7 +244,9 @@
     {
       "parameters": {
         "batchSize": 1,
-        "options": {}
+        "options": {
+          "reset": "={{$node[\"SplitInBatches\"].context[\"noItemsLeft\"]}}"
+        }
       },
       "id": "f6287a2f-c985-4e64-ace5-814fb7517c52",
       "name": "SplitInBatches",
@@ -259,8 +261,8 @@
       "parameters": {
         "authentication": "nocoDbApiToken",
         "operation": "create",
-        "projectId": "p_g9w7m3ac8ab2rq",
-        "table": "md_y0z1qo6sry41ug",
+        "projectId": "p_f907ih5oqn9gtp",
+        "table": "md_n1yyob6hvv0plw",
         "fieldsUi": {
           "fieldValues": [
             {
@@ -329,8 +331,8 @@
       "parameters": {
         "authentication": "nocoDbApiToken",
         "operation": "getAll",
-        "projectId": "p_g9w7m3ac8ab2rq",
-        "table": "md_y0z1qo6sry41ug",
+        "projectId": "p_f907ih5oqn9gtp",
+        "table": "md_n1yyob6hvv0plw",
         "limit": 1,
         "options": {
           "where": "=(user_id,eq,{{$node[\"SplitInBatches\"].json[\"fields\"][\"user_id\"]}})"
@@ -535,10 +537,11 @@
     {
       "parameters": {
         "conditions": {
-          "string": [
+          "number": [
             {
-              "value1": "={{$node[\"HTTP Request\"].json[\"offset\"]}}",
-              "operation": "isEmpty"
+              "value1": "={{$node[\"Параметры\"].json[\"count\"]}}",
+              "operation": "larger",
+              "value2": 3
             }
           ]
         }
@@ -554,14 +557,14 @@
     },
     {
       "parameters": {
-        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\nlet params = {\n  pageSize: 100,\n  offset: $node[\"HTTP Request\"].json[\"offset\"],\n  view: 'viwgputJoTQdWxhlQ'\n}\n\nreturn [params];"
+        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\n\nlet params = {\n  pageSize: 100,\n  offset: $node[\"HTTP Request\"].json[\"offset\"],\n  view: 'viwgputJoTQdWxhlQ',\n  count: $node[\"Параметры\"].json[\"count\"]\n}\n\nreturn [params];"
       },
       "id": "fb709760-8e5d-4242-bee2-725862e0cf44",
       "name": "Code3",
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        2860,
+        2920,
         -20
       ]
     },
@@ -572,6 +575,11 @@
             {
               "name": "offset",
               "value": "={{null}}"
+            }
+          ],
+          "number": [
+            {
+              "name": "count"
             }
           ]
         },
@@ -588,7 +596,7 @@
     },
     {
       "parameters": {
-        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\nlet offset = $input.all()[0].json[\"offset\"];\nlet params = {\n  pageSize: 100,\n  offset: offset,\n  view: 'viwgputJoTQdWxhlQ'\n}\n\nreturn [params];"
+        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\nlet offset = $input.all()[0].json[\"offset\"];\nlet count = $input.all()[0].json[\"count\"];\ncount = count + 1;\n\n\nlet params = {\n  pageSize: 100,\n  offset: offset,\n  view: 'viwgputJoTQdWxhlQ',\n  count: count\n}\n\nreturn [params];"
       },
       "id": "89d105ad-c5d5-4c59-93a0-a808a5164726",
       "name": "Параметры",
@@ -628,5 +636,5 @@
   "settings": {},
   "staticData": null,
   "tags": [],
-  "updatedAt": "2022-11-30T15:53:48.159Z"
+  "updatedAt": "2022-12-01T09:00:41.280Z"
 }
