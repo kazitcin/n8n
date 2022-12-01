@@ -227,7 +227,7 @@
           "interval": [
             {
               "field": "cronExpression",
-              "expression": "01 12 * * *"
+              "expression": "35 23 * * *"
             }
           ]
         }
@@ -541,7 +541,7 @@
             {
               "value1": "={{$node[\"Параметры\"].json[\"count\"]}}",
               "operation": "larger",
-              "value2": 3
+              "value2": 2
             }
           ]
         }
@@ -636,5 +636,5 @@
   "settings": {},
   "staticData": null,
   "tags": [],
-  "updatedAt": "2022-12-01T09:00:41.280Z"
+  "updatedAt": "2022-12-01T20:34:18.731Z"
 }
