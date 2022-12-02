@@ -1,5 +1,5 @@
 {
-  "active": true,
+  "active": false,
   "connections": {
     "Schedule Trigger": {
       "main": [
@@ -227,7 +227,7 @@
           "interval": [
             {
               "field": "cronExpression",
-              "expression": "35 23 * * *"
+              "expression": "46 4 * * *"
             }
           ]
         }
@@ -636,5 +636,5 @@
   "settings": {},
   "staticData": null,
   "tags": [],
-  "updatedAt": "2022-12-01T20:34:18.731Z"
+  "updatedAt": "2022-12-02T02:16:47.484Z"
 }
