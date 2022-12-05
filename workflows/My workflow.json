@@ -1,14 +1,31 @@
 {
-  "active": false,
+  "active": true,
   "connections": {},
-  "createdAt": "2022-12-02T12:28:42.738Z",
-  "hash": "f1198fe5b303c2d777faf8e03cd02d39",
-  "id": 32,
+  "createdAt": "2022-12-05T08:07:41.121Z",
+  "hash": "1487652251c23f12cd4010c4ad79e8de",
+  "id": 34,
   "name": "My workflow",
-  "nodes": [],
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "920e99cb-2565-4661-b518-e070fc0bc2dc",
+        "options": {}
+      },
+      "id": "a23ad4a7-68f1-45b3-af11-366f5898f24f",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        540,
+        240
+      ],
+      "webhookId": "920e99cb-2565-4661-b518-e070fc0bc2dc"
+    }
+  ],
   "pinData": {},
   "settings": {},
   "staticData": null,
   "tags": [],
-  "updatedAt": "2022-12-02T12:28:42.738Z"
+  "updatedAt": "2022-12-05T08:10:39.188Z"
 }
