@@ -1,0 +1,31 @@
+{
+  "active": true,
+  "connections": {},
+  "createdAt": "2022-12-05T08:07:41.121Z",
+  "hash": "65d985b72acc2ea998c82a5382e636ad",
+  "id": 34,
+  "name": "Dev: Postal Events",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "920e99cb-2565-4661-b518-e070fc0bc2dc",
+        "options": {}
+      },
+      "id": "a23ad4a7-68f1-45b3-af11-366f5898f24f",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        540,
+        240
+      ],
+      "webhookId": "920e99cb-2565-4661-b518-e070fc0bc2dc"
+    }
+  ],
+  "pinData": {},
+  "settings": {},
+  "staticData": null,
+  "tags": [],
+  "updatedAt": "2022-12-06T06:16:04.466Z"
+}
