@@ -1,0 +1,260 @@
+{
+  "active": false,
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Execute Workflow",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow": {
+      "main": [
+        [
+          {
+            "node": "Postgres",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Postgres": {
+      "main": [
+        [
+          {
+            "node": "SplitInBatches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SplitInBatches": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Параметры задачи": {
+      "main": [
+        [
+          {
+            "node": "Создание задачи",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Создание задачи": {
+      "main": [
+        [
+          {
+            "node": "Последний пользователь?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Последний пользователь?": {
+      "main": [
+        [
+          {
+            "node": "Выход",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    }
+  },
+  "createdAt": "2022-12-09T08:17:54.510Z",
+  "hash": "9a776d2f653d82a556739f01e1f3d8c3",
+  "id": 35,
+  "name": "Prod: Documents 2",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "45 7 1 1,4,7,10 *"
+            }
+          ]
+        }
+      },
+      "id": "aa4d46e3-f4d2-4e63-86c9-e4ce25a575ca",
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1,
+      "position": [
+        440,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "=select t.user_id, t.email, t.first_name, t.amount, t.lead_id, t.contact_id from user t where id = 27",
+        "additionalFields": {}
+      },
+      "id": "9c1a82f1-f49e-4310-8749-b42705427fdf",
+      "name": "Postgres",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 1,
+      "position": [
+        800,
+        320
+      ],
+      "credentials": {
+        "postgres": {
+          "id": "11",
+          "name": "Postgres Prod Stat"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "workflowId": "13"
+      },
+      "id": "1b13c02d-4fa7-43fd-9d80-b181da27b44e",
+      "name": "Execute Workflow",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        620,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "batchSize": 1,
+        "options": {}
+      },
+      "id": "d042597c-2cb0-4bc8-8526-30a37069ceb8",
+      "name": "SplitInBatches",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 1,
+      "position": [
+        980,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "var date = new Date();\ndate.setDate(date.getDate() + 7);\n\n\nlet params = [\n  {\n        \"task_type_id\": 1,\n        \"text\": `Сумма списаний: ${$node[\"Postgres\"].json[\"amount\"]}`,\n        \"responsible_user_id\": 6651409,\n        \"is_completed\": false,\n        \"complete_till\": parseInt(date.getTime() / 1000),\n        \"entity_id\": 5453635,\n        //\"entity_id\": $node[\"SplitInBatches\"].json[\"lead_id\"],\n        \"entity_type\": \"leads\",\n    }\n]\n\nreturn [{params: JSON.stringify(params)}];"
+      },
+      "id": "94dfba12-3907-4e40-8d5e-017861c0eceb",
+      "name": "Параметры задачи",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        1560,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://{{$node[\"Execute Workflow\"].json[\"subdomain\"]}}/api/v4/tasks",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{$node[\"Execute Workflow\"].json[\"access_token\"]}}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{$node[\"Параметры задачи\"].json[\"params\"]}}",
+        "options": {}
+      },
+      "id": "ed7897fa-4fec-4dbd-ae4e-4cd2507b9881",
+      "name": "Создание задачи",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        1740,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{$node[\"SplitInBatches\"].context[\"noItemsLeft\"]}}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "c59e2e18-ee09-4913-9634-60389afbe168",
+      "name": "Последний пользователь?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        1920,
+        240
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "4174434b-2094-4078-abb5-69cfe50cc9a4",
+      "name": "Выход",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        2040,
+        40
+      ]
+    },
+    {
+      "parameters": {
+        "url": "=https://{{$node[\"Execute Workflow\"].json[\"subdomain\"]}}/api/v4/leads/{{ $node[\"SplitInBatches\"].parameter[\"splitInBatchesNotice\"] }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjhjNWY1MWJiNjU0ZDhmZWI2ZTY3NWFkOGY0YzNiOTgxNmUxZjUzNDczZmJhMjEzNmQyNTY0ZjFkMWUwOTUwMjM5Y2QzODZjZTJhNWY2MDFmIn0.eyJhdWQiOiJhMmE0MGNmOS1hNTRmLTRhNGYtYTU3NS04M2IzMTY4NGY4OGIiLCJqdGkiOiI4YzVmNTFiYjY1NGQ4ZmViNmU2NzVhZDhmNGMzYjk4MTZlMWY1MzQ3M2ZiYTIxMzZkMjU2NGYxZDFlMDk1MDIzOWNkMzg2Y2UyYTVmNjAxZiIsImlhdCI6MTY3MDU2Mzk2NywibmJmIjoxNjcwNTYzOTY3LCJleHAiOjE2NzA2NTAzNjcsInN1YiI6IjY2NTE0MDkiLCJhY2NvdW50X2lkIjoyNzc3ODY0OCwiYmFzZV9kb21haW4iOiJhbW9jcm0ucnUiLCJzY29wZXMiOlsicHVzaF9ub3RpZmljYXRpb25zIiwiY3JtIiwibm90aWZpY2F0aW9ucyJdfQ.NMlP-vWTeF4cz2M6fjd-KmFrcWo8hArEPG1fswhxd-MaAgfkhPt1Pl5cHApcdOeK6wRVAKnTCOt9GIwMC3MSkATECmcqdR0NmY-H-NErpYzcu_czLTvyeH1_0CNHAimrWCypH4Zz4FslEyCvjl7HK8tVTLe3mBHCht_tec7WFE85eNd4yX0G5Ls6ErJ4JuuthyVDBV3nCBCBiz8SdH_u2anFZkGL6lOsGwBMfOZqTrsUTxZmKs7AE5lGqZBEQiQo7VbPytc2nkxvW8y6Oi-o1fOmN3RXTXxTNKBe0kgde0brKcVXsVsloFSki_N3d_9axY-4pXrIXM5gyuGk_vthxg"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "456d05ff-80f8-46ad-89b2-e3124260af19",
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        1180,
+        320
+      ]
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "saveExecutionProgress": "DEFAULT",
+    "callerPolicy": "any",
+    "errorWorkflow": "8"
+  },
+  "staticData": null,
+  "tags": [],
+  "updatedAt": "2022-12-09T08:58:19.271Z"
+}
