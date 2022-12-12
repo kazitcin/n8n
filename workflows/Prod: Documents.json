@@ -5,7 +5,7 @@
       "main": [
         [
           {
-            "node": "Execute Workflow",
+            "node": "Set",
             "type": "main",
             "index": 0
           }
@@ -38,7 +38,7 @@
       "main": [
         [
           {
-            "node": "Параметры задачи",
+            "node": "Получение реквизитов",
             "type": "main",
             "index": 0
           }
@@ -50,17 +50,6 @@
         [
           {
             "node": "Создание задачи",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Создание задачи": {
-      "main": [
-        [
-          {
-            "node": "Последний пользователь?",
             "type": "main",
             "index": 0
           }
@@ -84,11 +73,288 @@
           }
         ]
       ]
+    },
+    "Set": {
+      "main": [
+        [
+          {
+            "node": "Execute Workflow",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Параметры кампании": {
+      "main": [
+        [
+          {
+            "node": "Создание компании",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Параметры связывания кампании": {
+      "main": [
+        [
+          {
+            "node": "Связывание капании",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Создание компании": {
+      "main": [
+        [
+          {
+            "node": "ID кампании",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Получение реквизитов": {
+      "main": [
+        [
+          {
+            "node": "Флаг получения данных",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Получение сделки": {
+      "main": [
+        [
+          {
+            "node": "Список кампаний",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Список кампаний": {
+      "main": [
+        [
+          {
+            "node": "Кампания не привязана?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Параметры редактирования": {
+      "main": [
+        [
+          {
+            "node": "Обновление кампании",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Связывание капании": {
+      "main": [
+        [
+          {
+            "node": "Параметры задачи",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Обновление кампании": {
+      "main": [
+        [
+          {
+            "node": "Параметры задачи",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Получение кампании": {
+      "main": [
+        [
+          {
+            "node": "Сверка данных",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Сверка данных": {
+      "main": [
+        [
+          {
+            "node": "Обновить кампанию?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ID кампании": {
+      "main": [
+        [
+          {
+            "node": "Параметры связывания кампании",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Поиск кампании": {
+      "main": [
+        [
+          {
+            "node": "ID найденной кампании",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ID найденной кампании": {
+      "main": [
+        [
+          {
+            "node": "Кампания найдена?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Кампания не привязана?": {
+      "main": [
+        [
+          {
+            "node": "Поиск кампании",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Получение кампании",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Кампания найдена?": {
+      "main": [
+        [
+          {
+            "node": "Параметры кампании",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Параметры связывания кампании",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Обновить кампанию?": {
+      "main": [
+        [
+          {
+            "node": "Параметры редактирования",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Найти или создать кампанию?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Найти или создать кампанию?": {
+      "main": [
+        [
+          {
+            "node": "Поиск кампании",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Параметры задачи",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Есть данные?": {
+      "main": [
+        [
+          {
+            "node": "Получение сделки",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "SplitInBatches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Создание задачи": {
+      "main": [
+        [
+          {
+            "node": "Последний пользователь?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Флаг получения данных": {
+      "main": [
+        [
+          {
+            "node": "Есть данные?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
-  "createdAt": "2022-11-04T11:18:00.746Z",
-  "hash": "ce145a47f3850209e0fc090413b2cf6b",
-  "id": 21,
+  "createdAt": "2022-12-09T08:17:54.510Z",
+  "hash": "282d357e5e7d52f375d0da7463098639",
+  "id": 35,
   "name": "Prod: Documents",
   "nodes": [
     {
@@ -102,27 +368,27 @@
           ]
         }
       },
-      "id": "9716680a-1168-4ac3-a229-47db5d962c27",
+      "id": "aa4d46e3-f4d2-4e63-86c9-e4ce25a575ca",
       "name": "Schedule Trigger",
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1,
       "position": [
-        440,
+        -540,
         320
       ]
     },
     {
       "parameters": {
         "operation": "executeQuery",
-        "query": "=select t.user_id, t.email, t.first_name, t.amount, t.lead_id, t.contact_id from documents t limit 2",
+        "query": "=select t.user_id, t.email, t.first_name, t.amount, t.lead_id, t.contact_id from documents2 t where t.user_id = 4449 order by user_id ",
         "additionalFields": {}
       },
-      "id": "8be8217f-7eb8-41ae-9fb3-1fd8a30fc404",
+      "id": "9c1a82f1-f49e-4310-8749-b42705427fdf",
       "name": "Postgres",
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 1,
       "position": [
-        800,
+        180,
         320
       ],
       "credentials": {
@@ -136,12 +402,12 @@
       "parameters": {
         "workflowId": "13"
       },
-      "id": "54c07a6a-6203-4250-a161-1acab410fb8a",
+      "id": "1b13c02d-4fa7-43fd-9d80-b181da27b44e",
       "name": "Execute Workflow",
       "type": "n8n-nodes-base.executeWorkflow",
       "typeVersion": 1,
       "position": [
-        620,
+        -60,
         320
       ]
     },
@@ -150,26 +416,26 @@
         "batchSize": 1,
         "options": {}
       },
-      "id": "ed14c126-3f85-400e-8a60-93b6aba76ef9",
+      "id": "d042597c-2cb0-4bc8-8526-30a37069ceb8",
       "name": "SplitInBatches",
       "type": "n8n-nodes-base.splitInBatches",
       "typeVersion": 1,
       "position": [
-        980,
+        400,
         320
       ]
     },
     {
       "parameters": {
-        "jsCode": "var date = new Date();\ndate.setDate(date.getDate() + 7);\n\n\nlet params = [\n  {\n        \"task_type_id\": 1,\n        \"text\": `Сумма списаний: ${$node[\"Postgres\"].json[\"amount\"]}`,\n        \"responsible_user_id\": 6651409,\n        \"is_completed\": false,\n        \"complete_till\": parseInt(date.getTime() / 1000),\n        \"entity_id\": 5453635,\n        //\"entity_id\": $node[\"SplitInBatches\"].json[\"lead_id\"],\n        \"entity_type\": \"leads\",\n    }\n]\n\nreturn [{params: JSON.stringify(params)}];"
+        "jsCode": "var date = new Date();\ndate.setDate(date.getDate() + 7);\n\n\nlet params = [\n  {\n        \"task_type_id\": 1,\n        \"text\": `Сумма списаний: ${$node[\"Postgres\"].json[\"amount\"]}`,\n        \"responsible_user_id\": 289686,\n        \"is_completed\": false,\n        \"complete_till\": parseInt(date.getTime() / 1000),\n        \"entity_id\": parseInt($node[\"SplitInBatches\"].json[\"lead_id\"]),\n        \"entity_type\": \"leads\",\n    }\n]\n\nreturn [{params: JSON.stringify(params)}];"
       },
-      "id": "6cf4b2cf-c5d2-4512-90b1-ee609379ce50",
+      "id": "94dfba12-3907-4e40-8d5e-017861c0eceb",
       "name": "Параметры задачи",
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        1160,
-        320
+        3820,
+        140
       ]
     },
     {
@@ -190,13 +456,13 @@
         "jsonBody": "={{$node[\"Параметры задачи\"].json[\"params\"]}}",
         "options": {}
       },
-      "id": "974fd559-c5b6-4666-b2ac-1d28e015ac89",
+      "id": "ed7897fa-4fec-4dbd-ae4e-4cd2507b9881",
       "name": "Создание задачи",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        1340,
-        320
+        4060,
+        140
       ]
     },
     {
@@ -210,24 +476,429 @@
           ]
         }
       },
-      "id": "fc86d5e4-2924-4757-85ad-16a6668a465f",
+      "id": "c59e2e18-ee09-4913-9634-60389afbe168",
       "name": "Последний пользователь?",
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        1520,
-        320
+        3500,
+        520
       ]
     },
     {
       "parameters": {},
-      "id": "c9db89e8-9f4c-4402-94e9-df81bdd06a32",
+      "id": "4174434b-2094-4078-abb5-69cfe50cc9a4",
       "name": "Выход",
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        1700,
+        3780,
+        500
+      ]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "amoType",
+              "value": "prod"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "836e5dfb-d085-46b2-8b2e-78654c8250fe",
+      "name": "Set",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        -300,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "let params = [{\n  \"name\": `${$node[\"Получение реквизитов\"].json[\"name_short\"]}`,\n  \"responsible_user_id\": 289686,\n  \"custom_fields_values\": [{\n    \"field_id\": 1106375,\n    \"values\": [{\n      \"value\": {\n        \"name\": `${$node[\"Получение реквизитов\"].json[\"name_short\"]}`,\n        \"vat_id\": `${$node[\"Получение реквизитов\"].json[\"inn\"]}`,\n        \"kpp\": `${$node[\"Получение реквизитов\"].json[\"kpp\"]}`,\n        \"address\": $node[\"Получение реквизитов\"].json[\"address\"]\n      }}]\n  }]\n}]\n\nreturn [{ params: JSON.stringify(params) }];"
+      },
+      "id": "28983053-b230-4267-913b-c580044a4ca4",
+      "name": "Параметры кампании",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        2560,
+        -260
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "let params = [{\n  \"entity_id\": parseInt($node[\"SplitInBatches\"].json[\"lead_id\"]),\n  \"to_entity_id\": parseInt($input.first().json[\"company_id\"]),\n  \"to_entity_type\": \"companies\",\n  \"metadata\": null\n}];\n\nreturn [{ params: JSON.stringify(params) }];"
+      },
+      "id": "e2d47374-db68-42ec-823f-9671a1ed0d9a",
+      "name": "Параметры связывания кампании",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        3200,
+        20
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://{{$node[\"Execute Workflow\"].json[\"subdomain\"]}}/api/v4/companies",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{$node[\"Execute Workflow\"].json[\"access_token\"]}}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $json[\"params\"] }}",
+        "options": {}
+      },
+      "id": "ad1acea6-ed66-49b9-8cb0-87c6cb6be536",
+      "name": "Создание компании",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        2800,
+        -260
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "=select \n\tu.id, \n\tl.name_short, \n\tl.name_full, \n\tl.inn, l.kpp, \n\tl.address, \n\tl.client_type  \nfrom users u \ninner join \n\tlegals l on u.legal_id = l.id\nwhere u.id = {{ $node[\"SplitInBatches\"].json[\"user_id\"] }}",
+        "additionalFields": {}
+      },
+      "id": "621a77d6-c53e-4d2b-af26-aa028b0124a6",
+      "name": "Получение реквизитов",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 1,
+      "position": [
+        600,
+        320
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "postgres": {
+          "id": "6",
+          "name": "Postgres Prod"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "=https://{{$node[\"Execute Workflow\"].json[\"subdomain\"]}}/api/v4/leads/{{ $node[\"SplitInBatches\"].json[\"lead_id\"] }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{$node[\"Execute Workflow\"].json[\"access_token\"]}}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "456d05ff-80f8-46ad-89b2-e3124260af19",
+      "name": "Получение сделки",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        1320,
         300
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\nlet data = JSON.parse($input.first().json[\"data\"]);\nlet company_id = null;\nif(data[\"_embedded\"][\"companies\"].length > 0) {\n  company_id = data[\"_embedded\"][\"companies\"][0][\"id\"]\n}\n\n\nreturn [{company_id}];"
+      },
+      "id": "a4ed7e39-63c8-416e-acd1-4daf5f0709b1",
+      "name": "Список кампаний",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        1520,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://{{$node[\"Execute Workflow\"].json[\"subdomain\"]}}/api/v4/leads/link",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{$node[\"Execute Workflow\"].json[\"access_token\"]}}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $node[\"Параметры связывания кампании\"].json[\"params\"] }}",
+        "options": {}
+      },
+      "id": "517f7826-fd68-41ed-8f1c-3ea6a26a5ffa",
+      "name": "Связывание капании",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        3420,
+        20
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "let params = [{\n  \"id\": parseInt($node[\"Список кампаний\"].json[\"company_id\"]),\n  \"name\": `${$node[\"Получение реквизитов\"].json[\"name_short\"]}`,\n  \"custom_fields_values\": [{\n    \"field_id\": 1106375,\n    \"values\": [{\n      \"value\": {\n        \"name\": `${$node[\"Получение реквизитов\"].json[\"name_short\"]}`,\n        \"vat_id\": `${$node[\"Получение реквизитов\"].json[\"inn\"]}`,\n        \"kpp\": `${$node[\"Получение реквизитов\"].json[\"kpp\"]}`,\n        \"address\": $node[\"Получение реквизитов\"].json[\"address\"]\n      }}]\n  }]\n}]\n\nreturn [{ params: JSON.stringify(params) }];"
+      },
+      "id": "f24e2c7a-b68d-4cee-bb7b-d8a59a3346f2",
+      "name": "Параметры редактирования",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        2640,
+        140
+      ]
+    },
+    {
+      "parameters": {
+        "method": "PATCH",
+        "url": "=https://{{$node[\"Execute Workflow\"].json[\"subdomain\"]}}/api/v4/companies",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{$node[\"Execute Workflow\"].json[\"access_token\"]}}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $node[\"Параметры редактирования\"].json[\"params\"] }}",
+        "options": {}
+      },
+      "id": "db5fcfda-1b32-4c02-88c0-0dabaaa98136",
+      "name": "Обновление кампании",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        2980,
+        140
+      ]
+    },
+    {
+      "parameters": {
+        "url": "=https://{{$node[\"Execute Workflow\"].json[\"subdomain\"]}}/api/v4/companies/{{ $json[\"company_id\"] }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{$node[\"Execute Workflow\"].json[\"access_token\"]}}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "23e164c3-ea9c-4309-ab02-d3782920bfe8",
+      "name": "Получение кампании",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        2000,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\nlet data = JSON.parse($input.first().json[\"data\"]);\n\nlet company = data[\"name\"];\nlet legalsFileds = null;\n\nfor(const element of data[\"custom_fields_values\"]) {\n  if (element.field_id == 1106375) {\n    legalsFileds = element;\n    break;\n  }\n}\n\nlet name = legalsFileds[\"values\"][0][\"value\"][\"name\"];\nlet vat_id = legalsFileds[\"values\"][0][\"value\"][\"vat_id\"];\nlet address = legalsFileds[\"values\"][0][\"value\"][\"address\"];\nlet kpp = legalsFileds[\"values\"][0][\"value\"][\"kpp\"];\n\nlet current_name = $node[\"Получение реквизитов\"].json[\"name_short\"];\n\nlet current_vat_id = $node[\"Получение реквизитов\"].json[\"inn\"];\n\nlet current_kpp = $node[\"Получение реквизитов\"].json[\"kpp\"] === \"\" ?  null : $node[\"Получение реквизитов\"].json[\"kpp\"];\n\nlet current_address = $node[\"Получение реквизитов\"].json[\"address\"] === \"\" ? null : $node[\"Получение реквизитов\"].json[\"address\"];\n\nlet flagUpdate = false;\nlet flagSearch = false;\n\nif (vat_id == current_vat_id) {\n  if (company != current_name || name != current_name || address != current_address || kpp != current_kpp) {\n    flagUpdate = true;\n  }\n} else if (vat_id != current_vat_id) {\n    flagSearch = true;\n}\n\nreturn [{flagUpdate, flagSearch}];"
+      },
+      "id": "f08836de-efe2-494b-97b7-e9cd335c56e5",
+      "name": "Сверка данных",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        2220,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\nlet data = JSON.parse($input.first().json[\"data\"]);\nlet company_id = data[\"_embedded\"][\"companies\"][0][\"id\"]\nreturn [{company_id}];  "
+      },
+      "id": "ae804fd3-9573-4597-9960-c437707fa243",
+      "name": "ID кампании",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        3040,
+        -260
+      ]
+    },
+    {
+      "parameters": {
+        "url": "=https://{{$node[\"Execute Workflow\"].json[\"subdomain\"]}}/api/v4/companies",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "query",
+              "value": "={{ $node[\"Получение реквизитов\"].json[\"name_short\"] }}"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{$node[\"Execute Workflow\"].json[\"access_token\"]}}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "e3b7e0e9-101b-46b3-91b9-4a8770f8597a",
+      "name": "Поиск кампании",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        1980,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\nlet data = $input.first().json[\"data\"];\nlet company_id = null;\nif(data) {\n  data = JSON.parse(data)\n  if(data && data[\"_embedded\"][\"companies\"].length > 0) {\n      company_id = data[\"_embedded\"][\"companies\"][0][\"id\"];\n  }\n}\n\nreturn [{company_id}];"
+      },
+      "id": "feee2832-0ef1-4331-bd5b-3ffc1b52de01",
+      "name": "ID найденной кампании",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        2180,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "number": [
+            {
+              "value1": "={{ $json[\"company_id\"] }}",
+              "operation": "isEmpty"
+            }
+          ]
+        }
+      },
+      "id": "61c723f6-55f7-4794-bdc9-b6f6cb45cd82",
+      "name": "Кампания не привязана?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        1720,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "number": [
+            {
+              "value1": "={{ $json[\"company_id\"] }}",
+              "operation": "isEmpty"
+            }
+          ]
+        }
+      },
+      "id": "d4a0eee5-c7b5-42bb-a012-48e0904d9151",
+      "name": "Кампания найдена?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        2380,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $json[\"flagUpdate\"] }}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "19dd18de-7b7f-44e3-b1c8-19ecba8323f2",
+      "name": "Обновить кампанию?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        2420,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $json[\"flagSearch\"] }}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "99780b05-5943-48b0-bd50-d17d1ef6bec1",
+      "name": "Найти или создать кампанию?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        2640,
+        500
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $json[\"empty\"] }}"
+            }
+          ]
+        }
+      },
+      "id": "40125ccb-e994-4c33-b379-83dec58d889b",
+      "name": "Есть данные?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        1080,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "return [\n  {\n    json: {\n      empty: $input.all().length == 1 && Object.keys($input.all()[0].json).length == 0\n    }\n  }\n];"
+      },
+      "id": "34199517-5a23-4d29-8a56-2f25cd9592c4",
+      "name": "Флаг получения данных",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        840,
+        320
       ]
     }
   ],
@@ -237,7 +908,11 @@
     "callerPolicy": "any",
     "errorWorkflow": "8"
   },
-  "staticData": null,
+  "staticData": {
+    "node:Schedule Trigger": {
+      "recurrencyRules": []
+    }
+  },
   "tags": [],
-  "updatedAt": "2022-11-10T11:25:10.656Z"
+  "updatedAt": "2022-12-12T13:32:11.889Z"
 }
