@@ -60,7 +60,7 @@
       "main": [
         [
           {
-            "node": "Идентификатор созданного",
+            "node": "Данные пользователя",
             "type": "main",
             "index": 0
           }
@@ -652,10 +652,21 @@
           }
         ]
       ]
+    },
+    "Данные пользователя": {
+      "main": [
+        [
+          {
+            "node": "Идентификатор созданного",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2022-10-25T21:15:04.454Z",
-  "hash": "dd245d7f564cbd3d37dfd09af7230eef",
+  "hash": "5db9ff5281c7c1e8ff77b974018fdb7a",
   "id": 10,
   "name": "Prod: Connect Events",
   "nodes": [
@@ -697,8 +708,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        1180,
-        100
+        1140,
+        80
       ]
     },
     {
@@ -724,8 +735,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        1360,
-        100
+        1320,
+        80
       ]
     },
     {
@@ -750,8 +761,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        1540,
-        100
+        1500,
+        80
       ]
     },
     {
@@ -834,8 +845,8 @@
       "type": "n8n-nodes-base.nocoDb",
       "typeVersion": 2,
       "position": [
-        1720,
-        100
+        1660,
+        80
       ],
       "credentials": {
         "nocoDbApiToken": {
@@ -949,7 +960,7 @@
           "number": [
             {
               "name": "record_id",
-              "value": "={{$node[\"Добавление пользователя\"].json[\"id\"]}}"
+              "value": "={{ $json[\"Id\"] }}"
             },
             {
               "name": "contact_id",
@@ -988,8 +999,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 1,
       "position": [
-        1900,
-        100
+        1980,
+        80
       ]
     },
     {
@@ -2138,6 +2149,33 @@
         5180,
         1060
       ]
+    },
+    {
+      "parameters": {
+        "authentication": "nocoDbApiToken",
+        "operation": "getAll",
+        "projectId": "p_f907ih5oqn9gtp",
+        "table": "md_n1yyob6hvv0plw",
+        "limit": 1,
+        "options": {
+          "fields": [],
+          "where": "=(user_id,eq,{{$node[\"Webhook\"].json[\"body\"][\"user\"][\"id\"]}})~or(email,eq,{{$node[\"Webhook\"].json[\"body\"][\"user\"][\"email\"]}})"
+        }
+      },
+      "id": "7f36ba02-6636-4d5a-96c3-85db1b65b7c9",
+      "name": "Данные пользователя",
+      "type": "n8n-nodes-base.nocoDb",
+      "typeVersion": 2,
+      "position": [
+        1820,
+        80
+      ],
+      "credentials": {
+        "nocoDbApiToken": {
+          "id": "3",
+          "name": "NocoDB"
+        }
+      }
     }
   ],
   "pinData": {},
@@ -2148,5 +2186,5 @@
   },
   "staticData": null,
   "tags": [],
-  "updatedAt": "2022-11-10T05:14:53.011Z"
+  "updatedAt": "2022-12-12T17:01:52.415Z"
 }
