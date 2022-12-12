@@ -49,17 +49,6 @@
       "main": [
         [
           {
-            "node": "Создание задачи",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Создание задачи": {
-      "main": [
-        [
-          {
             "node": "Последний пользователь?",
             "type": "main",
             "index": 0
@@ -324,7 +313,7 @@
     }
   },
   "createdAt": "2022-12-09T08:17:54.510Z",
-  "hash": "eba808c9d9cf1ae888d0cecbfee023dc",
+  "hash": "3681137061a473470d263f92f4cb64b1",
   "id": 35,
   "name": "Prod: Documents 2",
   "nodes": [
@@ -351,7 +340,7 @@
     {
       "parameters": {
         "operation": "executeQuery",
-        "query": "=select t.user_id, t.email, t.first_name, 200 as amount, t.lead_id, t.contact_id from users t where user_id = 27",
+        "query": "=select t.user_id, t.email, t.first_name, t.amount, t.lead_id, t.contact_id from documents2 t order by user_id limit 1",
         "additionalFields": {}
       },
       "id": "9c1a82f1-f49e-4310-8749-b42705427fdf",
@@ -432,8 +421,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        4180,
-        180
+        4120,
+        -60
       ]
     },
     {
@@ -690,7 +679,7 @@
     },
     {
       "parameters": {
-        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\nlet data = JSON.parse($input.first().json[\"data\"]);\n\nlet name = data[\"custom_fields_values\"][0][\"values\"][0][\"value\"][\"name\"];\nlet vat_id = data[\"custom_fields_values\"][0][\"values\"][0][\"value\"][\"vat_id\"];\nlet address = data[\"custom_fields_values\"][0][\"values\"][0][\"value\"][\"address\"];\nlet kpp = data[\"custom_fields_values\"][0][\"values\"][0][\"value\"][\"kpp\"];\n\nlet current_name = $node[\"Получение реквизитов\"].json[\"name_short\"];\n\nlet current_vat_id = $node[\"Получение реквизитов\"].json[\"inn\"];\n\nlet current_kpp = $node[\"Получение реквизитов\"].json[\"kpp\"] === \"\" ?  null : $node[\"Получение реквизитов\"].json[\"kpp\"];\n\nlet current_address = $node[\"Получение реквизитов\"].json[\"address\"] === \"\" ? null : $node[\"Получение реквизитов\"].json[\"address\"];\n\nlet flagUpdate = false;\nlet flagSearch = false;\n\nif (vat_id == current_vat_id) {\n  if (name != current_name || address != current_address || kpp != current_kpp) {\n    flagUpdate = true;\n  }\n} else {\n    flagSearch = true;\n}\n\nreturn [{flagUpdate, flagSearch}];"
+        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\nlet data = JSON.parse($input.first().json[\"data\"]);\n\nlet company = data[\"name\"];\nlet name = data[\"custom_fields_values\"][0][\"values\"][0][\"value\"][\"name\"];\nlet vat_id = data[\"custom_fields_values\"][0][\"values\"][0][\"value\"][\"vat_id\"];\nlet address = data[\"custom_fields_values\"][0][\"values\"][0][\"value\"][\"address\"];\nlet kpp = data[\"custom_fields_values\"][0][\"values\"][0][\"value\"][\"kpp\"];\n\nlet current_name = $node[\"Получение реквизитов\"].json[\"name_short\"];\n\nlet current_vat_id = $node[\"Получение реквизитов\"].json[\"inn\"];\n\nlet current_kpp = $node[\"Получение реквизитов\"].json[\"kpp\"] === \"\" ?  null : $node[\"Получение реквизитов\"].json[\"kpp\"];\n\nlet current_address = $node[\"Получение реквизитов\"].json[\"address\"] === \"\" ? null : $node[\"Получение реквизитов\"].json[\"address\"];\n\nlet flagUpdate = false;\nlet flagSearch = false;\n\nconsole.log(vat_id);\nconsole.log(current_vat_id);\n\nif (vat_id == current_vat_id) {\n  if (company != current_name || name != current_name || address != current_address || kpp != current_kpp) {\n    flagUpdate = true;\n  }\n} else {\n    flagSearch = true;\n}\n\nreturn [{flagUpdate, flagSearch}];"
       },
       "id": "f08836de-efe2-494b-97b7-e9cd335c56e5",
       "name": "Сверка данных",
@@ -748,7 +737,7 @@
     },
     {
       "parameters": {
-        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\nlet data = JSON.parse($input.first().json[\"data\"]);\nlet company_id = null;\nif(data[\"_embedded\"][\"companies\"].length > 0) {\n    company_id = data[\"_embedded\"][\"companies\"][0][\"id\"];\n}\n\nreturn [{company_id}];"
+        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\nlet data = $input.first().json[\"data\"];\nlet company_id = null;\nif(data) {\n  data = JSON.parse(data)\n  if(data && data[\"_embedded\"][\"companies\"].length > 0) {\n      company_id = data[\"_embedded\"][\"companies\"][0][\"id\"];\n  }\n}\n\nreturn [{company_id}];"
       },
       "id": "feee2832-0ef1-4331-bd5b-3ffc1b52de01",
       "name": "ID найденной кампании",
@@ -848,5 +837,5 @@
   },
   "staticData": null,
   "tags": [],
-  "updatedAt": "2022-12-09T14:38:32.787Z"
+  "updatedAt": "2022-12-12T07:46:28.642Z"
 }
