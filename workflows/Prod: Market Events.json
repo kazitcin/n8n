@@ -115,12 +115,12 @@
       "main": [
         [
           {
-            "node": "Покупка шаблона?",
+            "node": "Если демо контакт не существует",
             "type": "main",
             "index": 0
           },
           {
-            "node": "Если демо контакт не существует",
+            "node": "Заказ решения?",
             "type": "main",
             "index": 0
           }
@@ -866,10 +866,72 @@
           }
         ]
       ]
+    },
+    "Параметры сделки для ТЗ": {
+      "main": [
+        [
+          {
+            "node": "Создание сделки для ТЗ",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ответ создания сделки": {
+      "main": [
+        [
+          {
+            "node": "Параметры связывания контакта для ТЗ",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Параметры связывания контакта для ТЗ": {
+      "main": [
+        [
+          {
+            "node": "Связывание ТЗ сделки и контакта",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Создание сделки для ТЗ": {
+      "main": [
+        [
+          {
+            "node": "Ответ создания сделки",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Заказ решения?": {
+      "main": [
+        [
+          {
+            "node": "Параметры сделки для ТЗ",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Покупка шаблона?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2022-10-28T19:21:32.910Z",
-  "hash": "24c6c7172becba4a14751915c9b41d4e",
+  "hash": "a5c4ed08403124a1b16608abb5dce757",
   "id": 12,
   "name": "Prod: Market Events",
   "nodes": [
@@ -1112,7 +1174,7 @@
             },
             {
               "name": "record_id",
-              "value": "={{$node[\"Данные пользователя\"].json[\"id\"]}}"
+              "value": "={{ $json[\"Id\"] }}"
             },
             {
               "name": "lead_id",
@@ -2436,9 +2498,13 @@
     {
       "parameters": {
         "authentication": "nocoDbApiToken",
+        "operation": "getAll",
         "projectId": "p_f907ih5oqn9gtp",
         "table": "md_n1yyob6hvv0plw",
-        "id": "={{$node[\"Добавление пользователя\"].json[\"id\"]}}"
+        "limit": 1,
+        "options": {
+          "where": "=(email,eq,{{$node[\"Webhook\"].json[\"body\"][\"Email\"]}})"
+        }
       },
       "id": "8f94c074-1e43-4d9e-9eae-d02b3ca97b1b",
       "name": "Данные пользователя",
@@ -2467,6 +2533,119 @@
         2940,
         -240
       ]
+    },
+    {
+      "parameters": {
+        "jsCode": "let params = [{\n    \"name\": $node[\"Webhook\"].json[\"body\"][\"Name\"],\n    \"price\": 0,\n    \"responsible_user_id\": 289686,\n    \"status_id\": 53513846,\n    \"pipeline_id\": 6200186,\n    \"custom_fields_values\": [\n        {\n            \"field_id\": 1168891,\n            \"values\": [\n                {\n                    \"value\": $node[\"Webhook\"].json[\"body\"][\"Url\"]\n                }\n            ]\n        },\n        {\n            \"field_id\": 1168893,\n            \"values\": [\n                {\n                    \"value\": $node[\"Webhook\"].json[\"body\"][\"Input\"]\n                }\n            ]\n        },\n        {\n            \"field_id\": 1168895,\n            \"values\": [\n                {\n                    \"value\": $node[\"Webhook\"].json[\"body\"][\"Textarea\"]\n                }\n            ]\n        },\n        {\n            \"field_id\": 1168897,\n            \"values\": [\n                {\n                    \"value\": $node[\"Webhook\"].json[\"body\"][\"Textarea_2\"]\n                }\n            ]\n        },\n        {\n            \"field_id\": 1168899,\n            \"values\": [\n                {\n                    \"value\": $node[\"Webhook\"].json[\"body\"][\"Textarea_3\"]\n                }\n            ]\n        },\n        {\n            \"field_id\": 1168901,\n            \"values\": [\n                {\n                    \"value\": $node[\"Webhook\"].json[\"body\"][\"Textarea_5\"]\n                }\n            ]\n        },\n        {\n            \"field_id\": 1168903,\n            \"values\": [\n                {\n                    \"value\": $node[\"Webhook\"].json[\"body\"][\"Textarea_4\"]\n                }\n            ]\n        }\n    ]\n}];\n\n \nreturn [{ params: JSON.stringify(params) }];"
+      },
+      "id": "f86745a4-729f-4a9e-819b-1ca0ca9cea55",
+      "name": "Параметры сделки для ТЗ",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        1540,
+        -520
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "return [\n  {\n    data: JSON.parse($input.all()[0].json.data)\n  }\n];"
+      },
+      "id": "4ab85fe1-53f6-4391-b3ec-188843c90e55",
+      "name": "Ответ создания сделки",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        1940,
+        -520
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "let params = [\n  {\n    \"entity_id\": parseInt($node[\"Ответ создания сделки\"].json[\"data\"][\"_embedded\"][\"leads\"][0][\"id\"]),\n    \"to_entity_id\": parseInt($node[\"ID пользователя\"].json[\"data\"][\"contact_id\"]),\n    \"to_entity_type\": \"contacts\",\n    \"metadata\": {\n      \"is_main\": true\n    }\n  }\n]\n\nreturn [{ params: JSON.stringify(params) }];"
+      },
+      "id": "50aab3a2-f2d1-40ff-ab99-9faefd5dd11d",
+      "name": "Параметры связывания контакта для ТЗ",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        2140,
+        -520
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://{{$node[\"Execute Workflow\"].json[\"subdomain\"]}}/api/v4/leads",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{$node[\"Execute Workflow\"].json[\"access_token\"]}}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{$node[\"Параметры сделки для ТЗ\"].json[\"params\"]}}",
+        "options": {}
+      },
+      "id": "9fdd776b-a7b7-42bb-afc9-b0a3fee913ac",
+      "name": "Создание сделки для ТЗ",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        1740,
+        -520
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://{{$node[\"Execute Workflow\"].json[\"subdomain\"]}}/api/v4/leads/link",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{$node[\"Execute Workflow\"].json[\"access_token\"]}}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{$node[\"Параметры связывания контакта для ТЗ\"].json[\"params\"]}}",
+        "options": {}
+      },
+      "id": "60da4ba9-5a01-4608-b55f-abdf35f4a354",
+      "name": "Связывание ТЗ сделки и контакта",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        2340,
+        -520
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{$node[\"Webhook\"].json[\"body\"][\"formid\"]}}",
+              "value2": "form380231530"
+            }
+          ]
+        }
+      },
+      "id": "4e5e6609-e290-40e9-9fd8-682d8c7dcb36",
+      "name": "Заказ решения?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        1300,
+        -500
+      ]
     }
   ],
   "pinData": {},
@@ -2477,5 +2656,5 @@
   },
   "staticData": null,
   "tags": [],
-  "updatedAt": "2022-11-10T13:38:53.269Z"
+  "updatedAt": "2022-12-13T06:53:48.029Z"
 }
