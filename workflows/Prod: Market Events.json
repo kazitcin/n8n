@@ -928,10 +928,32 @@
           }
         ]
       ]
+    },
+    "Связывание ТЗ сделки и контакта": {
+      "main": [
+        [
+          {
+            "node": "Параметры задачи",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Параметры задачи": {
+      "main": [
+        [
+          {
+            "node": "Создание задачи",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2022-10-28T19:21:32.910Z",
-  "hash": "a5c4ed08403124a1b16608abb5dce757",
+  "hash": "cb93790b16f470aa235daa3e9ba3bd15",
   "id": 12,
   "name": "Prod: Market Events",
   "nodes": [
@@ -944,8 +966,8 @@
       "type": "n8n-nodes-base.executeWorkflow",
       "typeVersion": 1,
       "position": [
-        -820,
-        720
+        -1080,
+        560
       ]
     },
     {
@@ -959,8 +981,8 @@
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 1,
       "position": [
-        -1180,
-        720
+        -1440,
+        560
       ],
       "webhookId": "ff15db6a-ff62-468e-a2e6-6b171b1d7e46"
     },
@@ -987,8 +1009,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        160,
-        560
+        -100,
+        400
       ]
     },
     {
@@ -1031,8 +1053,8 @@
       "type": "n8n-nodes-base.nocoDb",
       "typeVersion": 2,
       "position": [
-        540,
-        560
+        280,
+        400
       ],
       "credentials": {
         "nocoDbApiToken": {
@@ -1050,8 +1072,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        -20,
-        560
+        -280,
+        400
       ]
     },
     {
@@ -1063,8 +1085,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        340,
-        560
+        80,
+        400
       ]
     },
     {
@@ -1083,8 +1105,8 @@
       "type": "n8n-nodes-base.nocoDb",
       "typeVersion": 2,
       "position": [
-        -640,
-        720
+        -900,
+        560
       ],
       "alwaysOutputData": true,
       "credentials": {
@@ -1103,8 +1125,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        -460,
-        720
+        -720,
+        560
       ]
     },
     {
@@ -1148,8 +1170,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 1,
       "position": [
-        440,
-        880
+        180,
+        720
       ]
     },
     {
@@ -1193,8 +1215,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 1,
       "position": [
-        900,
-        560
+        640,
+        400
       ]
     },
     {
@@ -1206,8 +1228,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        1160,
-        720
+        900,
+        560
       ]
     },
     {
@@ -1305,8 +1327,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        -280,
-        720
+        -540,
+        560
       ]
     },
     {
@@ -1993,7 +2015,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        1420,
+        1160,
         1300
       ]
     },
@@ -2020,7 +2042,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        2220,
+        1960,
         1140
       ]
     },
@@ -2033,7 +2055,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        2040,
+        1780,
         1140
       ]
     },
@@ -2046,7 +2068,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        2400,
+        2140,
         1140
       ]
     },
@@ -2059,7 +2081,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        2580,
+        2320,
         1140
       ]
     },
@@ -2072,7 +2094,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        2760,
+        2500,
         1140
       ]
     },
@@ -2099,7 +2121,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        2940,
+        2680,
         1140
       ]
     },
@@ -2112,7 +2134,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        4020,
+        3760,
         1140
       ]
     },
@@ -2126,7 +2148,7 @@
       "type": "n8n-nodes-base.splitInBatches",
       "typeVersion": 1,
       "position": [
-        4280,
+        4020,
         980
       ],
       "alwaysOutputData": false
@@ -2140,7 +2162,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        3120,
+        2860,
         1140
       ]
     },
@@ -2153,7 +2175,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        4460,
+        4200,
         980
       ]
     },
@@ -2180,7 +2202,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        4640,
+        4380,
         980
       ]
     },
@@ -2193,7 +2215,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        4280,
+        4020,
         1300
       ]
     },
@@ -2220,7 +2242,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        4460,
+        4200,
         1300
       ]
     },
@@ -2233,7 +2255,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        4640,
+        4380,
         1300
       ]
     },
@@ -2246,7 +2268,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        4820,
+        4560,
         1300
       ]
     },
@@ -2259,7 +2281,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        3300,
+        3040,
         1140
       ]
     },
@@ -2286,7 +2308,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        3480,
+        3220,
         1140
       ]
     },
@@ -2313,7 +2335,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        5000,
+        4740,
         1300
       ]
     },
@@ -2342,7 +2364,7 @@
       "type": "n8n-nodes-base.nocoDb",
       "typeVersion": 2,
       "position": [
-        5180,
+        4920,
         1300
       ],
       "credentials": {
@@ -2369,8 +2391,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 1,
       "position": [
-        -1000,
-        720
+        -1260,
+        560
       ]
     },
     {
@@ -2390,7 +2412,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 1,
       "position": [
-        1680,
+        1420,
         1140
       ]
     },
@@ -2403,7 +2425,7 @@
       "type": "n8n-nodes-base.executeWorkflow",
       "typeVersion": 1,
       "position": [
-        1860,
+        1600,
         1140
       ]
     },
@@ -2472,7 +2494,7 @@
       "type": "n8n-nodes-base.nocoDb",
       "typeVersion": 2,
       "position": [
-        3660,
+        3400,
         1140
       ],
       "credentials": {
@@ -2491,7 +2513,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        3840,
+        3580,
         1140
       ]
     },
@@ -2511,8 +2533,8 @@
       "type": "n8n-nodes-base.nocoDb",
       "typeVersion": 2,
       "position": [
-        720,
-        560
+        460,
+        400
       ],
       "credentials": {
         "nocoDbApiToken": {
@@ -2543,7 +2565,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        1540,
+        1420,
         -520
       ]
     },
@@ -2556,7 +2578,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        1940,
+        1780,
         -520
       ]
     },
@@ -2569,7 +2591,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        2140,
+        1960,
         -520
       ]
     },
@@ -2596,7 +2618,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        1740,
+        1600,
         -520
       ]
     },
@@ -2623,7 +2645,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        2340,
+        2140,
         -520
       ]
     },
@@ -2643,8 +2665,48 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        1300,
-        -500
+        1160,
+        -180
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "var date = new Date();\ndate.setDate(date.getDate() + 7);\n\n\nlet params = [\n  {\n        \"task_type_id\": 1,\n        \"text\": \"Написать заказчику\",\n        \"responsible_user_id\": 289686,\n        \"is_completed\": false,\n        \"complete_till\": parseInt(date.getTime() / 1000),\n        \"entity_id\": parseInt($node[\"Ответ создания сделки\"].json[\"data\"][\"_embedded\"][\"leads\"][0][\"id\"]),\n        \"entity_type\": \"leads\",\n    }\n]\n\nreturn [{params: JSON.stringify(params)}];"
+      },
+      "id": "a65cf899-d54d-47f7-aed9-158c62f50ade",
+      "name": "Параметры задачи",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        2320,
+        -520
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://{{$node[\"Execute Workflow\"].json[\"subdomain\"]}}/api/v4/tasks",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{$node[\"Execute Workflow\"].json[\"access_token\"]}}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{$node[\"Параметры задачи\"].json[\"params\"]}}",
+        "options": {}
+      },
+      "id": "28bd0fe4-3313-4044-9f8b-838438216a79",
+      "name": "Создание задачи",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        2500,
+        -520
       ]
     }
   ],
@@ -2656,5 +2718,5 @@
   },
   "staticData": null,
   "tags": [],
-  "updatedAt": "2022-12-13T06:53:48.029Z"
+  "updatedAt": "2022-12-13T13:11:35.403Z"
 }
