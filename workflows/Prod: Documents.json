@@ -353,7 +353,7 @@
     }
   },
   "createdAt": "2022-12-09T08:17:54.510Z",
-  "hash": "282d357e5e7d52f375d0da7463098639",
+  "hash": "3fdaff2e2fa1c4bd62796ce34ea69091",
   "id": 35,
   "name": "Prod: Documents",
   "nodes": [
@@ -380,7 +380,7 @@
     {
       "parameters": {
         "operation": "executeQuery",
-        "query": "=select t.user_id, t.email, t.first_name, t.amount, t.lead_id, t.contact_id from documents2 t where t.user_id = 4449 order by user_id ",
+        "query": "=select t.user_id, t.email, t.first_name, t.amount, t.lead_id, t.contact_id from documents t order by user_id ",
         "additionalFields": {}
       },
       "id": "9c1a82f1-f49e-4310-8749-b42705427fdf",
@@ -914,5 +914,5 @@
     }
   },
   "tags": [],
-  "updatedAt": "2022-12-12T13:32:11.889Z"
+  "updatedAt": "2022-12-13T05:34:46.078Z"
 }
