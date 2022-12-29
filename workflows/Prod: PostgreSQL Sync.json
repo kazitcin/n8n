@@ -411,7 +411,7 @@
     }
   },
   "createdAt": "2022-10-24T08:19:55.820Z",
-  "hash": "d3ec034ea13859c747280501fa791189",
+  "dataLoaded": false,
   "id": 7,
   "name": "Prod: PostgreSQL Sync",
   "nodes": [
@@ -1289,5 +1289,6 @@
   },
   "staticData": null,
   "tags": [],
-  "updatedAt": "2022-12-02T01:14:22.785Z"
+  "updatedAt": "2022-12-02T01:14:22.785Z",
+  "versionId": "a425c0f9-f973-420d-ab5f-b619cd87e50d"
 }
