@@ -666,7 +666,7 @@
     }
   },
   "createdAt": "2022-10-25T21:15:04.454Z",
-  "hash": "d056f8ae204ff913196796612867c590",
+  "dataLoaded": true,
   "id": 10,
   "name": "Prod: Connect Events",
   "nodes": [
@@ -2186,5 +2186,6 @@
   },
   "staticData": null,
   "tags": [],
-  "updatedAt": "2022-12-13T13:12:20.924Z"
+  "updatedAt": "2022-12-29T01:50:57.359Z",
+  "versionId": "248aa0a2-79d9-4013-b1d6-1ecae1af91d8"
 }
