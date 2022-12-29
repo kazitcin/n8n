@@ -2,7 +2,7 @@
   "active": true,
   "connections": {},
   "createdAt": "2022-11-10T13:25:32.220Z",
-  "hash": "7e510ef7c53f55a3c9f45b69b752ac01",
+  "dataLoaded": false,
   "id": 30,
   "name": "Dev: Connect Events",
   "nodes": [
@@ -27,5 +27,6 @@
   "settings": {},
   "staticData": null,
   "tags": [],
-  "updatedAt": "2022-11-11T00:55:14.729Z"
+  "updatedAt": "2022-12-29T01:38:10.284Z",
+  "versionId": "97d25cac-7c4a-417e-8655-d4ec1608b1a4"
 }
