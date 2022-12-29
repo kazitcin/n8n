@@ -134,7 +134,7 @@
     }
   },
   "createdAt": "2022-10-25T08:51:38.994Z",
-  "hash": "193de54d3513e9fa82929d6b77346223",
+  "dataLoaded": false,
   "id": 9,
   "name": "Prod: Airtable Sync",
   "nodes": [
@@ -409,5 +409,6 @@
   },
   "staticData": null,
   "tags": [],
-  "updatedAt": "2022-12-02T01:14:26.252Z"
+  "updatedAt": "2022-12-02T01:14:26.252Z",
+  "versionId": "350fa29c-ce08-4d4d-84c2-d75a7d66ca12"
 }
