@@ -36,7 +36,7 @@
     }
   },
   "createdAt": "2022-11-02T14:01:02.515Z",
-  "hash": "552ba3718eb1b2412f9db866a97986c2",
+  "dataLoaded": false,
   "id": 19,
   "name": "Prod: SMS Events",
   "nodes": [
@@ -144,5 +144,6 @@
   },
   "staticData": null,
   "tags": [],
-  "updatedAt": "2022-11-10T13:19:17.329Z"
+  "updatedAt": "2022-12-29T01:38:10.373Z",
+  "versionId": "e5859f8d-a4b1-4f00-9178-0047fb9eda0d"
 }
