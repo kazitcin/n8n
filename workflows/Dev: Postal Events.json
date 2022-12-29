@@ -2,7 +2,7 @@
   "active": true,
   "connections": {},
   "createdAt": "2022-12-05T08:07:41.121Z",
-  "hash": "65d985b72acc2ea998c82a5382e636ad",
+  "dataLoaded": false,
   "id": 34,
   "name": "Dev: Postal Events",
   "nodes": [
@@ -27,5 +27,6 @@
   "settings": {},
   "staticData": null,
   "tags": [],
-  "updatedAt": "2022-12-06T06:16:04.466Z"
+  "updatedAt": "2022-12-29T01:38:10.276Z",
+  "versionId": "10b4f913-44bd-4b24-b816-b55347ad45e0"
 }
