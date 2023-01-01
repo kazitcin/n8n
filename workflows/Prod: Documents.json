@@ -1,17 +1,6 @@
 {
-  "active": true,
+  "active": false,
   "connections": {
-    "Schedule Trigger": {
-      "main": [
-        [
-          {
-            "node": "Set",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Execute Workflow": {
       "main": [
         [
@@ -350,33 +339,24 @@
           }
         ]
       ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Set",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2022-12-09T08:17:54.510Z",
-  "dataLoaded": false,
+  "dataLoaded": true,
   "id": 35,
   "name": "Prod: Documents",
   "nodes": [
-    {
-      "parameters": {
-        "rule": {
-          "interval": [
-            {
-              "field": "cronExpression",
-              "expression": "45 7 1 1,4,7,10 *"
-            }
-          ]
-        }
-      },
-      "id": "aa4d46e3-f4d2-4e63-86c9-e4ce25a575ca",
-      "name": "Schedule Trigger",
-      "type": "n8n-nodes-base.scheduleTrigger",
-      "typeVersion": 1,
-      "position": [
-        -160,
-        460
-      ]
-    },
     {
       "parameters": {
         "operation": "executeQuery",
@@ -427,7 +407,7 @@
     },
     {
       "parameters": {
-        "jsCode": "var date = new Date();\ndate.setDate(date.getDate() + 7);\n\n\nlet params = [\n  {\n        \"task_type_id\": 1,\n        \"text\": `Сумма списаний: ${$node[\"Postgres\"].json[\"amount\"]}`,\n        \"responsible_user_id\": 289686,\n        \"is_completed\": false,\n        \"complete_till\": parseInt(date.getTime() / 1000),\n        \"entity_id\": parseInt($node[\"SplitInBatches\"].json[\"lead_id\"]),\n        \"entity_type\": \"leads\",\n    }\n]\n\nreturn [{params: JSON.stringify(params)}];"
+        "jsCode": "var date = new Date();\ndate.setDate(date.getDate() + 7);\n\n\nlet params = [\n  {\n        \"task_type_id\": 1,\n        \"text\": `Сумма списаний: ${$node[\"SplitInBatches\"].json[\"amount\"]}`,\n        \"responsible_user_id\": 289686,\n        \"is_completed\": false,\n        \"complete_till\": parseInt(date.getTime() / 1000),\n        \"entity_id\": parseInt($node[\"SplitInBatches\"].json[\"lead_id\"]),\n        \"entity_type\": \"leads\",\n    }\n]\n\nreturn [{params: JSON.stringify(params)}];"
       },
       "id": "94dfba12-3907-4e40-8d5e-017861c0eceb",
       "name": "Параметры задачи",
@@ -900,13 +880,33 @@
         920,
         460
       ]
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "0 45 7 1/3 * 1"
+            }
+          ]
+        }
+      },
+      "id": "d8724081-34a8-4fc4-a2c2-1373609e25a5",
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1,
+      "position": [
+        -160,
+        460
+      ]
     }
   ],
   "pinData": {},
   "settings": {
-    "saveExecutionProgress": "DEFAULT",
     "callerPolicy": "any",
-    "errorWorkflow": "8"
+    "errorWorkflow": "8",
+    "saveManualExecutions": false
   },
   "staticData": {
     "node:Schedule Trigger": {
@@ -914,6 +914,6 @@
     }
   },
   "tags": [],
-  "updatedAt": "2022-12-29T01:38:10.221Z",
-  "versionId": "7a76a3a0-ce61-44ec-97b5-e8e0d9871268"
+  "updatedAt": "2023-01-01T05:37:08.963Z",
+  "versionId": "b9e2fd19-338f-4d35-b47f-a98ffc18357e"
 }
