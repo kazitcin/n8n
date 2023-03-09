@@ -241,7 +241,16 @@
       ]
     },
     {
-      "parameters": {},
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{$node[\"SplitInBatches\"].context[\"noItemsLeft\"]}}",
+              "value2": true
+            }
+          ]
+        }
+      },
       "id": "602594ff-e42a-4fd0-b1d9-7296fe9653eb",
       "name": "Нет данных для обработки?",
       "type": "n8n-nodes-base.if",
@@ -354,6 +363,6 @@
     }
   },
   "tags": [],
-  "updatedAt": "2022-12-29T07:00:02.051Z",
-  "versionId": "d5050b3c-ef55-4046-bdec-74078df3c678"
+  "updatedAt": "2023-03-09T04:39:24.887Z",
+  "versionId": "886adf9f-ecf6-463d-bad0-d9d75f192c9b"
 }
