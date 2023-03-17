@@ -1,0 +1,32 @@
+{
+  "active": true,
+  "connections": {},
+  "createdAt": "2023-03-17T07:17:57.188Z",
+  "dataLoaded": true,
+  "id": 41,
+  "name": "Bitrix test webhook",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "9e8327f0-63f5-4b6d-991a-bb8cd42dfd61",
+        "options": {}
+      },
+      "id": "24e0637d-ef95-4f20-978e-a6a17844cbfe",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        720,
+        300
+      ],
+      "webhookId": "9e8327f0-63f5-4b6d-991a-bb8cd42dfd61"
+    }
+  ],
+  "pinData": {},
+  "settings": {},
+  "staticData": null,
+  "tags": [],
+  "updatedAt": "2023-03-17T08:23:45.159Z",
+  "versionId": "871bd9a3-57eb-4454-8e5a-80c0cc1fb1f9"
+}
