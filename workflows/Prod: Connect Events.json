@@ -303,13 +303,7 @@
     },
     "Параметры счета": {
       "main": [
-        [
-          {
-            "node": "Создание счета",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "Создание счета": {
@@ -1375,7 +1369,7 @@
     },
     {
       "parameters": {
-        "jsCode": "let goods = {\n  'месячный пакет': 1178955,\n  'дополнительные строки': 1178959,\n  'расширенная опция': 1178961,\n  'смена тарифного плана': 1178963\n}\n\nlet params = [{\n  \"name\": \"Списание № \" + $node[\"Webhook\"].json[\"body\"][\"event\"][\"data\"][\"id\"],\n  \"custom_fields_values\": [\n    {\n      \"field_id\": 1158437,\n      \"values\": [{ \"value\": \"Оплачен\" }]\n    },\n    {\n      \"field_id\": 1158447,\n      \"values\": [{\n        \"value\": {\n          \"sku\": \"\",\n          \"product_id\": goods[$node[\"Webhook\"].json[\"body\"][\"event\"][\"data\"][\"type\"]],\n          \"description\": $node[\"Webhook\"].json[\"body\"][\"event\"][\"data\"][\"type\"],\n          \"unit_price\": parseFloat($node[\"Webhook\"].json[\"body\"][\"event\"][\"data\"][\"amount\"]),\n          \"unit_type\": \"шт\",\n          \"quantity\": 1.0\n        }\n      }]\n    },\n    {\n      \"field_id\": 1158451,\n      \"values\": [{\n        \"value\": $node[\"Webhook\"].json[\"body\"][\"event\"][\"data\"][\"amount\"]\n      }]\n    },\n    {\n      \"field_id\": 1158441,\n      \"values\": [{\n        \"value\": {\n          \"entity_id\": parseInt($node[\"ID пользователя\"].json[\"data\"][\"contact_id\"]),\n          \"entity_type\": \"contacts\",\n          \"catalog_id\": null\n        }\n      }]\n    },\n    {\n      \"field_id\": 1158445,\n      \"values\": [{\n        \"value\": parseInt(new Date().getTime())\n      }]\n    }\n  ]\n}]\n\nreturn [{ params: JSON.stringify(params) }];"
+        "jsCode": "let goods = {\n  'месячный пакет': 1178955,\n  'дополнительные строки': 1178959,\n  'расширенная опция': 1178961,\n  'смена тарифного плана': 1178963\n}\n\nlet params = [{\n  \"name\": \"Списание № \" + $node[\"Webhook\"].json[\"body\"][\"event\"][\"data\"][\"id\"],\n  \"custom_fields_values\": [\n    {\n      \"field_id\": 1158437,\n      \"values\": [{ \"value\": \"Оплачен\" }]\n    },\n    {\n      \"field_id\": 1158447,\n      \"values\": [{\n        \"value\": {\n          \"sku\": \"\",\n          \"product_id\": goods[$node[\"Webhook\"].json[\"body\"][\"event\"][\"data\"][\"type\"]],\n          \"description\": $node[\"Webhook\"].json[\"body\"][\"event\"][\"data\"][\"type\"],\n          \"unit_price\": parseFloat($node[\"Webhook\"].json[\"body\"][\"event\"][\"data\"][\"amount\"]),\n          \"unit_type\": \"шт\",\n          \"quantity\": 1.0\n        }\n      }]\n    },\n    {\n      \"field_id\": 1158451,\n      \"values\": [{\n        \"value\": $node[\"Webhook\"].json[\"body\"][\"event\"][\"data\"][\"amount\"]\n      }]\n    },\n    {\n      \"field_id\": 1158441,\n      \"values\": [{\n        \"value\": {\n          \"entity_id\": parseInt($node[\"ID пользователя\"].json[\"data\"][\"contact_id\"]),\n          \"entity_type\": \"contacts\",\n          \"catalog_id\": null\n        }\n      }]\n    },\n    {\n      \"field_id\": 1158445,\n      \"values\": [{\n        \"value\": parseInt(new Date().getTime() / 1000)\n      }]\n    }\n  ]\n}]\n\nreturn [{ params: JSON.stringify(params) }];"
       },
       "id": "03b77338-bdca-4dbd-82c5-f632d0547c82",
       "name": "Параметры счета",
@@ -2186,6 +2180,6 @@
   },
   "staticData": null,
   "tags": [],
-  "updatedAt": "2022-12-29T01:50:57.359Z",
-  "versionId": "248aa0a2-79d9-4013-b1d6-1ecae1af91d8"
+  "updatedAt": "2023-08-23T14:15:34.653Z",
+  "versionId": "bc926e47-0a57-4c52-85db-c08e16790599"
 }
