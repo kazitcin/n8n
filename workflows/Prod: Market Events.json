@@ -2208,7 +2208,7 @@
     },
     {
       "parameters": {
-        "jsCode": "let products = [];\nlet data = $input.all();\n\nlet product_ids = $node[\"Набор индентификаторов\"].json\n\nfor (let i = 0; i < data.length; i++) {\n  products.push({\n    \"value\": {\n      \"sku\": \"\",\n      \"product_id\": product_ids[data[i].json[\"externalid\"]],\n      \"description\": data[i].json[\"name\"],\n      \"unit_price\": parseFloat(data[i].json[\"price\"]),\n      \"unit_type\": \"шт\",\n      \"quantity\": data[i].json[\"quantity\"]\n    }\n  })\n}\n\nlet params = [{\n  \"name\": `\"Покупка № ${$node[\"Webhook\"].json[\"body\"][\"payment\"][\"orderid\"]}`,\n  \"custom_fields_values\": [\n    {\n      \"field_id\": 770089,\n      \"values\": [\n        {\n          \"value\": \"Оплачен\"\n        }\n      ]\n    },\n    {\n      \"field_id\": 770093,\n      \"values\": [\n        {\n          \"value\": {\n            \"entity_id\": parseInt($node[\"ID демо контакта\"].json[\"data\"][\"_embedded\"][\"contacts\"][0][\"id\"]),\n            \"entity_type\": \"contacts\",\n            \"catalog_id\": null\n          }\n        }\n      ]\n    },\n    {\n      \"field_id\": 770097,\n      \"values\": [\n        {\n          \"value\": parseInt(new Date().getTime() / 1000)\n        }\n      ]\n    },\n    {\n      \"field_id\": 770099,\n      \"values\": products\n    },\n    {\n      \"field_id\": 770103,\n      \"values\": [\n        {\n          \"value\": $node[\"Webhook\"].json[\"body\"][\"payment\"][\"amount\"]\n        }\n      ]\n    }\n  ]\n}];\n\nreturn [{ params: JSON.stringify(params) }];"
+        "jsCode": "let products = [];\nlet data = $input.all();\n\nlet product_ids = $node[\"Набор индентификаторов\"].json\n\nfor (let i = 0; i < data.length; i++) {\n  products.push({\n    \"value\": {\n      \"sku\": \"\",\n      \"product_id\": product_ids[data[i].json[\"externalid\"]],\n      \"description\": data[i].json[\"name\"],\n      \"unit_price\": parseFloat(data[i].json[\"price\"]),\n      \"unit_type\": \"шт\",\n      \"quantity\": data[i].json[\"quantity\"]\n    }\n  })\n}\n\nlet params = [{\n  \"name\": `\"Покупка № ${$node[\"Webhook\"].json[\"body\"][\"payment\"][\"orderid\"]}`,\n  \"custom_fields_values\": [\n    {\n      \"field_id\": 770089,\n      \"values\": [\n        {\n          \"value\": \"Оплачен\"\n        }\n      ]\n    },\n    {\n      \"field_id\": 770093,\n      \"values\": [\n        {\n          \"value\": {\n            \"entity_id\": parseInt($node[\"ID демо контакта\"].json[\"data\"][\"_embedded\"][\"contacts\"][0][\"id\"]),\n            \"entity_type\": \"contacts\"\n          }\n        }\n      ]\n    },\n    {\n      \"field_id\": 770097,\n      \"values\": [\n        {\n          \"value\": parseInt(new Date().getTime() / 1000)\n        }\n      ]\n    },\n    {\n      \"field_id\": 770099,\n      \"values\": products\n    },\n    {\n      \"field_id\": 770103,\n      \"values\": [\n        {\n          \"value\": $node[\"Webhook\"].json[\"body\"][\"payment\"][\"amount\"]\n        }\n      ]\n    }\n  ]\n}];\n\nreturn [{ params: JSON.stringify(params) }];"
       },
       "id": "4db5f042-c221-4d96-9a61-a0bb09cc9a46",
       "name": "Параметры демо счета",
@@ -2718,6 +2718,6 @@
   },
   "staticData": null,
   "tags": [],
-  "updatedAt": "2023-01-25T11:23:30.757Z",
-  "versionId": "14e203ed-7b8f-4dbe-a626-c3c63828f7e5"
+  "updatedAt": "2023-09-04T13:59:25.837Z",
+  "versionId": "05bc41d6-da5e-4a50-8a91-8f08eb839f05"
 }
