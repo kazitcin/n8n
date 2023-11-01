@@ -600,13 +600,7 @@
     },
     "Есть демо сделка?": {
       "main": [
-        [
-          {
-            "node": "Set1",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "Set": {
@@ -2186,6 +2180,6 @@
   },
   "staticData": null,
   "tags": [],
-  "updatedAt": "2023-08-24T07:01:27.983Z",
-  "versionId": "b974efb0-e44b-42a0-903d-7e8d5bfec45a"
+  "updatedAt": "2023-11-01T03:14:25.933Z",
+  "versionId": "fcafc551-29f3-4f21-9759-384bbbfabf7d"
 }
