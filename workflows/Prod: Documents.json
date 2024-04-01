@@ -887,7 +887,7 @@
           "interval": [
             {
               "field": "cronExpression",
-              "expression": "12 9 1 * *"
+              "expression": "57 8 1 * *"
             }
           ]
         }
@@ -914,6 +914,6 @@
     }
   },
   "tags": [],
-  "updatedAt": "2024-01-01T07:55:32.718Z",
-  "versionId": "69f23b66-bee2-4dde-8c94-56261da39167"
+  "updatedAt": "2024-04-01T05:59:12.614Z",
+  "versionId": "1933e8d9-48cc-4c4d-9ca1-5c7a30d6de41"
 }
