@@ -153,7 +153,7 @@
     {
       "parameters": {
         "method": "POST",
-        "url": "https://mybiconnectwidgets.amocrm.ru/oauth2/access_token",
+        "url": "https://bimarket.amocrm.ru/oauth2/access_token",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
@@ -289,6 +289,6 @@
   "settings": {},
   "staticData": null,
   "tags": [],
-  "updatedAt": "2024-06-07T03:57:45.667Z",
-  "versionId": "eca4082f-00ee-49c0-9a9c-534cc7f16008"
+  "updatedAt": "2024-06-08T04:46:56.465Z",
+  "versionId": "765b3ba0-ef6b-48e1-ab8d-e002519ded49"
 }
