@@ -1,0 +1,148 @@
+{
+  "active": false,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "IF",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "Postgres",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IF": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "SSH",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2023-03-09T07:28:04.397Z",
+  "dataLoaded": true,
+  "id": 39,
+  "name": "ru-backup",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "0afda7c0-c0d2-4c3d-853e-7cf5dc5ce4db",
+        "options": {}
+      },
+      "id": "65e48c43-6cca-428b-a3a2-6e663d31ab05",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        620,
+        360
+      ],
+      "webhookId": "0afda7c0-c0d2-4c3d-853e-7cf5dc5ce4db"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\nconst body = $input.first().json[\"body\"];\nconst connection_string = `postgresql://${body.user}:${body.password}@${body.host}:${body.port}/${body.database}`;\n\nreturn [{connection_string, name: body.database}];"
+      },
+      "id": "78466d14-469f-4bc9-9e71-11fa11ba2942",
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        1040,
+        180
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "=insert into databases (name, connection_string, pg_version, test_ok) values ('{{  $json[\"name\"] }}', pgp_sym_encrypt('{{ $json[\"connection_string\"]  }}', 'my_secret_key'), 14, true) ",
+        "additionalFields": {}
+      },
+      "id": "fe490b3d-6689-4693-acbc-132ebb03fe99",
+      "name": "Postgres",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 1,
+      "position": [
+        1320,
+        180
+      ],
+      "credentials": {
+        "postgres": {
+          "id": "15",
+          "name": "Postgres ru-backup"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $json[\"body\"][\"insert\"] }}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "cc7eddf3-a933-46d0-9143-daa71dc9a065",
+      "name": "IF",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        860,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "authentication": "privateKey",
+        "command": "ls",
+        "cwd": "/backup"
+      },
+      "id": "c6e510f6-28eb-4272-9aeb-954b14cb254f",
+      "name": "SSH",
+      "type": "n8n-nodes-base.ssh",
+      "typeVersion": 1,
+      "position": [
+        1060,
+        500
+      ],
+      "credentials": {
+        "sshPrivateKey": {
+          "id": "17",
+          "name": "SSH Private Key account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {},
+  "staticData": null,
+  "tags": [],
+  "updatedAt": "2024-10-23T13:05:28.881Z",
+  "versionId": "43a02adb-33a3-421d-a4dd-00175697cbfa"
+}
