@@ -120,7 +120,7 @@
     {
       "parameters": {
         "authentication": "privateKey",
-        "command": "ls",
+        "command": "=sudo -u root pgdelete.sh {{ $json[\"body\"][\"database\"] }}",
         "cwd": "/backup"
       },
       "id": "c6e510f6-28eb-4272-9aeb-954b14cb254f",
@@ -143,6 +143,6 @@
   "settings": {},
   "staticData": null,
   "tags": [],
-  "updatedAt": "2024-10-23T13:05:28.881Z",
-  "versionId": "43a02adb-33a3-421d-a4dd-00175697cbfa"
+  "updatedAt": "2024-10-23T22:41:25.104Z",
+  "versionId": "34b950d2-5e12-4e09-bf85-e5aebff659bc"
 }
