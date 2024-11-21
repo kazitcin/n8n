@@ -1,0 +1,31 @@
+{
+  "active": false,
+  "connections": {},
+  "createdAt": "2024-11-20T21:27:26.128Z",
+  "dataLoaded": true,
+  "id": 46,
+  "name": "Jivo",
+  "nodes": [
+    {
+      "parameters": {
+        "path": "f6da30dd-2272-4eb6-a9e3-ed66a446508a",
+        "options": {}
+      },
+      "id": "5c573556-30b5-4c3e-a497-161d4f75b64a",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        820,
+        360
+      ],
+      "webhookId": "f6da30dd-2272-4eb6-a9e3-ed66a446508a"
+    }
+  ],
+  "pinData": {},
+  "settings": {},
+  "staticData": null,
+  "tags": [],
+  "updatedAt": "2024-11-21T07:15:40.908Z",
+  "versionId": "9ea0f9ea-8b8b-4297-aafa-c619354f1dce"
+}
