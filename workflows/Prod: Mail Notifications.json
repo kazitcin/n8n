@@ -323,7 +323,7 @@
             },
             {
               "name": "subject",
-              "value": "myBI Connect - Оплата сервиса"
+              "value": "mybi connect - Оплата сервиса"
             },
             {
               "name": "from_name",
@@ -484,7 +484,7 @@
             },
             {
               "name": "subject",
-              "value": "myBI Connect - Оплата сервиса"
+              "value": "mybi connect - Оплата сервиса"
             },
             {
               "name": "from_name",
@@ -666,6 +666,6 @@
     }
   },
   "tags": [],
-  "updatedAt": "2022-12-29T04:30:02.384Z",
-  "versionId": "e1f49d3c-02c5-49f4-b823-6d3d8c7d1b7f"
+  "updatedAt": "2025-06-26T07:33:23.823Z",
+  "versionId": "ca934525-2b96-4e92-8911-003172a51e5b"
 }
