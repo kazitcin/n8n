@@ -598,11 +598,6 @@
         ]
       ]
     },
-    "Есть демо сделка?": {
-      "main": [
-        []
-      ]
-    },
     "Set": {
       "main": [
         [
@@ -1348,6 +1343,14 @@
             {
               "fieldName": "balance",
               "fieldValue": "={{$node[\"Webhook\"].json[\"body\"][\"user\"][\"balance\"]}}"
+            },
+            {
+              "fieldName": "extended",
+              "fieldValue": "={{$node[\"Webhook\"].json[\"body\"][\"user\"][\"plan\"][\"extended\"]}}"
+            },
+            {
+              "fieldName": "recurring",
+              "fieldValue": "={{$node[\"Webhook\"].json[\"body\"][\"user\"][\"recurring\"]}}"
             }
           ]
         }
@@ -2180,6 +2183,6 @@
   },
   "staticData": null,
   "tags": [],
-  "updatedAt": "2023-11-01T03:14:25.933Z",
-  "versionId": "fcafc551-29f3-4f21-9759-384bbbfabf7d"
+  "updatedAt": "2025-07-04T05:27:28.342Z",
+  "versionId": "0a83728e-56a2-411f-8029-549ebd21a4cd"
 }
