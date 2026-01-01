@@ -360,7 +360,7 @@
     {
       "parameters": {
         "operation": "executeQuery",
-        "query": "=select t.user_id, t.email, t.first_name, t.amount, t.lead_id, t.contact_id from documents t order by user_id ",
+        "query": "=select t.user_id, t.email, t.first_name, t.amount, t.balance, t.lead_id, t.contact_id from documents t order by user_id ",
         "additionalFields": {}
       },
       "id": "9c1a82f1-f49e-4310-8749-b42705427fdf",
@@ -407,7 +407,7 @@
     },
     {
       "parameters": {
-        "jsCode": "var date = new Date();\ndate.setDate(date.getDate() + 7);\n\n\nlet params = [\n  {\n        \"task_type_id\": 1,\n        \"text\": `Сумма списаний: ${$node[\"SplitInBatches\"].json[\"amount\"]}`,\n        \"responsible_user_id\": 289686,\n        \"is_completed\": false,\n        \"complete_till\": parseInt(date.getTime() / 1000),\n        \"entity_id\": parseInt($node[\"SplitInBatches\"].json[\"lead_id\"]),\n        \"entity_type\": \"leads\",\n    }\n]\n\nreturn [{params: JSON.stringify(params)}];"
+        "jsCode": "var date = new Date();\ndate.setDate(date.getDate() + 7);\n\n\nlet params = [\n  {\n        \"task_type_id\": 1,\n        \"text\": `Сумма списаний: ${$node[\"SplitInBatches\"].json[\"amount\"]} / Баланс: ${$node[\"SplitInBatches\"].json[\"balance\"]}`,\n        \"responsible_user_id\": 289686,\n        \"is_completed\": false,\n        \"complete_till\": parseInt(date.getTime() / 1000),\n        \"entity_id\": parseInt($node[\"SplitInBatches\"].json[\"lead_id\"]),\n        \"entity_type\": \"leads\",\n    }\n]\n\nreturn [{params: JSON.stringify(params)}];"
       },
       "id": "94dfba12-3907-4e40-8d5e-017861c0eceb",
       "name": "Параметры задачи",
@@ -887,7 +887,7 @@
           "interval": [
             {
               "field": "cronExpression",
-              "expression": "20 5 1 * *"
+              "expression": "34 6 1 * *"
             }
           ]
         }
@@ -914,6 +914,6 @@
     }
   },
   "tags": [],
-  "updatedAt": "2025-10-01T02:22:08.897Z",
-  "versionId": "4c48d31a-7e9a-440f-b35a-a2f2c15c264a"
+  "updatedAt": "2026-01-01T03:36:36.353Z",
+  "versionId": "490c2116-1182-4964-af44-b18ab2b6f944"
 }
