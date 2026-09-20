@@ -5,7 +5,7 @@
       "main": [
         [
           {
-            "node": "Set",
+            "node": "Postgres",
             "type": "main",
             "index": 0
           }
@@ -52,28 +52,6 @@
         ]
       ]
     },
-    "Execute Workflow": {
-      "main": [
-        [
-          {
-            "node": "Postgres",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Set": {
-      "main": [
-        [
-          {
-            "node": "Execute Workflow",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Письмо о блокировке": {
       "main": [
         [
@@ -86,28 +64,6 @@
       ]
     },
     "Данные о блокировке": {
-      "main": [
-        [
-          {
-            "node": "Задача о блокировке",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Задача о блокировке": {
-      "main": [
-        [
-          {
-            "node": "Блокировка",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Блокировка": {
       "main": [
         [
           {
@@ -130,28 +86,6 @@
       ]
     },
     "Данные об удалении": {
-      "main": [
-        [
-          {
-            "node": "Задача об удалении",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Задача об удалении": {
-      "main": [
-        [
-          {
-            "node": "Удаление",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Удаление": {
       "main": [
         [
           {
@@ -223,7 +157,7 @@
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1,
       "position": [
-        260,
+        620,
         320
       ]
     },
@@ -258,40 +192,6 @@
       "typeVersion": 1,
       "position": [
         980,
-        320
-      ]
-    },
-    {
-      "parameters": {
-        "workflowId": "13"
-      },
-      "id": "cd7b6577-5685-4dc1-8691-519380f9a79d",
-      "name": "Execute Workflow",
-      "type": "n8n-nodes-base.executeWorkflow",
-      "typeVersion": 1,
-      "position": [
-        620,
-        320
-      ]
-    },
-    {
-      "parameters": {
-        "values": {
-          "string": [
-            {
-              "name": "amoType",
-              "value": "prod"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "1d7a1048-7c40-4c80-9085-ebf5263fcd5e",
-      "name": "Set",
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 1,
-      "position": [
-        440,
         320
       ]
     },
@@ -415,46 +315,6 @@
           "name": "NocoDB"
         }
       }
-    },
-    {
-      "parameters": {
-        "jsCode": "let params = [\n  {\n    \"task_type_id\": 1,\n    \"text\": \"Отправлено с помощью DashaMail\",\n    \"responsible_user_id\": 289686,\n    \"is_completed\": true,\n    \"complete_till\": parseInt(new Date().getTime() / 1000),\n    \"entity_id\":parseInt($node[\"SplitInBatches\"].json[\"lead_id\"]),\n    \"entity_type\": \"leads\",\n  }\n]\n\nreturn [{ params: JSON.stringify(params) }];"
-      },
-      "id": "f9a97822-f34b-4b6c-89af-c2c5bc5381b7",
-      "name": "Задача о блокировке",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 1,
-      "position": [
-        1780,
-        160
-      ]
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "=https://{{$node[\"Execute Workflow\"].json[\"subdomain\"]}}/api/v4/tasks",
-        "sendHeaders": true,
-        "headerParameters": {
-          "parameters": [
-            {
-              "name": "Authorization",
-              "value": "=Bearer {{$node[\"Execute Workflow\"].json[\"access_token\"]}}"
-            }
-          ]
-        },
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "={{$node[\"Задача о блокировке\"].json[\"params\"]}}",
-        "options": {}
-      },
-      "id": "1f2ba66d-6bc9-498e-baa1-66f8c4665d4b",
-      "name": "Блокировка",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 3,
-      "position": [
-        1960,
-        160
-      ]
     },
     {
       "parameters": {
@@ -585,46 +445,6 @@
     },
     {
       "parameters": {
-        "jsCode": "let params = [\n  {\n    \"task_type_id\": 1,\n    \"text\": \"Отправлено с помощью DashaMail\",\n    \"responsible_user_id\": 289686,\n    \"is_completed\": true,\n    \"complete_till\": parseInt(new Date().getTime() / 1000),\n    \"entity_id\": parseInt($node[\"SplitInBatches\"].json[\"lead_id\"]),\n    \"entity_type\": \"leads\",\n  }\n]\n\nreturn [{ params: JSON.stringify(params) }];"
-      },
-      "id": "6f551feb-6c9a-4867-8cc8-e3dd4d0fe818",
-      "name": "Задача об удалении",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 1,
-      "position": [
-        1780,
-        480
-      ]
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "=https://{{$node[\"Execute Workflow\"].json[\"subdomain\"]}}/api/v4/tasks",
-        "sendHeaders": true,
-        "headerParameters": {
-          "parameters": [
-            {
-              "name": "Authorization",
-              "value": "=Bearer {{$node[\"Execute Workflow\"].json[\"access_token\"]}}"
-            }
-          ]
-        },
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "={{$node[\"Задача об удалении\"].json[\"params\"]}}",
-        "options": {}
-      },
-      "id": "82cb8b45-106b-46fb-b6bf-0776887d59bc",
-      "name": "Удаление",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 3,
-      "position": [
-        1960,
-        480
-      ]
-    },
-    {
-      "parameters": {
         "conditions": {
           "boolean": [
             {
@@ -639,7 +459,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        2220,
+        1860,
         480
       ]
     },
@@ -650,7 +470,7 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        2400,
+        2040,
         460
       ]
     }
@@ -666,6 +486,6 @@
     }
   },
   "tags": [],
-  "updatedAt": "2025-10-17T03:20:59.836Z",
-  "versionId": "ae3a81bb-2745-428c-b871-5c8a64692741"
+  "updatedAt": "2026-09-19T23:47:51.482Z",
+  "versionId": "dfd960ef-5878-450b-8dd1-415b663d49fa"
 }
