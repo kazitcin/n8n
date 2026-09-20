@@ -25,13 +25,7 @@
     },
     "Обновляем данные": {
       "main": [
-        [
-          {
-            "node": "Письмо не доставлено?",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "Тип события": {
@@ -101,17 +95,6 @@
         [
           {
             "node": "Параметры задачи на удалений",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Письмо не доставлено?": {
-      "main": [
-        [
-          {
-            "node": "Set",
             "type": "main",
             "index": 0
           }
@@ -343,26 +326,6 @@
         2000,
         80
       ]
-    },
-    {
-      "parameters": {
-        "conditions": {
-          "string": [
-            {
-              "value1": "{{$node[\"Тип события\"].json[\"field\"]}}",
-              "value2": "dropped"
-            }
-          ]
-        }
-      },
-      "id": "7891c6e7-fea8-4278-9ba1-b1aad1aeb3db",
-      "name": "Письмо не доставлено?",
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 1,
-      "position": [
-        1380,
-        240
-      ]
     }
   ],
   "pinData": {},
@@ -373,6 +336,6 @@
   },
   "staticData": null,
   "tags": [],
-  "updatedAt": "2022-12-29T01:54:41.811Z",
-  "versionId": "cafc09f1-cc46-4bcc-82b2-7bf5ba489f92"
+  "updatedAt": "2026-09-20T00:33:07.884Z",
+  "versionId": "7808c32e-fd78-48ce-a54f-ea84afd23827"
 }
