@@ -348,8 +348,8 @@
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 1,
       "position": [
-        -1100,
-        560
+        -440,
+        -40
       ],
       "webhookId": "ff15db6a-ff62-468e-a2e6-6b171b1d7e46"
     },
@@ -389,8 +389,8 @@
       "type": "n8n-nodes-base.nocoDb",
       "typeVersion": 2,
       "position": [
-        180,
-        400
+        360,
+        -200
       ],
       "credentials": {
         "nocoDbApiToken": {
@@ -415,8 +415,8 @@
       "type": "n8n-nodes-base.nocoDb",
       "typeVersion": 2,
       "position": [
-        -900,
-        560
+        -260,
+        -40
       ],
       "alwaysOutputData": true,
       "credentials": {
@@ -435,8 +435,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        -720,
-        560
+        -80,
+        -40
       ]
     },
     {
@@ -480,8 +480,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 1,
       "position": [
-        180,
-        720
+        540,
+        120
       ]
     },
     {
@@ -525,8 +525,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 1,
       "position": [
-        600,
-        400
+        720,
+        -200
       ]
     },
     {
@@ -538,8 +538,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        900,
-        560
+        980,
+        -20
       ]
     },
     {
@@ -558,8 +558,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        -540,
-        560
+        100,
+        -40
       ]
     },
     {
@@ -591,7 +591,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        2940,
+        2040,
         -220
       ]
     },
@@ -605,8 +605,8 @@
       "type": "n8n-nodes-base.splitInBatches",
       "typeVersion": 1,
       "position": [
-        3380,
-        -400
+        2220,
+        -220
       ],
       "alwaysOutputData": false
     },
@@ -624,7 +624,7 @@
       "type": "n8n-nodes-base.nocoDb",
       "typeVersion": 2,
       "position": [
-        2140,
+        1680,
         -220
       ],
       "credentials": {
@@ -643,8 +643,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        3560,
-        -400
+        2400,
+        -220
       ]
     },
     {
@@ -694,8 +694,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        3760,
-        -400
+        2580,
+        -220
       ]
     },
     {
@@ -707,8 +707,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        3940,
-        -400
+        2760,
+        -220
       ]
     },
     {
@@ -725,8 +725,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        4140,
-        -400
+        2940,
+        -220
       ]
     },
     {
@@ -805,7 +805,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        2800,
+        2760,
         560
       ]
     },
@@ -826,7 +826,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        3060,
+        3020,
         380
       ]
     },
@@ -839,7 +839,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        3300,
+        3280,
         240
       ]
     },
@@ -886,7 +886,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        3520,
+        3460,
         240
       ]
     },
@@ -957,8 +957,8 @@
       "type": "n8n-nodes-base.nocoDb",
       "typeVersion": 2,
       "position": [
-        400,
-        400
+        540,
+        -200
       ],
       "credentials": {
         "nocoDbApiToken": {
@@ -976,7 +976,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        2540,
+        1860,
         -220
       ]
     },
@@ -997,7 +997,7 @@
       "typeVersion": 1,
       "position": [
         1160,
-        -180
+        -20
       ]
     }
   ],
@@ -1009,6 +1009,6 @@
   },
   "staticData": null,
   "tags": [],
-  "updatedAt": "2026-09-21T06:56:41.570Z",
-  "versionId": "461922f4-7939-45ef-a378-aef0a6f382b2"
+  "updatedAt": "2026-09-21T09:05:28.637Z",
+  "versionId": "86a25dff-42a6-4638-a850-542bc9d13c61"
 }
