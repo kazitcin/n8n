@@ -1,55 +1,11 @@
 {
   "active": true,
   "connections": {
-    "Execute Workflow": {
-      "main": [
-        [
-          {
-            "node": "Поиск пользователя",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Webhook": {
       "main": [
         [
           {
-            "node": "Set",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Создание контакта": {
-      "main": [
-        [
-          {
-            "node": "ID контакта",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Параметры контакта": {
-      "main": [
-        [
-          {
-            "node": "Создание контакта",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "ID контакта": {
-      "main": [
-        [
-          {
-            "node": "Добавление пользователя",
+            "node": "Поиск пользователя",
             "type": "main",
             "index": 0
           }
@@ -115,56 +71,7 @@
       "main": [
         [
           {
-            "node": "Если демо контакт не существует",
-            "type": "main",
-            "index": 0
-          },
-          {
             "node": "Заказ решения?",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Товары": {
-      "main": [
-        [
-          {
-            "node": "Параметры создания сделки",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Параметры создания сделки": {
-      "main": [
-        [
-          {
-            "node": "Создание сделки",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Создание сделки": {
-      "main": [
-        [
-          {
-            "node": "Ответ создания",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Ответ создания": {
-      "main": [
-        [
-          {
-            "node": "Параметры связывания контакта",
             "type": "main",
             "index": 0
           }
@@ -175,7 +82,7 @@
       "main": [
         [
           {
-            "node": "Параметры контакта",
+            "node": "Добавление пользователя",
             "type": "main",
             "index": 0
           }
@@ -189,22 +96,11 @@
         ]
       ]
     },
-    "Параметры связывания контакта": {
-      "main": [
-        [
-          {
-            "node": "Связывание сделки и контакта",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Покупка шаблона?": {
       "main": [
         [
           {
-            "node": "Товары",
+            "node": "Параметры товара",
             "type": "main",
             "index": 0
           }
@@ -218,49 +114,11 @@
         ]
       ]
     },
-    "Связывание сделки и контакта": {
-      "main": [
-        [
-          {
-            "node": "Параметры товара",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Список товаров": {
       "main": [
         [
           {
             "node": "SplitInBatches",
-            "type": "main",
-            "index": 0
-          },
-          {
-            "node": "Параметры счета",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Параметры привязки товара": {
-      "main": [
-        [
-          {
-            "node": "Привязка товара",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Привязка товара": {
-      "main": [
-        [
-          {
-            "node": "Параметры письма",
             "type": "main",
             "index": 0
           }
@@ -311,72 +169,6 @@
         ]
       ]
     },
-    "Параметры счета": {
-      "main": [
-        [
-          {
-            "node": "Создание счета",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Создание счета": {
-      "main": [
-        [
-          {
-            "node": "Счет",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Счет": {
-      "main": [
-        [
-          {
-            "node": "Сделка и счет",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Сделка и счет": {
-      "main": [
-        [
-          {
-            "node": "Связь счета и сделки",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Связь счета и сделки": {
-      "main": [
-        [
-          {
-            "node": "Параметры обновления сделки",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Параметры обновления сделки": {
-      "main": [
-        [
-          {
-            "node": "Обновление сделки",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "ID формы обращения": {
       "main": [
         [
@@ -417,69 +209,9 @@
         ]
       ]
     },
-    "Параметры  сделки": {
-      "main": [
-        [
-          {
-            "node": "Новая сделка",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Новая сделка": {
-      "main": [
-        [
-          {
-            "node": "Данные о сделке",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Данные о сделке": {
-      "main": [
-        [
-          {
-            "node": "Сделка и контакт",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Сделка и контакт": {
-      "main": [
-        [
-          {
-            "node": "Связывание",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Связывание": {
-      "main": [
-        [
-          {
-            "node": "Есть сообщение?",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Есть сообщение?": {
       "main": [
         [
-          {
-            "node": "Параметры примечания",
-            "type": "main",
-            "index": 0
-          },
           {
             "node": "Есть email?",
             "type": "main",
@@ -504,242 +236,6 @@
         [
           {
             "node": "Отправка письма автору",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Параметры примечания": {
-      "main": [
-        [
-          {
-            "node": "Добавление примечания",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Параметры демо контакта": {
-      "main": [
-        [
-          {
-            "node": "Создание демо контакта",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Создание демо контакта": {
-      "main": [
-        [
-          {
-            "node": "ID демо контакта",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "ID демо контакта": {
-      "main": [
-        [
-          {
-            "node": "Доболнительные параметры",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Доболнительные параметры": {
-      "main": [
-        [
-          {
-            "node": "Параметры демо сделки",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Параметры демо сделки": {
-      "main": [
-        [
-          {
-            "node": "Новая демо сделка",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Новая демо сделка": {
-      "main": [
-        [
-          {
-            "node": "ID демо сделки",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Список демо товаров": {
-      "main": [
-        [
-          {
-            "node": "SplitInBatches1",
-            "type": "main",
-            "index": 0
-          },
-          {
-            "node": "Параметры демо счета",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "ID демо сделки": {
-      "main": [
-        [
-          {
-            "node": "Сделка и демо контакт",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Параметры привязки демо товара": {
-      "main": [
-        [
-          {
-            "node": "Привязка демо товара",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Привязка демо товара": {
-      "main": [
-        [
-          {
-            "node": "SplitInBatches1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Создание демо счета": {
-      "main": [
-        [
-          {
-            "node": "Демо счет",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Параметры демо счета": {
-      "main": [
-        [
-          {
-            "node": "Создание демо счета",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Демо счет": {
-      "main": [
-        [
-          {
-            "node": "Демо сделка и демо счет",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Демо сделка и демо счет": {
-      "main": [
-        [
-          {
-            "node": "Связь счета и демо сделки",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Сделка и демо контакт": {
-      "main": [
-        [
-          {
-            "node": "Связывание демо",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Связывание демо": {
-      "main": [
-        [
-          {
-            "node": "ID товаров",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Связь счета и демо сделки": {
-      "main": [
-        [
-          {
-            "node": "Обновление демо данных",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Set": {
-      "main": [
-        [
-          {
-            "node": "Execute Workflow",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Set1": {
-      "main": [
-        [
-          {
-            "node": "Execute Workflow1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Execute Workflow1": {
-      "main": [
-        [
-          {
-            "node": "Параметры демо контакта",
             "type": "main",
             "index": 0
           }
@@ -772,40 +268,7 @@
       "main": [
         [
           {
-            "node": "Параметры  сделки",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "ID товаров": {
-      "main": [
-        [
-          {
-            "node": "Набор индентификаторов",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Набор индентификаторов": {
-      "main": [
-        [
-          {
-            "node": "Список демо товаров",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "SplitInBatches1": {
-      "main": [
-        [
-          {
-            "node": "Параметры привязки демо товара",
+            "node": "Есть сообщение?",
             "type": "main",
             "index": 0
           }
@@ -849,51 +312,7 @@
       "main": [
         [
           {
-            "node": "Параметры привязки товара",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Параметры сделки для ТЗ": {
-      "main": [
-        [
-          {
-            "node": "Создание сделки для ТЗ",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Ответ создания сделки": {
-      "main": [
-        [
-          {
-            "node": "Параметры связывания контакта для ТЗ",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Параметры связывания контакта для ТЗ": {
-      "main": [
-        [
-          {
-            "node": "Связывание ТЗ сделки и контакта",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Создание сделки для ТЗ": {
-      "main": [
-        [
-          {
-            "node": "Ответ создания сделки",
+            "node": "Параметры письма",
             "type": "main",
             "index": 0
           }
@@ -902,38 +321,10 @@
     },
     "Заказ решения?": {
       "main": [
-        [
-          {
-            "node": "Параметры сделки для ТЗ",
-            "type": "main",
-            "index": 0
-          }
-        ],
+        [],
         [
           {
             "node": "Покупка шаблона?",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Связывание ТЗ сделки и контакта": {
-      "main": [
-        [
-          {
-            "node": "Параметры задачи",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Параметры задачи": {
-      "main": [
-        [
-          {
-            "node": "Создание задачи",
             "type": "main",
             "index": 0
           }
@@ -948,19 +339,6 @@
   "nodes": [
     {
       "parameters": {
-        "workflowId": "13"
-      },
-      "id": "9e70d19d-3f2e-48f4-aec9-11a0b428839d",
-      "name": "Execute Workflow",
-      "type": "n8n-nodes-base.executeWorkflow",
-      "typeVersion": 1,
-      "position": [
-        -1080,
-        560
-      ]
-    },
-    {
-      "parameters": {
         "httpMethod": "POST",
         "path": "ff15db6a-ff62-468e-a2e6-6b171b1d7e46",
         "options": {}
@@ -970,37 +348,10 @@
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 1,
       "position": [
-        -1440,
+        -1100,
         560
       ],
       "webhookId": "ff15db6a-ff62-468e-a2e6-6b171b1d7e46"
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "=https://{{$node[\"Execute Workflow\"].json[\"subdomain\"]}}/api/v4/contacts",
-        "sendHeaders": true,
-        "headerParameters": {
-          "parameters": [
-            {
-              "name": "Authorization",
-              "value": "=Bearer {{$node[\"Execute Workflow\"].json[\"access_token\"]}}"
-            }
-          ]
-        },
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "={{$node[\"Параметры контакта\"].json[\"params\"]}}",
-        "options": {}
-      },
-      "id": "ea16f019-18d7-428b-bf9b-05cf66c2fceb",
-      "name": "Создание контакта",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 3,
-      "position": [
-        -100,
-        400
-      ]
     },
     {
       "parameters": {
@@ -1010,10 +361,6 @@
         "table": "md_n1yyob6hvv0plw",
         "fieldsUi": {
           "fieldValues": [
-            {
-              "fieldName": "contact_id",
-              "fieldValue": "={{$node[\"ID контакта\"].json[\"data\"][\"_embedded\"][\"contacts\"][0][\"id\"]}}"
-            },
             {
               "fieldName": "first_name",
               "fieldValue": "={{$node[\"Webhook\"].json[\"body\"][\"Name\"]}}"
@@ -1042,7 +389,7 @@
       "type": "n8n-nodes-base.nocoDb",
       "typeVersion": 2,
       "position": [
-        280,
+        180,
         400
       ],
       "credentials": {
@@ -1051,32 +398,6 @@
           "name": "NocoDB"
         }
       }
-    },
-    {
-      "parameters": {
-        "jsCode": "let params = [{\n  \"first_name\": $node[\"Webhook\"].json[\"body\"][\"Name\"],\n  \"responsible_user_id\": 289686,\n  \"custom_fields_values\": [\n    {\n      \"field_id\": 763227,\n      \"values\": [\n        {\n          \"value\": $node[\"Webhook\"].json[\"body\"][\"Email\"],\n          \"enum_id\": 570365\n        }\n      ]\n    }\n  ]\n}]\n\nif ($node[\"Webhook\"].json[\"body\"][\"Phone\"]) {\n  params[0][\"custom_fields_values\"].push(\n    {\n      \"field_id\": 763225,\n      \"values\": [\n        {\n          \"value\": $node[\"Webhook\"].json[\"body\"][\"Phone\"],\n          \"enum_id\": 570353\n        }\n      ]\n    }\n  )\n}\n\nreturn [{ params: JSON.stringify(params) }];"
-      },
-      "id": "a4f5bf4d-c7ed-4f48-93fa-179495692ebd",
-      "name": "Параметры контакта",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 1,
-      "position": [
-        -280,
-        400
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "return [\n  {\n    data: JSON.parse($input.all()[0].json.data)\n  }\n];"
-      },
-      "id": "bf7256e5-5de6-4798-b799-5cf4157735fd",
-      "name": "ID контакта",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 1,
-      "position": [
-        80,
-        400
-      ]
     },
     {
       "parameters": {
@@ -1204,7 +525,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 1,
       "position": [
-        640,
+        600,
         400
       ]
     },
@@ -1219,85 +540,6 @@
       "position": [
         900,
         560
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "let products = $node[\"Webhook\"].json[\"body\"][\"payment\"][\"products\"];\nlet result = [];\n\nfor (let i = 0; i < products.length; i++) {\n  products[i]\n  result.push(`${i + 1}. ${products[i].name} - ${products[i].quantity} шт. / ${products[i].price}`)\n}\n\nreturn [{ products: result.join('\\n') }];"
-      },
-      "id": "939ebad3-e54e-40f6-bb14-7dcc06ca7ad4",
-      "name": "Товары",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 1,
-      "position": [
-        1680,
-        -240
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "let params = [\n  {\n    \"name\": `Заказ № ${$node[\"Webhook\"].json[\"body\"][\"payment\"][\"orderid\"]}`,\n    \"price\": parseInt($node[\"Webhook\"].json[\"body\"][\"payment\"][\"amount\"]),\n    \"responsible_user_id\": 289686,\n    \"status_id\": 39207736,\n    \"pipeline_id\": 4163434,\n    \"custom_fields_values\": [\n      {\n        \"field_id\": 889027,\n        \"values\": [\n          {\n            \"value\": $node[\"Товары\"].json.products\n          }\n        ]\n      }\n    ]\n  }\n]\n\nreturn [{ params: JSON.stringify(params) }];"
-      },
-      "id": "d33b970f-fba8-4e8a-a600-4799de544d6c",
-      "name": "Параметры создания сделки",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 1,
-      "position": [
-        1860,
-        -240
-      ]
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "=https://{{$node[\"Execute Workflow\"].json[\"subdomain\"]}}/api/v4/leads",
-        "sendHeaders": true,
-        "headerParameters": {
-          "parameters": [
-            {
-              "name": "Authorization",
-              "value": "=Bearer {{$node[\"Execute Workflow\"].json[\"access_token\"]}}"
-            }
-          ]
-        },
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "={{$node[\"Параметры создания сделки\"].json[\"params\"]}}",
-        "options": {}
-      },
-      "id": "203ca13d-281b-480c-8e1a-23980f336dd4",
-      "name": "Создание сделки",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 3,
-      "position": [
-        2040,
-        -240
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "return [\n  {\n    data: JSON.parse($input.all()[0].json.data)\n  }\n];"
-      },
-      "id": "c119ec1a-ac6b-4460-8823-c9c6b0e1925f",
-      "name": "Ответ создания",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 1,
-      "position": [
-        2220,
-        -240
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "let params = [\n  {\n    \"entity_id\": parseInt($node[\"Ответ создания\"].json[\"data\"][\"_embedded\"][\"leads\"][0][\"id\"]),\n    \"to_entity_id\": parseInt($node[\"ID пользователя\"].json[\"data\"][\"contact_id\"]),\n    \"to_entity_type\": \"contacts\",\n    \"metadata\": {\n      \"is_main\": true\n    }\n  }\n]\n\nreturn [{ params: JSON.stringify(params) }];"
-      },
-      "id": "6aa200d9-53b3-4b7f-84d3-5f54a444b227",
-      "name": "Параметры связывания контакта",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 1,
-      "position": [
-        2400,
-        -240
       ]
     },
     {
@@ -1342,33 +584,6 @@
     },
     {
       "parameters": {
-        "method": "POST",
-        "url": "=https://{{$node[\"Execute Workflow\"].json[\"subdomain\"]}}/api/v4/leads/link",
-        "sendHeaders": true,
-        "headerParameters": {
-          "parameters": [
-            {
-              "name": "Authorization",
-              "value": "=Bearer {{$node[\"Execute Workflow\"].json[\"access_token\"]}}"
-            }
-          ]
-        },
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "={{$node[\"Параметры связывания контакта\"].json[\"params\"]}}",
-        "options": {}
-      },
-      "id": "bd6cd52e-1e73-46b5-a9a0-4459b5868082",
-      "name": "Связывание сделки и контакта",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 3,
-      "position": [
-        2580,
-        -240
-      ]
-    },
-    {
-      "parameters": {
         "jsCode": "return $node[\"Webhook\"].json[\"body\"][\"payment\"][\"products\"];"
       },
       "id": "2fec995c-c961-4e24-95cb-6ffb69edfd43",
@@ -1376,8 +591,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        3120,
-        -240
+        2940,
+        -220
       ]
     },
     {
@@ -1397,19 +612,6 @@
     },
     {
       "parameters": {
-        "jsCode": "\nlet params = [\n  {\n    \"entity_id\": parseInt($node[\"Ответ создания\"].json[\"data\"][\"_embedded\"][\"leads\"][0][\"id\"]),\n    \"to_entity_id\": parseInt($node[\"SplitInBatches\"].json[\"externalid\"]),\n    \"to_entity_type\": \"catalog_elements\",\n    \"metadata\": {\n      \"quantity\": parseInt($node[\"SplitInBatches\"].json[\"quantity\"]),\n      \"catalog_id\": 4293\n    }\n  }\n]\n\nreturn [{ params: JSON.stringify(params) }];"
-      },
-      "id": "72c22a1b-dc42-4624-ad93-ba9acf6eb0bf",
-      "name": "Параметры привязки товара",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 1,
-      "position": [
-        3560,
-        -400
-      ]
-    },
-    {
-      "parameters": {
         "authentication": "nocoDbApiToken",
         "operation": "getAll",
         "projectId": "p_f907ih5oqn9gtp",
@@ -1422,8 +624,8 @@
       "type": "n8n-nodes-base.nocoDb",
       "typeVersion": 2,
       "position": [
-        2760,
-        -240
+        2140,
+        -220
       ],
       "credentials": {
         "nocoDbApiToken": {
@@ -1434,33 +636,6 @@
     },
     {
       "parameters": {
-        "method": "POST",
-        "url": "=https://{{$node[\"Execute Workflow\"].json[\"subdomain\"]}}/api/v4/leads/link",
-        "sendHeaders": true,
-        "headerParameters": {
-          "parameters": [
-            {
-              "name": "Authorization",
-              "value": "=Bearer {{$node[\"Execute Workflow\"].json[\"access_token\"]}}"
-            }
-          ]
-        },
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "={{$node[\"Параметры привязки товара\"].json[\"params\"]}}",
-        "options": {}
-      },
-      "id": "a0f95dd6-719d-42cb-afac-73f11fb6790b",
-      "name": "Привязка товара",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 3,
-      "position": [
-        3740,
-        -400
-      ]
-    },
-    {
-      "parameters": {
         "jsCode": "let goodsData = $node[\"Данные товаров\"].json[$node[\"SplitInBatches\"].json[\"externalid\"]];\n\nlet params = {\n  user_name: $node[\"Webhook\"].json[\"body\"][\"Name\"],\n  template_name: $node[\"SplitInBatches\"].json[\"name\"],\n  download_url: `https://app.mybi.ru/market/download/${goodsData.code}`,\n  support_url: goodsData.support_url\n}\n\nreturn [{ params: JSON.stringify(params) }];"
       },
       "id": "02ab6397-73cb-4e29-8670-9efa13bb322d",
@@ -1468,7 +643,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        3920,
+        3560,
         -400
       ]
     },
@@ -1484,7 +659,7 @@
             },
             {
               "name": "api_key",
-              "value": "a607145e8cb65ba60dd66d656e46b70f"
+              "value": "c634ba29a2ca6f5a0987bcf1134be42a"
             },
             {
               "name": "to",
@@ -1519,7 +694,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        4100,
+        3760,
         -400
       ]
     },
@@ -1532,7 +707,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        4280,
+        3940,
         -400
       ]
     },
@@ -1550,141 +725,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        4460,
+        4140,
         -400
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "let products = [];\nlet data = $input.all();\n\n\n\nfor (let i = 0; i < data.length; i++) {\n  let goodsData = $node[\"Данные товаров\"].json[data[i].json[\"externalid\"]];\n  \n  products.push({\n    \"value\": {\n      \"sku\": goodsData.code,\n      \"product_id\": parseInt(data[i].json[\"externalid\"]),\n      \"description\": data[i].json[\"name\"],\n      \"unit_price\": parseFloat(data[i].json[\"price\"]),\n      \"unit_type\": \"шт\",\n      \"quantity\": data[i].json[\"quantity\"]\n    }\n  })\n}\n\nlet params = [{\n  \"name\": `Покупка № ${$node[\"Webhook\"].json[\"body\"][\"payment\"][\"orderid\"]}`,\n  \"custom_fields_values\": [\n    {\n      \"field_id\": 1158437,\n      \"values\": [\n        {\n          \"value\": \"Оплачен\"\n        }\n      ]\n    },\n    {\n      \"field_id\": 1158441,\n      \"values\": [\n        {\n          \"value\": {\n            \"entity_id\": parseInt($node[\"ID пользователя\"].json[\"data\"][\"contact_id\"]),\n            \"entity_type\": \"contacts\"\n          }\n        }\n      ]\n    },\n    {\n      \"field_id\": 1158445,\n      \"field_name\": \"Дата оплаты\",\n      \"values\": [\n        {\n          \"value\": parseInt(new Date().getTime() / 1000)\n        }\n      ]\n    },\n    {\n      \"field_id\": 1158447,\n      \"values\": products\n    },\n    {\n      \"field_id\": 1158451,\n      \"field_name\": \"Стоимость\",\n      \"values\": [\n        {\n          \"value\": $node[\"Webhook\"].json[\"body\"][\"payment\"][\"amount\"]\n        }\n      ]\n    },\n    {\n      \"field_id\": 1158449,\n      \"values\": [\n        {\n          \"value\": $node[\"Webhook\"].json[\"body\"][\"payment\"][\"sys\"]\n        }\n      ]\n    },\n    {\n      \"field_id\": 1158455,\n      \"values\": [\n        {\n          \"value\": $node[\"Webhook\"].json[\"body\"][\"payment\"][\"systranid\"]\n        }\n      ]\n    }\n  ]\n}];\n\nreturn [{ params: JSON.stringify(params) }];"
-      },
-      "id": "a413e29e-19d7-4d9d-afcf-d51d8a913dec",
-      "name": "Параметры счета",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 1,
-      "position": [
-        3380,
-        -80
-      ]
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "=https://{{$node[\"Execute Workflow\"].json[\"subdomain\"]}}/api/v4/catalogs/9477/elements",
-        "sendHeaders": true,
-        "headerParameters": {
-          "parameters": [
-            {
-              "name": "Authorization",
-              "value": "=Bearer {{$node[\"Execute Workflow\"].json[\"access_token\"]}}"
-            }
-          ]
-        },
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "={{$node[\"Параметры счета\"].json[\"params\"]}}",
-        "options": {}
-      },
-      "id": "ca38288e-d696-4743-9884-c2aa8faf9e4b",
-      "name": "Создание счета",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 3,
-      "position": [
-        3560,
-        -80
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "return [{ data: JSON.parse($input.all()[0].json.data) }];"
-      },
-      "id": "21f44c14-131b-4c93-8d35-54dbc74407dd",
-      "name": "Счет",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 1,
-      "position": [
-        3740,
-        -80
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "let params = [\n  {\n    \"entity_id\": parseInt($node[\"Ответ создания\"].json[\"data\"][\"_embedded\"][\"leads\"][0][\"id\"]),\n    \"to_entity_id\": parseInt($node[\"Счет\"].json[\"data\"][\"_embedded\"][\"elements\"][0][\"id\"]),\n    \"to_entity_type\": \"catalog_elements\",\n    \"metadata\": {\n      \"quantity\": 1.0,\n      \"catalog_id\": 9477\n    }\n  }\n]\n\nreturn [{ params: JSON.stringify(params) }];"
-      },
-      "id": "0febc4b3-e82b-4af8-9760-7914034e7909",
-      "name": "Сделка и счет",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 1,
-      "position": [
-        3920,
-        -80
-      ]
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "=https://{{$node[\"Execute Workflow\"].json[\"subdomain\"]}}/api/v4/leads/link",
-        "sendHeaders": true,
-        "headerParameters": {
-          "parameters": [
-            {
-              "name": "Authorization",
-              "value": "=Bearer {{$node[\"Execute Workflow\"].json[\"access_token\"]}}"
-            }
-          ]
-        },
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "={{$node[\"Сделка и счет\"].json[\"params\"]}}",
-        "options": {}
-      },
-      "id": "9dc4b8a9-fef5-4b01-afb7-995e31adcd81",
-      "name": "Связь счета и сделки",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 3,
-      "position": [
-        4100,
-        -80
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "let params = [\n  {\n    \"id\": parseInt($node[\"Ответ создания\"].json[\"data\"][\"_embedded\"][\"leads\"][0][\"id\"]),\n    \"responsible_user_id\": 289686,\n    \"status_id\": 40402399,\n    \"pipeline_id\": 4163434\n  }\n]\n\nreturn [{ params: JSON.stringify(params) }];"
-      },
-      "id": "87b43af3-a09d-4fdd-8a91-d99bfb0381d6",
-      "name": "Параметры обновления сделки",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 1,
-      "position": [
-        4280,
-        -80
-      ]
-    },
-    {
-      "parameters": {
-        "method": "PATCH",
-        "url": "=https://{{$node[\"Execute Workflow\"].json[\"subdomain\"]}}/api/v4/leads",
-        "sendHeaders": true,
-        "headerParameters": {
-          "parameters": [
-            {
-              "name": "Authorization",
-              "value": "=Bearer {{$node[\"Execute Workflow\"].json[\"access_token\"]}}"
-            }
-          ]
-        },
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "={{$node[\"Параметры обновления сделки\"].json[\"params\"]}}",
-        "options": {}
-      },
-      "id": "ff26b146-a5e4-4f8f-ad95-582f44d58e53",
-      "name": "Обновление сделки",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 3,
-      "position": [
-        4460,
-        -80
       ]
     },
     {
@@ -1749,99 +791,6 @@
     },
     {
       "parameters": {
-        "jsCode": "let params = [\n  {\n    \"name\": $node[\"Webhook\"].json[\"body\"][\"Name\"],\n    \"responsible_user_id\": 289686,\n    \"status_id\": 44373853,\n    \"pipeline_id\": 4901218\n  }\n]\n\nif ($input.first().json['data']['fullName'] != null) {\n  params[0][\"custom_fields_values\"] = [\n    {\n      \"field_id\": 1158461,\n      \"values\": [\n        {\n          \"value\": $input.first().json['data']['fullName']\n        }\n      ]\n    }\n  ]\n}\n\nreturn [{ params: JSON.stringify(params) }];"
-      },
-      "id": "13b904c5-ad88-4ad4-9129-36b9cc2b1cd2",
-      "name": "Параметры  сделки",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 1,
-      "position": [
-        2760,
-        560
-      ]
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "=https://{{$node[\"Execute Workflow\"].json[\"subdomain\"]}}/api/v4/leads",
-        "sendHeaders": true,
-        "headerParameters": {
-          "parameters": [
-            {
-              "name": "Authorization",
-              "value": "=Bearer {{$node[\"Execute Workflow\"].json[\"access_token\"]}}"
-            }
-          ]
-        },
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "={{$node[\"Параметры  сделки\"].json[\"params\"]}}",
-        "options": {}
-      },
-      "id": "0e7ea7d2-1965-43aa-a217-21303d59bce5",
-      "name": "Новая сделка",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 3,
-      "position": [
-        2940,
-        560
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "return [{ data: JSON.parse($input.all()[0].json.data) }];"
-      },
-      "id": "c29c3f80-560f-49a8-a453-8f689a885d5a",
-      "name": "Данные о сделке",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 1,
-      "position": [
-        3120,
-        560
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "let params = [\n  {\n    \"entity_id\": parseInt($node[\"Данные о сделке\"].json[\"data\"][\"_embedded\"][\"leads\"][0][\"id\"]),\n    \"to_entity_id\": parseInt($node[\"ID пользователя\"].json[\"data\"][\"contact_id\"]),\n    \"to_entity_type\": \"contacts\",\n    \"metadata\": {\n      \"is_main\": true\n    }\n  }\n]\n\nreturn [{ params: JSON.stringify(params) }];"
-      },
-      "id": "d4baa8ed-7686-4399-9a8e-033473f523e9",
-      "name": "Сделка и контакт",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 1,
-      "position": [
-        3300,
-        560
-      ]
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "=https://{{$node[\"Execute Workflow\"].json[\"subdomain\"]}}/api/v4/leads/link",
-        "sendHeaders": true,
-        "headerParameters": {
-          "parameters": [
-            {
-              "name": "Authorization",
-              "value": "=Bearer {{$node[\"Execute Workflow\"].json[\"access_token\"]}}"
-            }
-          ]
-        },
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "={{$node[\"Сделка и контакт\"].json[\"params\"]}}",
-        "options": {}
-      },
-      "id": "fe8bc904-d25a-4283-ac8a-d0d1925a563b",
-      "name": "Связывание",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 3,
-      "position": [
-        3480,
-        560
-      ]
-    },
-    {
-      "parameters": {
         "conditions": {
           "string": [
             {
@@ -1856,7 +805,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        3660,
+        2800,
         560
       ]
     },
@@ -1877,7 +826,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        3900,
+        3060,
         380
       ]
     },
@@ -1890,8 +839,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        4180,
-        220
+        3300,
+        240
       ]
     },
     {
@@ -1906,7 +855,7 @@
             },
             {
               "name": "api_key",
-              "value": "a607145e8cb65ba60dd66d656e46b70f"
+              "value": "c634ba29a2ca6f5a0987bcf1134be42a"
             },
             {
               "name": "to",
@@ -1937,485 +886,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        4360,
-        220
-      ]
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "=https://{{$node[\"Execute Workflow\"].json[\"subdomain\"]}}/api/v4/leads/notes",
-        "sendHeaders": true,
-        "headerParameters": {
-          "parameters": [
-            {
-              "name": "Authorization",
-              "value": "=Bearer {{$node[\"Execute Workflow\"].json[\"access_token\"]}}"
-            }
-          ]
-        },
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "={{$node[\"Параметры примечания\"].json[\"params\"]}}",
-        "options": {}
-      },
-      "id": "457a14fc-fea5-4358-8bdd-f40c34a5366a",
-      "name": "Добавление примечания",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 3,
-      "position": [
-        4080,
-        700
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "let text = `${$node[\"Webhook\"].json[\"body\"][\"Task_info\"]} \\n\\nИсточник данных: ${$node[\"Webhook\"].json[\"body\"][\"Data_source\"]}`;\n\nlet params = [\n  {\n    \"entity_id\": parseInt($node[\"Данные о сделке\"].json[\"data\"][\"_embedded\"][\"leads\"][0][\"id\"]),\n    \"note_type\": \"common\",\n    \"params\": {\n      \"text\": text\n    }\n  }\n]\n\nreturn [{ params: JSON.stringify(params) }];"
-      },
-      "id": "fc1e84b4-74b4-4a22-8e64-8ac137614540",
-      "name": "Параметры примечания",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 1,
-      "position": [
-        3900,
-        700
-      ]
-    },
-    {
-      "parameters": {
-        "conditions": {
-          "number": [
-            {
-              "value1": "={{$node[\"ID пользователя\"].json[\"data\"][\"user_id\"]}}",
-              "operation": "equal",
-              "value2": "={{null}}"
-            }
-          ],
-          "string": [
-            {
-              "value1": "={{$node[\"Webhook\"].json[\"body\"][\"formid\"]}}",
-              "value2": "form377580437"
-            }
-          ]
-        }
-      },
-      "id": "57635d70-c1e3-41df-b8ea-27280510367a",
-      "name": "Если демо контакт не существует",
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 1,
-      "position": [
-        1160,
-        1300
-      ]
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "=https://{{$node[\"Execute Workflow1\"].json[\"subdomain\"]}}/api/v4/contacts",
-        "sendHeaders": true,
-        "headerParameters": {
-          "parameters": [
-            {
-              "name": "Authorization",
-              "value": "=Bearer {{$node[\"Execute Workflow1\"].json[\"access_token\"]}}"
-            }
-          ]
-        },
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "={{$node[\"Параметры демо контакта\"].json[\"params\"]}}",
-        "options": {}
-      },
-      "id": "e60ce212-8c39-4efb-90b0-1664ab30dcf3",
-      "name": "Создание демо контакта",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 3,
-      "position": [
-        1960,
-        1140
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "let demo_id = $node[\"ID пользователя\"].json[\"data\"][\"demo_id\"];\nlet params = [{\n  \"first_name\": `Покупатель № ${demo_id}`,\n  \"responsible_user_id\": 289686,\n  \"custom_fields_values\": [\n    {\n      \"field_id\": 556273,\n      \"values\": [\n        {\n          \"value\": `${demo_id}@example.com`,\n          \"enum_id\": 374317,\n        }\n      ]\n    },\n    {\n      \"field_id\": 556271,\n      \"values\": [\n        {\n          \"value\": `+7 (000) 000-${demo_id}`,\n          \"enum_id\": 374305,\n        }\n      ]\n    }\n  ]\n}];\n\nreturn [{ params: JSON.stringify(params) }];"
-      },
-      "id": "3793e0a3-25b9-41e3-83d8-675ecf00ea4c",
-      "name": "Параметры демо контакта",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 1,
-      "position": [
-        1780,
-        1140
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "return [{ data: JSON.parse($input.all()[0].json.data) }];"
-      },
-      "id": "29be85a2-627c-40f6-b8aa-d44dc48ad252",
-      "name": "ID демо контакта",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 1,
-      "position": [
-        2140,
-        1140
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "// Loop over input items and add a new field\n// called 'myNewField' to the JSON of each one\nlet COOKIES = $node[\"Webhook\"].json[\"body\"][\"COOKIES\"];\nlet list = COOKIES.split(\" \");\nlet ga = \"\";\n\nfor (const item of list) {\n  if(item.includes(\"_ga=\")) {\n    ga = item.substring(10, item.length-1);\n    break;\n  }\n}\n\nvar date = new Date();\nvar marker = `${date.getFullYear()}${date.getMonth()+1}-${$node[\"Webhook\"].json[\"body\"][\"payment\"][\"orderid\"]}`;\n\n\nreturn [{ga, marker}];"
-      },
-      "id": "782fed22-7430-437f-94a6-8f0b7f6c87f8",
-      "name": "Доболнительные параметры",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 1,
-      "position": [
-        2320,
-        1140
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "let params = [\n  {\n    \"name\": `Заказ № ${$node[\"Webhook\"].json[\"body\"][\"payment\"][\"orderid\"]}`,\n    \"responsible_user_id\": 289686,\n    \"status_id\": 50286925,\n    \"pipeline_id\": 5723533,\n    \"custom_fields_values\": [\n      {\n        \"field_id\": 837471,\n        \"values\": [\n          {\n            \"value\": $node[\"Доболнительные параметры\"].json[\"ga\"]\n          }\n        ]\n      },\n      {\n        \"field_id\": 837469,\n        \"values\": [\n          {\n            \"value\": $node[\"Доболнительные параметры\"].json[\"marker\"]\n          }\n        ]\n      }\n    ]\n  }\n]\n\nreturn [{ params: JSON.stringify(params) }];"
-      },
-      "id": "7b8e0f05-6676-42f2-a515-f0eac97dce6d",
-      "name": "Параметры демо сделки",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 1,
-      "position": [
-        2500,
-        1140
-      ]
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "=https://{{$node[\"Execute Workflow1\"].json[\"subdomain\"]}}/api/v4/leads",
-        "sendHeaders": true,
-        "headerParameters": {
-          "parameters": [
-            {
-              "name": "Authorization",
-              "value": "=Bearer {{$node[\"Execute Workflow1\"].json[\"access_token\"]}}"
-            }
-          ]
-        },
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "={{$node[\"Параметры демо сделки\"].json[\"params\"]}}",
-        "options": {}
-      },
-      "id": "fc5619ad-56be-4fe9-ad12-73275a78f615",
-      "name": "Новая демо сделка",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 3,
-      "position": [
-        2680,
-        1140
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "return $node[\"Webhook\"].json[\"body\"][\"payment\"][\"products\"];"
-      },
-      "id": "c3634051-522e-427e-ba03-584689285dc9",
-      "name": "Список демо товаров",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 1,
-      "position": [
-        3760,
-        1140
-      ]
-    },
-    {
-      "parameters": {
-        "batchSize": 1,
-        "options": {}
-      },
-      "id": "b8639a1d-3d96-4e7c-8499-c9edd24901d7",
-      "name": "SplitInBatches1",
-      "type": "n8n-nodes-base.splitInBatches",
-      "typeVersion": 1,
-      "position": [
-        4020,
-        980
-      ],
-      "alwaysOutputData": false
-    },
-    {
-      "parameters": {
-        "jsCode": "return [{ data: JSON.parse($input.all()[0].json.data) }];"
-      },
-      "id": "f163bd46-654c-4bde-b06c-b84d2c70d092",
-      "name": "ID демо сделки",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 1,
-      "position": [
-        2860,
-        1140
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "let entity_id = $node[\"Набор индентификаторов\"].json[$node[\"SplitInBatches1\"].json[\"externalid\"]]\n\nlet params = [\n  {\n    \"entity_id\": parseInt($node[\"ID демо сделки\"].json[\"data\"][\"_embedded\"][\"leads\"][0][\"id\"]),\n    \"to_entity_id\": entity_id,\n    \"to_entity_type\": \"catalog_elements\",\n    \"metadata\": {\n      \"quantity\": parseInt($node[\"SplitInBatches1\"].json[\"quantity\"]),\n      \"catalog_id\": 6919\n    }\n  }\n]\n\nreturn [{ params: JSON.stringify(params) }];"
-      },
-      "id": "07e9099e-0c06-4f25-b220-986fd7953ca7",
-      "name": "Параметры привязки демо товара",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 1,
-      "position": [
-        4200,
-        980
-      ]
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "=https://{{$node[\"Execute Workflow1\"].json[\"subdomain\"]}}/api/v4/leads/link",
-        "sendHeaders": true,
-        "headerParameters": {
-          "parameters": [
-            {
-              "name": "Authorization",
-              "value": "=Bearer {{$node[\"Execute Workflow1\"].json[\"access_token\"]}}"
-            }
-          ]
-        },
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "={{$node[\"Параметры привязки демо товара\"].json[\"params\"]}}",
-        "options": {}
-      },
-      "id": "9145324f-ee33-46b0-80aa-9688cb69ed37",
-      "name": "Привязка демо товара",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 3,
-      "position": [
-        4380,
-        980
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "let products = [];\nlet data = $input.all();\n\nlet product_ids = $node[\"Набор индентификаторов\"].json\n\nfor (let i = 0; i < data.length; i++) {\n  products.push({\n    \"value\": {\n      \"sku\": \"\",\n      \"product_id\": product_ids[data[i].json[\"externalid\"]],\n      \"description\": data[i].json[\"name\"],\n      \"unit_price\": parseFloat(data[i].json[\"price\"]),\n      \"unit_type\": \"шт\",\n      \"quantity\": data[i].json[\"quantity\"]\n    }\n  })\n}\n\nlet params = [{\n  \"name\": `\"Покупка № ${$node[\"Webhook\"].json[\"body\"][\"payment\"][\"orderid\"]}`,\n  \"custom_fields_values\": [\n    {\n      \"field_id\": 770089,\n      \"values\": [\n        {\n          \"value\": \"Оплачен\"\n        }\n      ]\n    },\n    {\n      \"field_id\": 770093,\n      \"values\": [\n        {\n          \"value\": {\n            \"entity_id\": parseInt($node[\"ID демо контакта\"].json[\"data\"][\"_embedded\"][\"contacts\"][0][\"id\"]),\n            \"entity_type\": \"contacts\"\n          }\n        }\n      ]\n    },\n    {\n      \"field_id\": 770097,\n      \"values\": [\n        {\n          \"value\": parseInt(new Date().getTime() / 1000)\n        }\n      ]\n    },\n    {\n      \"field_id\": 770099,\n      \"values\": products\n    },\n    {\n      \"field_id\": 770103,\n      \"values\": [\n        {\n          \"value\": $node[\"Webhook\"].json[\"body\"][\"payment\"][\"amount\"]\n        }\n      ]\n    }\n  ]\n}];\n\nreturn [{ params: JSON.stringify(params) }];"
-      },
-      "id": "4db5f042-c221-4d96-9a61-a0bb09cc9a46",
-      "name": "Параметры демо счета",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 1,
-      "position": [
-        4020,
-        1300
-      ]
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "=https://{{$node[\"Execute Workflow1\"].json[\"subdomain\"]}}/api/v4/catalogs/6923/elements",
-        "sendHeaders": true,
-        "headerParameters": {
-          "parameters": [
-            {
-              "name": "Authorization",
-              "value": "=Bearer {{$node[\"Execute Workflow1\"].json[\"access_token\"]}}"
-            }
-          ]
-        },
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "={{$node[\"Параметры демо счета\"].json[\"params\"]}}",
-        "options": {}
-      },
-      "id": "bb740205-34d9-4093-b93e-cf9483fd3511",
-      "name": "Создание демо счета",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 3,
-      "position": [
-        4200,
-        1300
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "return [{ data: JSON.parse($input.all()[0].json.data) }];"
-      },
-      "id": "798a2268-b19e-4224-beb0-527a53bf8f08",
-      "name": "Демо счет",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 1,
-      "position": [
-        4380,
-        1300
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "let params = [\n  {\n    \"entity_id\": parseInt($node[\"ID демо сделки\"].json[\"data\"][\"_embedded\"][\"leads\"][0][\"id\"]),\n    \"to_entity_id\": parseInt($node[\"Демо счет\"].json[\"data\"][\"_embedded\"][\"elements\"][0][\"id\"]),\n    \"to_entity_type\": \"catalog_elements\",\n    \"metadata\": {\n      \"quantity\": 1.0,\n      \"catalog_id\": 6923\n    }\n  }\n]\n\nreturn [{ params: JSON.stringify(params) }];"
-      },
-      "id": "2cad9187-555c-4967-af11-b10e30534c51",
-      "name": "Демо сделка и демо счет",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 1,
-      "position": [
-        4560,
-        1300
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "let params = [\n  {\n    \"entity_id\": parseInt($node[\"ID демо сделки\"].json[\"data\"][\"_embedded\"][\"leads\"][0][\"id\"]),\n    \"to_entity_id\": parseInt($node[\"ID демо контакта\"].json[\"data\"][\"_embedded\"][\"contacts\"][0][\"id\"]),\n    \"to_entity_type\": \"contacts\",\n    \"metadata\": {\n      \"is_main\": true\n    }\n  }\n]\n\nreturn [{ params: JSON.stringify(params) }];"
-      },
-      "id": "e1e21e18-4ed9-44cd-9b68-bba67b642bca",
-      "name": "Сделка и демо контакт",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 1,
-      "position": [
-        3040,
-        1140
-      ]
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "=https://{{$node[\"Execute Workflow1\"].json[\"subdomain\"]}}/api/v4/leads/link",
-        "sendHeaders": true,
-        "headerParameters": {
-          "parameters": [
-            {
-              "name": "Authorization",
-              "value": "=Bearer {{$node[\"Execute Workflow1\"].json[\"access_token\"]}}"
-            }
-          ]
-        },
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "={{$node[\"Сделка и демо контакт\"].json[\"params\"]}}",
-        "options": {}
-      },
-      "id": "8e467b1d-5a4d-4fe1-9436-d8785eba9573",
-      "name": "Связывание демо",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 3,
-      "position": [
-        3220,
-        1140
-      ]
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "=https://{{$node[\"Execute Workflow1\"].json[\"subdomain\"]}}/api/v4/leads/link",
-        "sendHeaders": true,
-        "headerParameters": {
-          "parameters": [
-            {
-              "name": "Authorization",
-              "value": "=Bearer {{$node[\"Execute Workflow1\"].json[\"access_token\"]}}"
-            }
-          ]
-        },
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "={{$node[\"Демо сделка и демо счет\"].json[\"params\"]}}",
-        "options": {}
-      },
-      "id": "1a577b23-db93-4d91-935d-bf2164fb344b",
-      "name": "Связь счета и демо сделки",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 3,
-      "position": [
-        4740,
-        1300
-      ]
-    },
-    {
-      "parameters": {
-        "authentication": "nocoDbApiToken",
-        "operation": "update",
-        "projectId": "p_f907ih5oqn9gtp",
-        "table": "md_n1yyob6hvv0plw",
-        "id": "={{$node[\"ID пользователя\"].json[\"data\"][\"record_id\"]}}",
-        "fieldsUi": {
-          "fieldValues": [
-            {
-              "fieldName": "demo_lead_id",
-              "fieldValue": "={{$node[\"ID демо сделки\"].json[\"data\"][\"_embedded\"][\"leads\"][0][\"id\"]}}"
-            },
-            {
-              "fieldName": "demo_contact_id",
-              "fieldValue": "={{$node[\"ID демо контакта\"].json[\"data\"][\"_embedded\"][\"contacts\"][0][\"id\"]}}"
-            }
-          ]
-        }
-      },
-      "id": "fbf4d407-4c2b-47b8-9985-c9e09522ceca",
-      "name": "Обновление демо данных",
-      "type": "n8n-nodes-base.nocoDb",
-      "typeVersion": 2,
-      "position": [
-        4920,
-        1300
-      ],
-      "credentials": {
-        "nocoDbApiToken": {
-          "id": "3",
-          "name": "NocoDB"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "values": {
-          "string": [
-            {
-              "name": "amoType",
-              "value": "prod"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "273a2ea9-23cb-4199-814a-54dad8f6e990",
-      "name": "Set",
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 1,
-      "position": [
-        -1260,
-        560
-      ]
-    },
-    {
-      "parameters": {
-        "values": {
-          "string": [
-            {
-              "name": "amoType",
-              "value": "demo"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "79aa201c-53ae-4bd7-bf62-6bd94597cc23",
-      "name": "Set1",
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 1,
-      "position": [
-        1420,
-        1140
-      ]
-    },
-    {
-      "parameters": {
-        "workflowId": "13"
-      },
-      "id": "c67b66e5-0b57-43be-9b9f-a165959be9ec",
-      "name": "Execute Workflow1",
-      "type": "n8n-nodes-base.executeWorkflow",
-      "typeVersion": 1,
-      "position": [
-        1600,
-        1140
+        3520,
+        240
       ]
     },
     {
@@ -2474,43 +946,6 @@
         "authentication": "nocoDbApiToken",
         "operation": "getAll",
         "projectId": "p_f907ih5oqn9gtp",
-        "table": "md_0sbwwkhz6h64f3",
-        "returnAll": true,
-        "options": {}
-      },
-      "id": "81138475-b6d1-41ad-9bf2-991ff5550d10",
-      "name": "ID товаров",
-      "type": "n8n-nodes-base.nocoDb",
-      "typeVersion": 2,
-      "position": [
-        3400,
-        1140
-      ],
-      "credentials": {
-        "nocoDbApiToken": {
-          "id": "3",
-          "name": "NocoDB"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "jsCode": "let mapping = {}\n\nfor (const item of $input.all()) {\n  mapping[item.json.product_id] = parseInt(item.json.demo_product_id);\n}\n\nreturn mapping;"
-      },
-      "id": "66464483-2216-4d5e-bf0d-c113ee51825b",
-      "name": "Набор индентификаторов",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 1,
-      "position": [
-        3580,
-        1140
-      ]
-    },
-    {
-      "parameters": {
-        "authentication": "nocoDbApiToken",
-        "operation": "getAll",
-        "projectId": "p_f907ih5oqn9gtp",
         "table": "md_n1yyob6hvv0plw",
         "limit": 1,
         "options": {
@@ -2522,7 +957,7 @@
       "type": "n8n-nodes-base.nocoDb",
       "typeVersion": 2,
       "position": [
-        460,
+        400,
         400
       ],
       "credentials": {
@@ -2541,101 +976,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        2940,
-        -240
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "let params = [{\n    \"name\": $node[\"Webhook\"].json[\"body\"][\"Name\"],\n    \"price\": 0,\n    \"responsible_user_id\": 289686,\n    \"status_id\": 53513846,\n    \"pipeline_id\": 6200186,\n    \"custom_fields_values\": []\n}];\n\nif($node[\"Webhook\"].json[\"body\"][\"Url\"]) {\n    params[0][\"custom_fields_values\"].push(\n        {\n            \"field_id\": 1168891,\n            \"values\": [\n                {\n                    \"value\": $node[\"Webhook\"].json[\"body\"][\"Url\"]\n                }\n            ]\n        }\n    );\n}\n\nif($node[\"Webhook\"].json[\"body\"][\"Input\"]) {\n    params[0][\"custom_fields_values\"].push(\n        {\n            \"field_id\": 1168893,\n            \"values\": [\n                {\n                    \"value\": $node[\"Webhook\"].json[\"body\"][\"Input\"]\n                }\n            ]\n        }\n    );\n}\n\nif($node[\"Webhook\"].json[\"body\"][\"Textarea\"]) {\n    params[0][\"custom_fields_values\"].push(\n        {\n            \"field_id\": 1168895,\n            \"values\": [\n                {\n                    \"value\": $node[\"Webhook\"].json[\"body\"][\"Textarea\"]\n                }\n            ]\n        }\n    );\n}\n\nif($node[\"Webhook\"].json[\"body\"][\"Textarea_2\"]) {\n    params[0][\"custom_fields_values\"].push(\n        {\n            \"field_id\": 1168897,\n            \"values\": [\n                {\n                    \"value\": $node[\"Webhook\"].json[\"body\"][\"Textarea_2\"]\n                }\n            ]\n        }\n    )\n}\n\nif($node[\"Webhook\"].json[\"body\"][\"Textarea_3\"]) {\n    params[0][\"custom_fields_values\"].push(\n        {\n            \"field_id\": 1168899,\n            \"values\": [\n                {\n                    \"value\": $node[\"Webhook\"].json[\"body\"][\"Textarea_3\"]\n                }\n            ]\n        }\n    )\n}\n\nif($node[\"Webhook\"].json[\"body\"][\"Textarea_4\"]) {\n    params[0][\"custom_fields_values\"].push(\n        {\n            \"field_id\": 1172229,\n            \"values\": [\n                {\n                    \"value\": $node[\"Webhook\"].json[\"body\"][\"Textarea_4\"]\n                }\n            ]\n        }\n    );\n}\n\nif($node[\"Webhook\"].json[\"body\"][\"Textarea_5\"]) {\n    params[0][\"custom_fields_values\"].push(\n        {\n            \"field_id\": 1168901,\n            \"values\": [\n                {\n                    \"value\": $node[\"Webhook\"].json[\"body\"][\"Textarea_5\"]\n                }\n            ]\n        }\n    )\n}\n\n\n\n \nreturn [{ params: JSON.stringify(params) }];"
-      },
-      "id": "f86745a4-729f-4a9e-819b-1ca0ca9cea55",
-      "name": "Параметры сделки для ТЗ",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 1,
-      "position": [
-        1420,
-        -520
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "return [\n  {\n    data: JSON.parse($input.all()[0].json.data)\n  }\n];"
-      },
-      "id": "4ab85fe1-53f6-4391-b3ec-188843c90e55",
-      "name": "Ответ создания сделки",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 1,
-      "position": [
-        1780,
-        -520
-      ]
-    },
-    {
-      "parameters": {
-        "jsCode": "let params = [\n  {\n    \"entity_id\": parseInt($node[\"Ответ создания сделки\"].json[\"data\"][\"_embedded\"][\"leads\"][0][\"id\"]),\n    \"to_entity_id\": parseInt($node[\"ID пользователя\"].json[\"data\"][\"contact_id\"]),\n    \"to_entity_type\": \"contacts\",\n    \"metadata\": {\n      \"is_main\": true\n    }\n  }\n]\n\nreturn [{ params: JSON.stringify(params) }];"
-      },
-      "id": "50aab3a2-f2d1-40ff-ab99-9faefd5dd11d",
-      "name": "Параметры связывания контакта для ТЗ",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 1,
-      "position": [
-        1960,
-        -520
-      ]
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "=https://{{$node[\"Execute Workflow\"].json[\"subdomain\"]}}/api/v4/leads",
-        "sendHeaders": true,
-        "headerParameters": {
-          "parameters": [
-            {
-              "name": "Authorization",
-              "value": "=Bearer {{$node[\"Execute Workflow\"].json[\"access_token\"]}}"
-            }
-          ]
-        },
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "={{$node[\"Параметры сделки для ТЗ\"].json[\"params\"]}}",
-        "options": {}
-      },
-      "id": "9fdd776b-a7b7-42bb-afc9-b0a3fee913ac",
-      "name": "Создание сделки для ТЗ",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 3,
-      "position": [
-        1600,
-        -520
-      ]
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "=https://{{$node[\"Execute Workflow\"].json[\"subdomain\"]}}/api/v4/leads/link",
-        "sendHeaders": true,
-        "headerParameters": {
-          "parameters": [
-            {
-              "name": "Authorization",
-              "value": "=Bearer {{$node[\"Execute Workflow\"].json[\"access_token\"]}}"
-            }
-          ]
-        },
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "={{$node[\"Параметры связывания контакта для ТЗ\"].json[\"params\"]}}",
-        "options": {}
-      },
-      "id": "60da4ba9-5a01-4608-b55f-abdf35f4a354",
-      "name": "Связывание ТЗ сделки и контакта",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 3,
-      "position": [
-        2140,
-        -520
+        2540,
+        -220
       ]
     },
     {
@@ -2657,46 +999,6 @@
         1160,
         -180
       ]
-    },
-    {
-      "parameters": {
-        "jsCode": "var date = new Date();\ndate.setDate(date.getDate() + 7);\n\n\nlet params = [\n  {\n        \"task_type_id\": 1,\n        \"text\": \"Написать заказчику\",\n        \"responsible_user_id\": 289686,\n        \"is_completed\": false,\n        \"complete_till\": parseInt(date.getTime() / 1000),\n        \"entity_id\": parseInt($node[\"Ответ создания сделки\"].json[\"data\"][\"_embedded\"][\"leads\"][0][\"id\"]),\n        \"entity_type\": \"leads\",\n    }\n]\n\nreturn [{params: JSON.stringify(params)}];"
-      },
-      "id": "a65cf899-d54d-47f7-aed9-158c62f50ade",
-      "name": "Параметры задачи",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 1,
-      "position": [
-        2320,
-        -520
-      ]
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "=https://{{$node[\"Execute Workflow\"].json[\"subdomain\"]}}/api/v4/tasks",
-        "sendHeaders": true,
-        "headerParameters": {
-          "parameters": [
-            {
-              "name": "Authorization",
-              "value": "=Bearer {{$node[\"Execute Workflow\"].json[\"access_token\"]}}"
-            }
-          ]
-        },
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "={{$node[\"Параметры задачи\"].json[\"params\"]}}",
-        "options": {}
-      },
-      "id": "28bd0fe4-3313-4044-9f8b-838438216a79",
-      "name": "Создание задачи",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 3,
-      "position": [
-        2500,
-        -520
-      ]
     }
   ],
   "pinData": {},
@@ -2707,6 +1009,6 @@
   },
   "staticData": null,
   "tags": [],
-  "updatedAt": "2025-10-23T12:03:07.608Z",
-  "versionId": "584a4894-8444-4c8d-a6d8-86678fc5c568"
+  "updatedAt": "2026-09-21T06:56:41.570Z",
+  "versionId": "461922f4-7939-45ef-a378-aef0a6f382b2"
 }
